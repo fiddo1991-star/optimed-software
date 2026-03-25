@@ -1,0 +1,31 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-electron
+build
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+build.log
+
+# Temp/test files
+temp.js
+test.json
+ts_errors.txt
+
+# Large binary files
+*.msi
+*.pfx
+*.exe

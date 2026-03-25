@@ -1,0 +1,3473 @@
+Disease or Symptom,ICD-10 Code
+Gastroesophageal reflux disease,K21.9
+Acute Gastroesophageal reflux disease,K21.9
+Chronic Gastroesophageal reflux disease,K21.9
+Severe Gastroesophageal reflux disease,K21.9
+Mild Gastroesophageal reflux disease,K21.9
+Moderate Gastroesophageal reflux disease,K21.9
+Recurrent Gastroesophageal reflux disease,K21.9
+Suspected Gastroesophageal reflux disease,K21.9
+Uncontrolled Gastroesophageal reflux disease,K21.9
+Controlled Gastroesophageal reflux disease,K21.9
+Complicated Gastroesophageal reflux disease,K21.9
+Uncomplicated Gastroesophageal reflux disease,K21.9
+Early Gastroesophageal reflux disease,K21.9
+Advanced Gastroesophageal reflux disease,K21.9
+Intermittent Gastroesophageal reflux disease,K21.9
+Persistent Gastroesophageal reflux disease,K21.9
+New onset Gastroesophageal reflux disease,K21.9
+Long standing Gastroesophageal reflux disease,K21.9
+Drug induced Gastroesophageal reflux disease,K21.9
+Post infectious Gastroesophageal reflux disease,K21.9
+Idiopathic Gastroesophageal reflux disease,K21.9
+Secondary Gastroesophageal reflux disease,K21.9
+Primary Gastroesophageal reflux disease,K21.9
+With complications Gastroesophageal reflux disease,K21.9
+Without complications Gastroesophageal reflux disease,K21.9
+Stable Gastroesophageal reflux disease,K21.9
+Unstable Gastroesophageal reflux disease,K21.9
+Progressive Gastroesophageal reflux disease,K21.9
+Non progressive Gastroesophageal reflux disease,K21.9
+Localized Gastroesophageal reflux disease,K21.9
+Generalized Gastroesophageal reflux disease,K21.9
+Barrett esophagus,K22.7
+Acute Barrett esophagus,K22.7
+Chronic Barrett esophagus,K22.7
+Severe Barrett esophagus,K22.7
+Mild Barrett esophagus,K22.7
+Moderate Barrett esophagus,K22.7
+Recurrent Barrett esophagus,K22.7
+Suspected Barrett esophagus,K22.7
+Uncontrolled Barrett esophagus,K22.7
+Controlled Barrett esophagus,K22.7
+Complicated Barrett esophagus,K22.7
+Uncomplicated Barrett esophagus,K22.7
+Early Barrett esophagus,K22.7
+Advanced Barrett esophagus,K22.7
+Intermittent Barrett esophagus,K22.7
+Persistent Barrett esophagus,K22.7
+New onset Barrett esophagus,K22.7
+Long standing Barrett esophagus,K22.7
+Drug induced Barrett esophagus,K22.7
+Post infectious Barrett esophagus,K22.7
+Idiopathic Barrett esophagus,K22.7
+Secondary Barrett esophagus,K22.7
+Primary Barrett esophagus,K22.7
+With complications Barrett esophagus,K22.7
+Without complications Barrett esophagus,K22.7
+Stable Barrett esophagus,K22.7
+Unstable Barrett esophagus,K22.7
+Progressive Barrett esophagus,K22.7
+Non progressive Barrett esophagus,K22.7
+Localized Barrett esophagus,K22.7
+Generalized Barrett esophagus,K22.7
+Esophagitis,K20.9
+Acute Esophagitis,K20.9
+Chronic Esophagitis,K20.9
+Severe Esophagitis,K20.9
+Mild Esophagitis,K20.9
+Moderate Esophagitis,K20.9
+Recurrent Esophagitis,K20.9
+Suspected Esophagitis,K20.9
+Uncontrolled Esophagitis,K20.9
+Controlled Esophagitis,K20.9
+Complicated Esophagitis,K20.9
+Uncomplicated Esophagitis,K20.9
+Early Esophagitis,K20.9
+Advanced Esophagitis,K20.9
+Intermittent Esophagitis,K20.9
+Persistent Esophagitis,K20.9
+New onset Esophagitis,K20.9
+Long standing Esophagitis,K20.9
+Drug induced Esophagitis,K20.9
+Post infectious Esophagitis,K20.9
+Idiopathic Esophagitis,K20.9
+Secondary Esophagitis,K20.9
+Primary Esophagitis,K20.9
+With complications Esophagitis,K20.9
+Without complications Esophagitis,K20.9
+Stable Esophagitis,K20.9
+Unstable Esophagitis,K20.9
+Progressive Esophagitis,K20.9
+Non progressive Esophagitis,K20.9
+Localized Esophagitis,K20.9
+Generalized Esophagitis,K20.9
+Esophageal ulcer,K22.1
+Acute Esophageal ulcer,K22.1
+Chronic Esophageal ulcer,K22.1
+Severe Esophageal ulcer,K22.1
+Mild Esophageal ulcer,K22.1
+Moderate Esophageal ulcer,K22.1
+Recurrent Esophageal ulcer,K22.1
+Suspected Esophageal ulcer,K22.1
+Uncontrolled Esophageal ulcer,K22.1
+Controlled Esophageal ulcer,K22.1
+Complicated Esophageal ulcer,K22.1
+Uncomplicated Esophageal ulcer,K22.1
+Early Esophageal ulcer,K22.1
+Advanced Esophageal ulcer,K22.1
+Intermittent Esophageal ulcer,K22.1
+Persistent Esophageal ulcer,K22.1
+New onset Esophageal ulcer,K22.1
+Long standing Esophageal ulcer,K22.1
+Drug induced Esophageal ulcer,K22.1
+Post infectious Esophageal ulcer,K22.1
+Idiopathic Esophageal ulcer,K22.1
+Secondary Esophageal ulcer,K22.1
+Primary Esophageal ulcer,K22.1
+With complications Esophageal ulcer,K22.1
+Without complications Esophageal ulcer,K22.1
+Stable Esophageal ulcer,K22.1
+Unstable Esophageal ulcer,K22.1
+Progressive Esophageal ulcer,K22.1
+Non progressive Esophageal ulcer,K22.1
+Localized Esophageal ulcer,K22.1
+Generalized Esophageal ulcer,K22.1
+Esophageal stricture,K22.2
+Acute Esophageal stricture,K22.2
+Chronic Esophageal stricture,K22.2
+Severe Esophageal stricture,K22.2
+Mild Esophageal stricture,K22.2
+Moderate Esophageal stricture,K22.2
+Recurrent Esophageal stricture,K22.2
+Suspected Esophageal stricture,K22.2
+Uncontrolled Esophageal stricture,K22.2
+Controlled Esophageal stricture,K22.2
+Complicated Esophageal stricture,K22.2
+Uncomplicated Esophageal stricture,K22.2
+Early Esophageal stricture,K22.2
+Advanced Esophageal stricture,K22.2
+Intermittent Esophageal stricture,K22.2
+Persistent Esophageal stricture,K22.2
+New onset Esophageal stricture,K22.2
+Long standing Esophageal stricture,K22.2
+Drug induced Esophageal stricture,K22.2
+Post infectious Esophageal stricture,K22.2
+Idiopathic Esophageal stricture,K22.2
+Secondary Esophageal stricture,K22.2
+Primary Esophageal stricture,K22.2
+With complications Esophageal stricture,K22.2
+Without complications Esophageal stricture,K22.2
+Stable Esophageal stricture,K22.2
+Unstable Esophageal stricture,K22.2
+Progressive Esophageal stricture,K22.2
+Non progressive Esophageal stricture,K22.2
+Localized Esophageal stricture,K22.2
+Generalized Esophageal stricture,K22.2
+Achalasia,K22.0
+Acute Achalasia,K22.0
+Chronic Achalasia,K22.0
+Severe Achalasia,K22.0
+Mild Achalasia,K22.0
+Moderate Achalasia,K22.0
+Recurrent Achalasia,K22.0
+Suspected Achalasia,K22.0
+Uncontrolled Achalasia,K22.0
+Controlled Achalasia,K22.0
+Complicated Achalasia,K22.0
+Uncomplicated Achalasia,K22.0
+Early Achalasia,K22.0
+Advanced Achalasia,K22.0
+Intermittent Achalasia,K22.0
+Persistent Achalasia,K22.0
+New onset Achalasia,K22.0
+Long standing Achalasia,K22.0
+Drug induced Achalasia,K22.0
+Post infectious Achalasia,K22.0
+Idiopathic Achalasia,K22.0
+Secondary Achalasia,K22.0
+Primary Achalasia,K22.0
+With complications Achalasia,K22.0
+Without complications Achalasia,K22.0
+Stable Achalasia,K22.0
+Unstable Achalasia,K22.0
+Progressive Achalasia,K22.0
+Non progressive Achalasia,K22.0
+Localized Achalasia,K22.0
+Generalized Achalasia,K22.0
+Hiatal hernia,K44.9
+Acute Hiatal hernia,K44.9
+Chronic Hiatal hernia,K44.9
+Severe Hiatal hernia,K44.9
+Mild Hiatal hernia,K44.9
+Moderate Hiatal hernia,K44.9
+Recurrent Hiatal hernia,K44.9
+Suspected Hiatal hernia,K44.9
+Uncontrolled Hiatal hernia,K44.9
+Controlled Hiatal hernia,K44.9
+Complicated Hiatal hernia,K44.9
+Uncomplicated Hiatal hernia,K44.9
+Early Hiatal hernia,K44.9
+Advanced Hiatal hernia,K44.9
+Intermittent Hiatal hernia,K44.9
+Persistent Hiatal hernia,K44.9
+New onset Hiatal hernia,K44.9
+Long standing Hiatal hernia,K44.9
+Drug induced Hiatal hernia,K44.9
+Post infectious Hiatal hernia,K44.9
+Idiopathic Hiatal hernia,K44.9
+Secondary Hiatal hernia,K44.9
+Primary Hiatal hernia,K44.9
+With complications Hiatal hernia,K44.9
+Without complications Hiatal hernia,K44.9
+Stable Hiatal hernia,K44.9
+Unstable Hiatal hernia,K44.9
+Progressive Hiatal hernia,K44.9
+Non progressive Hiatal hernia,K44.9
+Localized Hiatal hernia,K44.9
+Generalized Hiatal hernia,K44.9
+Acute gastritis,K29.0
+Acute Acute gastritis,K29.0
+Chronic Acute gastritis,K29.0
+Severe Acute gastritis,K29.0
+Mild Acute gastritis,K29.0
+Moderate Acute gastritis,K29.0
+Recurrent Acute gastritis,K29.0
+Suspected Acute gastritis,K29.0
+Uncontrolled Acute gastritis,K29.0
+Controlled Acute gastritis,K29.0
+Complicated Acute gastritis,K29.0
+Uncomplicated Acute gastritis,K29.0
+Early Acute gastritis,K29.0
+Advanced Acute gastritis,K29.0
+Intermittent Acute gastritis,K29.0
+Persistent Acute gastritis,K29.0
+New onset Acute gastritis,K29.0
+Long standing Acute gastritis,K29.0
+Drug induced Acute gastritis,K29.0
+Post infectious Acute gastritis,K29.0
+Idiopathic Acute gastritis,K29.0
+Secondary Acute gastritis,K29.0
+Primary Acute gastritis,K29.0
+With complications Acute gastritis,K29.0
+Without complications Acute gastritis,K29.0
+Stable Acute gastritis,K29.0
+Unstable Acute gastritis,K29.0
+Progressive Acute gastritis,K29.0
+Non progressive Acute gastritis,K29.0
+Localized Acute gastritis,K29.0
+Generalized Acute gastritis,K29.0
+Chronic gastritis,K29.5
+Acute Chronic gastritis,K29.5
+Chronic Chronic gastritis,K29.5
+Severe Chronic gastritis,K29.5
+Mild Chronic gastritis,K29.5
+Moderate Chronic gastritis,K29.5
+Recurrent Chronic gastritis,K29.5
+Suspected Chronic gastritis,K29.5
+Uncontrolled Chronic gastritis,K29.5
+Controlled Chronic gastritis,K29.5
+Complicated Chronic gastritis,K29.5
+Uncomplicated Chronic gastritis,K29.5
+Early Chronic gastritis,K29.5
+Advanced Chronic gastritis,K29.5
+Intermittent Chronic gastritis,K29.5
+Persistent Chronic gastritis,K29.5
+New onset Chronic gastritis,K29.5
+Long standing Chronic gastritis,K29.5
+Drug induced Chronic gastritis,K29.5
+Post infectious Chronic gastritis,K29.5
+Idiopathic Chronic gastritis,K29.5
+Secondary Chronic gastritis,K29.5
+Primary Chronic gastritis,K29.5
+With complications Chronic gastritis,K29.5
+Without complications Chronic gastritis,K29.5
+Stable Chronic gastritis,K29.5
+Unstable Chronic gastritis,K29.5
+Progressive Chronic gastritis,K29.5
+Non progressive Chronic gastritis,K29.5
+Localized Chronic gastritis,K29.5
+Generalized Chronic gastritis,K29.5
+Duodenitis,K29.8
+Acute Duodenitis,K29.8
+Chronic Duodenitis,K29.8
+Severe Duodenitis,K29.8
+Mild Duodenitis,K29.8
+Moderate Duodenitis,K29.8
+Recurrent Duodenitis,K29.8
+Suspected Duodenitis,K29.8
+Uncontrolled Duodenitis,K29.8
+Controlled Duodenitis,K29.8
+Complicated Duodenitis,K29.8
+Uncomplicated Duodenitis,K29.8
+Early Duodenitis,K29.8
+Advanced Duodenitis,K29.8
+Intermittent Duodenitis,K29.8
+Persistent Duodenitis,K29.8
+New onset Duodenitis,K29.8
+Long standing Duodenitis,K29.8
+Drug induced Duodenitis,K29.8
+Post infectious Duodenitis,K29.8
+Idiopathic Duodenitis,K29.8
+Secondary Duodenitis,K29.8
+Primary Duodenitis,K29.8
+With complications Duodenitis,K29.8
+Without complications Duodenitis,K29.8
+Stable Duodenitis,K29.8
+Unstable Duodenitis,K29.8
+Progressive Duodenitis,K29.8
+Non progressive Duodenitis,K29.8
+Localized Duodenitis,K29.8
+Generalized Duodenitis,K29.8
+Peptic ulcer disease,K27.9
+Acute Peptic ulcer disease,K27.9
+Chronic Peptic ulcer disease,K27.9
+Severe Peptic ulcer disease,K27.9
+Mild Peptic ulcer disease,K27.9
+Moderate Peptic ulcer disease,K27.9
+Recurrent Peptic ulcer disease,K27.9
+Suspected Peptic ulcer disease,K27.9
+Uncontrolled Peptic ulcer disease,K27.9
+Controlled Peptic ulcer disease,K27.9
+Complicated Peptic ulcer disease,K27.9
+Uncomplicated Peptic ulcer disease,K27.9
+Early Peptic ulcer disease,K27.9
+Advanced Peptic ulcer disease,K27.9
+Intermittent Peptic ulcer disease,K27.9
+Persistent Peptic ulcer disease,K27.9
+New onset Peptic ulcer disease,K27.9
+Long standing Peptic ulcer disease,K27.9
+Drug induced Peptic ulcer disease,K27.9
+Post infectious Peptic ulcer disease,K27.9
+Idiopathic Peptic ulcer disease,K27.9
+Secondary Peptic ulcer disease,K27.9
+Primary Peptic ulcer disease,K27.9
+With complications Peptic ulcer disease,K27.9
+Without complications Peptic ulcer disease,K27.9
+Stable Peptic ulcer disease,K27.9
+Unstable Peptic ulcer disease,K27.9
+Progressive Peptic ulcer disease,K27.9
+Non progressive Peptic ulcer disease,K27.9
+Localized Peptic ulcer disease,K27.9
+Generalized Peptic ulcer disease,K27.9
+Gastric ulcer,K25.9
+Acute Gastric ulcer,K25.9
+Chronic Gastric ulcer,K25.9
+Severe Gastric ulcer,K25.9
+Mild Gastric ulcer,K25.9
+Moderate Gastric ulcer,K25.9
+Recurrent Gastric ulcer,K25.9
+Suspected Gastric ulcer,K25.9
+Uncontrolled Gastric ulcer,K25.9
+Controlled Gastric ulcer,K25.9
+Complicated Gastric ulcer,K25.9
+Uncomplicated Gastric ulcer,K25.9
+Early Gastric ulcer,K25.9
+Advanced Gastric ulcer,K25.9
+Intermittent Gastric ulcer,K25.9
+Persistent Gastric ulcer,K25.9
+New onset Gastric ulcer,K25.9
+Long standing Gastric ulcer,K25.9
+Drug induced Gastric ulcer,K25.9
+Post infectious Gastric ulcer,K25.9
+Idiopathic Gastric ulcer,K25.9
+Secondary Gastric ulcer,K25.9
+Primary Gastric ulcer,K25.9
+With complications Gastric ulcer,K25.9
+Without complications Gastric ulcer,K25.9
+Stable Gastric ulcer,K25.9
+Unstable Gastric ulcer,K25.9
+Progressive Gastric ulcer,K25.9
+Non progressive Gastric ulcer,K25.9
+Localized Gastric ulcer,K25.9
+Generalized Gastric ulcer,K25.9
+Duodenal ulcer,K26.9
+Acute Duodenal ulcer,K26.9
+Chronic Duodenal ulcer,K26.9
+Severe Duodenal ulcer,K26.9
+Mild Duodenal ulcer,K26.9
+Moderate Duodenal ulcer,K26.9
+Recurrent Duodenal ulcer,K26.9
+Suspected Duodenal ulcer,K26.9
+Uncontrolled Duodenal ulcer,K26.9
+Controlled Duodenal ulcer,K26.9
+Complicated Duodenal ulcer,K26.9
+Uncomplicated Duodenal ulcer,K26.9
+Early Duodenal ulcer,K26.9
+Advanced Duodenal ulcer,K26.9
+Intermittent Duodenal ulcer,K26.9
+Persistent Duodenal ulcer,K26.9
+New onset Duodenal ulcer,K26.9
+Long standing Duodenal ulcer,K26.9
+Drug induced Duodenal ulcer,K26.9
+Post infectious Duodenal ulcer,K26.9
+Idiopathic Duodenal ulcer,K26.9
+Secondary Duodenal ulcer,K26.9
+Primary Duodenal ulcer,K26.9
+With complications Duodenal ulcer,K26.9
+Without complications Duodenal ulcer,K26.9
+Stable Duodenal ulcer,K26.9
+Unstable Duodenal ulcer,K26.9
+Progressive Duodenal ulcer,K26.9
+Non progressive Duodenal ulcer,K26.9
+Localized Duodenal ulcer,K26.9
+Generalized Duodenal ulcer,K26.9
+Functional dyspepsia,K30
+Acute Functional dyspepsia,K30
+Chronic Functional dyspepsia,K30
+Severe Functional dyspepsia,K30
+Mild Functional dyspepsia,K30
+Moderate Functional dyspepsia,K30
+Recurrent Functional dyspepsia,K30
+Suspected Functional dyspepsia,K30
+Uncontrolled Functional dyspepsia,K30
+Controlled Functional dyspepsia,K30
+Complicated Functional dyspepsia,K30
+Uncomplicated Functional dyspepsia,K30
+Early Functional dyspepsia,K30
+Advanced Functional dyspepsia,K30
+Intermittent Functional dyspepsia,K30
+Persistent Functional dyspepsia,K30
+New onset Functional dyspepsia,K30
+Long standing Functional dyspepsia,K30
+Drug induced Functional dyspepsia,K30
+Post infectious Functional dyspepsia,K30
+Idiopathic Functional dyspepsia,K30
+Secondary Functional dyspepsia,K30
+Primary Functional dyspepsia,K30
+With complications Functional dyspepsia,K30
+Without complications Functional dyspepsia,K30
+Stable Functional dyspepsia,K30
+Unstable Functional dyspepsia,K30
+Progressive Functional dyspepsia,K30
+Non progressive Functional dyspepsia,K30
+Localized Functional dyspepsia,K30
+Generalized Functional dyspepsia,K30
+Helicobacter pylori infection,B98.0
+Acute Helicobacter pylori infection,B98.0
+Chronic Helicobacter pylori infection,B98.0
+Severe Helicobacter pylori infection,B98.0
+Mild Helicobacter pylori infection,B98.0
+Moderate Helicobacter pylori infection,B98.0
+Recurrent Helicobacter pylori infection,B98.0
+Suspected Helicobacter pylori infection,B98.0
+Uncontrolled Helicobacter pylori infection,B98.0
+Controlled Helicobacter pylori infection,B98.0
+Complicated Helicobacter pylori infection,B98.0
+Uncomplicated Helicobacter pylori infection,B98.0
+Early Helicobacter pylori infection,B98.0
+Advanced Helicobacter pylori infection,B98.0
+Intermittent Helicobacter pylori infection,B98.0
+Persistent Helicobacter pylori infection,B98.0
+New onset Helicobacter pylori infection,B98.0
+Long standing Helicobacter pylori infection,B98.0
+Drug induced Helicobacter pylori infection,B98.0
+Post infectious Helicobacter pylori infection,B98.0
+Idiopathic Helicobacter pylori infection,B98.0
+Secondary Helicobacter pylori infection,B98.0
+Primary Helicobacter pylori infection,B98.0
+With complications Helicobacter pylori infection,B98.0
+Without complications Helicobacter pylori infection,B98.0
+Stable Helicobacter pylori infection,B98.0
+Unstable Helicobacter pylori infection,B98.0
+Progressive Helicobacter pylori infection,B98.0
+Non progressive Helicobacter pylori infection,B98.0
+Localized Helicobacter pylori infection,B98.0
+Generalized Helicobacter pylori infection,B98.0
+Celiac disease,K90.0
+Acute Celiac disease,K90.0
+Chronic Celiac disease,K90.0
+Severe Celiac disease,K90.0
+Mild Celiac disease,K90.0
+Moderate Celiac disease,K90.0
+Recurrent Celiac disease,K90.0
+Suspected Celiac disease,K90.0
+Uncontrolled Celiac disease,K90.0
+Controlled Celiac disease,K90.0
+Complicated Celiac disease,K90.0
+Uncomplicated Celiac disease,K90.0
+Early Celiac disease,K90.0
+Advanced Celiac disease,K90.0
+Intermittent Celiac disease,K90.0
+Persistent Celiac disease,K90.0
+New onset Celiac disease,K90.0
+Long standing Celiac disease,K90.0
+Drug induced Celiac disease,K90.0
+Post infectious Celiac disease,K90.0
+Idiopathic Celiac disease,K90.0
+Secondary Celiac disease,K90.0
+Primary Celiac disease,K90.0
+With complications Celiac disease,K90.0
+Without complications Celiac disease,K90.0
+Stable Celiac disease,K90.0
+Unstable Celiac disease,K90.0
+Progressive Celiac disease,K90.0
+Non progressive Celiac disease,K90.0
+Localized Celiac disease,K90.0
+Generalized Celiac disease,K90.0
+Irritable bowel syndrome,K58.9
+Acute Irritable bowel syndrome,K58.9
+Chronic Irritable bowel syndrome,K58.9
+Severe Irritable bowel syndrome,K58.9
+Mild Irritable bowel syndrome,K58.9
+Moderate Irritable bowel syndrome,K58.9
+Recurrent Irritable bowel syndrome,K58.9
+Suspected Irritable bowel syndrome,K58.9
+Uncontrolled Irritable bowel syndrome,K58.9
+Controlled Irritable bowel syndrome,K58.9
+Complicated Irritable bowel syndrome,K58.9
+Uncomplicated Irritable bowel syndrome,K58.9
+Early Irritable bowel syndrome,K58.9
+Advanced Irritable bowel syndrome,K58.9
+Intermittent Irritable bowel syndrome,K58.9
+Persistent Irritable bowel syndrome,K58.9
+New onset Irritable bowel syndrome,K58.9
+Long standing Irritable bowel syndrome,K58.9
+Drug induced Irritable bowel syndrome,K58.9
+Post infectious Irritable bowel syndrome,K58.9
+Idiopathic Irritable bowel syndrome,K58.9
+Secondary Irritable bowel syndrome,K58.9
+Primary Irritable bowel syndrome,K58.9
+With complications Irritable bowel syndrome,K58.9
+Without complications Irritable bowel syndrome,K58.9
+Stable Irritable bowel syndrome,K58.9
+Unstable Irritable bowel syndrome,K58.9
+Progressive Irritable bowel syndrome,K58.9
+Non progressive Irritable bowel syndrome,K58.9
+Localized Irritable bowel syndrome,K58.9
+Generalized Irritable bowel syndrome,K58.9
+Crohn disease,K50.9
+Acute Crohn disease,K50.9
+Chronic Crohn disease,K50.9
+Severe Crohn disease,K50.9
+Mild Crohn disease,K50.9
+Moderate Crohn disease,K50.9
+Recurrent Crohn disease,K50.9
+Suspected Crohn disease,K50.9
+Uncontrolled Crohn disease,K50.9
+Controlled Crohn disease,K50.9
+Complicated Crohn disease,K50.9
+Uncomplicated Crohn disease,K50.9
+Early Crohn disease,K50.9
+Advanced Crohn disease,K50.9
+Intermittent Crohn disease,K50.9
+Persistent Crohn disease,K50.9
+New onset Crohn disease,K50.9
+Long standing Crohn disease,K50.9
+Drug induced Crohn disease,K50.9
+Post infectious Crohn disease,K50.9
+Idiopathic Crohn disease,K50.9
+Secondary Crohn disease,K50.9
+Primary Crohn disease,K50.9
+With complications Crohn disease,K50.9
+Without complications Crohn disease,K50.9
+Stable Crohn disease,K50.9
+Unstable Crohn disease,K50.9
+Progressive Crohn disease,K50.9
+Non progressive Crohn disease,K50.9
+Localized Crohn disease,K50.9
+Generalized Crohn disease,K50.9
+Ulcerative colitis,K51.9
+Acute Ulcerative colitis,K51.9
+Chronic Ulcerative colitis,K51.9
+Severe Ulcerative colitis,K51.9
+Mild Ulcerative colitis,K51.9
+Moderate Ulcerative colitis,K51.9
+Recurrent Ulcerative colitis,K51.9
+Suspected Ulcerative colitis,K51.9
+Uncontrolled Ulcerative colitis,K51.9
+Controlled Ulcerative colitis,K51.9
+Complicated Ulcerative colitis,K51.9
+Uncomplicated Ulcerative colitis,K51.9
+Early Ulcerative colitis,K51.9
+Advanced Ulcerative colitis,K51.9
+Intermittent Ulcerative colitis,K51.9
+Persistent Ulcerative colitis,K51.9
+New onset Ulcerative colitis,K51.9
+Long standing Ulcerative colitis,K51.9
+Drug induced Ulcerative colitis,K51.9
+Post infectious Ulcerative colitis,K51.9
+Idiopathic Ulcerative colitis,K51.9
+Secondary Ulcerative colitis,K51.9
+Primary Ulcerative colitis,K51.9
+With complications Ulcerative colitis,K51.9
+Without complications Ulcerative colitis,K51.9
+Stable Ulcerative colitis,K51.9
+Unstable Ulcerative colitis,K51.9
+Progressive Ulcerative colitis,K51.9
+Non progressive Ulcerative colitis,K51.9
+Localized Ulcerative colitis,K51.9
+Generalized Ulcerative colitis,K51.9
+Microscopic colitis,K52.8
+Acute Microscopic colitis,K52.8
+Chronic Microscopic colitis,K52.8
+Severe Microscopic colitis,K52.8
+Mild Microscopic colitis,K52.8
+Moderate Microscopic colitis,K52.8
+Recurrent Microscopic colitis,K52.8
+Suspected Microscopic colitis,K52.8
+Uncontrolled Microscopic colitis,K52.8
+Controlled Microscopic colitis,K52.8
+Complicated Microscopic colitis,K52.8
+Uncomplicated Microscopic colitis,K52.8
+Early Microscopic colitis,K52.8
+Advanced Microscopic colitis,K52.8
+Intermittent Microscopic colitis,K52.8
+Persistent Microscopic colitis,K52.8
+New onset Microscopic colitis,K52.8
+Long standing Microscopic colitis,K52.8
+Drug induced Microscopic colitis,K52.8
+Post infectious Microscopic colitis,K52.8
+Idiopathic Microscopic colitis,K52.8
+Secondary Microscopic colitis,K52.8
+Primary Microscopic colitis,K52.8
+With complications Microscopic colitis,K52.8
+Without complications Microscopic colitis,K52.8
+Stable Microscopic colitis,K52.8
+Unstable Microscopic colitis,K52.8
+Progressive Microscopic colitis,K52.8
+Non progressive Microscopic colitis,K52.8
+Localized Microscopic colitis,K52.8
+Generalized Microscopic colitis,K52.8
+Diverticulosis colon,K57.3
+Acute Diverticulosis colon,K57.3
+Chronic Diverticulosis colon,K57.3
+Severe Diverticulosis colon,K57.3
+Mild Diverticulosis colon,K57.3
+Moderate Diverticulosis colon,K57.3
+Recurrent Diverticulosis colon,K57.3
+Suspected Diverticulosis colon,K57.3
+Uncontrolled Diverticulosis colon,K57.3
+Controlled Diverticulosis colon,K57.3
+Complicated Diverticulosis colon,K57.3
+Uncomplicated Diverticulosis colon,K57.3
+Early Diverticulosis colon,K57.3
+Advanced Diverticulosis colon,K57.3
+Intermittent Diverticulosis colon,K57.3
+Persistent Diverticulosis colon,K57.3
+New onset Diverticulosis colon,K57.3
+Long standing Diverticulosis colon,K57.3
+Drug induced Diverticulosis colon,K57.3
+Post infectious Diverticulosis colon,K57.3
+Idiopathic Diverticulosis colon,K57.3
+Secondary Diverticulosis colon,K57.3
+Primary Diverticulosis colon,K57.3
+With complications Diverticulosis colon,K57.3
+Without complications Diverticulosis colon,K57.3
+Stable Diverticulosis colon,K57.3
+Unstable Diverticulosis colon,K57.3
+Progressive Diverticulosis colon,K57.3
+Non progressive Diverticulosis colon,K57.3
+Localized Diverticulosis colon,K57.3
+Generalized Diverticulosis colon,K57.3
+Diverticulitis colon,K57.9
+Acute Diverticulitis colon,K57.9
+Chronic Diverticulitis colon,K57.9
+Severe Diverticulitis colon,K57.9
+Mild Diverticulitis colon,K57.9
+Moderate Diverticulitis colon,K57.9
+Recurrent Diverticulitis colon,K57.9
+Suspected Diverticulitis colon,K57.9
+Uncontrolled Diverticulitis colon,K57.9
+Controlled Diverticulitis colon,K57.9
+Complicated Diverticulitis colon,K57.9
+Uncomplicated Diverticulitis colon,K57.9
+Early Diverticulitis colon,K57.9
+Advanced Diverticulitis colon,K57.9
+Intermittent Diverticulitis colon,K57.9
+Persistent Diverticulitis colon,K57.9
+New onset Diverticulitis colon,K57.9
+Long standing Diverticulitis colon,K57.9
+Drug induced Diverticulitis colon,K57.9
+Post infectious Diverticulitis colon,K57.9
+Idiopathic Diverticulitis colon,K57.9
+Secondary Diverticulitis colon,K57.9
+Primary Diverticulitis colon,K57.9
+With complications Diverticulitis colon,K57.9
+Without complications Diverticulitis colon,K57.9
+Stable Diverticulitis colon,K57.9
+Unstable Diverticulitis colon,K57.9
+Progressive Diverticulitis colon,K57.9
+Non progressive Diverticulitis colon,K57.9
+Localized Diverticulitis colon,K57.9
+Generalized Diverticulitis colon,K57.9
+Hemorrhoids,K64.9
+Acute Hemorrhoids,K64.9
+Chronic Hemorrhoids,K64.9
+Severe Hemorrhoids,K64.9
+Mild Hemorrhoids,K64.9
+Moderate Hemorrhoids,K64.9
+Recurrent Hemorrhoids,K64.9
+Suspected Hemorrhoids,K64.9
+Uncontrolled Hemorrhoids,K64.9
+Controlled Hemorrhoids,K64.9
+Complicated Hemorrhoids,K64.9
+Uncomplicated Hemorrhoids,K64.9
+Early Hemorrhoids,K64.9
+Advanced Hemorrhoids,K64.9
+Intermittent Hemorrhoids,K64.9
+Persistent Hemorrhoids,K64.9
+New onset Hemorrhoids,K64.9
+Long standing Hemorrhoids,K64.9
+Drug induced Hemorrhoids,K64.9
+Post infectious Hemorrhoids,K64.9
+Idiopathic Hemorrhoids,K64.9
+Secondary Hemorrhoids,K64.9
+Primary Hemorrhoids,K64.9
+With complications Hemorrhoids,K64.9
+Without complications Hemorrhoids,K64.9
+Stable Hemorrhoids,K64.9
+Unstable Hemorrhoids,K64.9
+Progressive Hemorrhoids,K64.9
+Non progressive Hemorrhoids,K64.9
+Localized Hemorrhoids,K64.9
+Generalized Hemorrhoids,K64.9
+Anal fissure,K60.2
+Acute Anal fissure,K60.2
+Chronic Anal fissure,K60.2
+Severe Anal fissure,K60.2
+Mild Anal fissure,K60.2
+Moderate Anal fissure,K60.2
+Recurrent Anal fissure,K60.2
+Suspected Anal fissure,K60.2
+Uncontrolled Anal fissure,K60.2
+Controlled Anal fissure,K60.2
+Complicated Anal fissure,K60.2
+Uncomplicated Anal fissure,K60.2
+Early Anal fissure,K60.2
+Advanced Anal fissure,K60.2
+Intermittent Anal fissure,K60.2
+Persistent Anal fissure,K60.2
+New onset Anal fissure,K60.2
+Long standing Anal fissure,K60.2
+Drug induced Anal fissure,K60.2
+Post infectious Anal fissure,K60.2
+Idiopathic Anal fissure,K60.2
+Secondary Anal fissure,K60.2
+Primary Anal fissure,K60.2
+With complications Anal fissure,K60.2
+Without complications Anal fissure,K60.2
+Stable Anal fissure,K60.2
+Unstable Anal fissure,K60.2
+Progressive Anal fissure,K60.2
+Non progressive Anal fissure,K60.2
+Localized Anal fissure,K60.2
+Generalized Anal fissure,K60.2
+Perianal abscess,K61.0
+Acute Perianal abscess,K61.0
+Chronic Perianal abscess,K61.0
+Severe Perianal abscess,K61.0
+Mild Perianal abscess,K61.0
+Moderate Perianal abscess,K61.0
+Recurrent Perianal abscess,K61.0
+Suspected Perianal abscess,K61.0
+Uncontrolled Perianal abscess,K61.0
+Controlled Perianal abscess,K61.0
+Complicated Perianal abscess,K61.0
+Uncomplicated Perianal abscess,K61.0
+Early Perianal abscess,K61.0
+Advanced Perianal abscess,K61.0
+Intermittent Perianal abscess,K61.0
+Persistent Perianal abscess,K61.0
+New onset Perianal abscess,K61.0
+Long standing Perianal abscess,K61.0
+Drug induced Perianal abscess,K61.0
+Post infectious Perianal abscess,K61.0
+Idiopathic Perianal abscess,K61.0
+Secondary Perianal abscess,K61.0
+Primary Perianal abscess,K61.0
+With complications Perianal abscess,K61.0
+Without complications Perianal abscess,K61.0
+Stable Perianal abscess,K61.0
+Unstable Perianal abscess,K61.0
+Progressive Perianal abscess,K61.0
+Non progressive Perianal abscess,K61.0
+Localized Perianal abscess,K61.0
+Generalized Perianal abscess,K61.0
+Rectal prolapse,K62.3
+Acute Rectal prolapse,K62.3
+Chronic Rectal prolapse,K62.3
+Severe Rectal prolapse,K62.3
+Mild Rectal prolapse,K62.3
+Moderate Rectal prolapse,K62.3
+Recurrent Rectal prolapse,K62.3
+Suspected Rectal prolapse,K62.3
+Uncontrolled Rectal prolapse,K62.3
+Controlled Rectal prolapse,K62.3
+Complicated Rectal prolapse,K62.3
+Uncomplicated Rectal prolapse,K62.3
+Early Rectal prolapse,K62.3
+Advanced Rectal prolapse,K62.3
+Intermittent Rectal prolapse,K62.3
+Persistent Rectal prolapse,K62.3
+New onset Rectal prolapse,K62.3
+Long standing Rectal prolapse,K62.3
+Drug induced Rectal prolapse,K62.3
+Post infectious Rectal prolapse,K62.3
+Idiopathic Rectal prolapse,K62.3
+Secondary Rectal prolapse,K62.3
+Primary Rectal prolapse,K62.3
+With complications Rectal prolapse,K62.3
+Without complications Rectal prolapse,K62.3
+Stable Rectal prolapse,K62.3
+Unstable Rectal prolapse,K62.3
+Progressive Rectal prolapse,K62.3
+Non progressive Rectal prolapse,K62.3
+Localized Rectal prolapse,K62.3
+Generalized Rectal prolapse,K62.3
+GI bleeding,K92.2
+Acute GI bleeding,K92.2
+Chronic GI bleeding,K92.2
+Severe GI bleeding,K92.2
+Mild GI bleeding,K92.2
+Moderate GI bleeding,K92.2
+Recurrent GI bleeding,K92.2
+Suspected GI bleeding,K92.2
+Uncontrolled GI bleeding,K92.2
+Controlled GI bleeding,K92.2
+Complicated GI bleeding,K92.2
+Uncomplicated GI bleeding,K92.2
+Early GI bleeding,K92.2
+Advanced GI bleeding,K92.2
+Intermittent GI bleeding,K92.2
+Persistent GI bleeding,K92.2
+New onset GI bleeding,K92.2
+Long standing GI bleeding,K92.2
+Drug induced GI bleeding,K92.2
+Post infectious GI bleeding,K92.2
+Idiopathic GI bleeding,K92.2
+Secondary GI bleeding,K92.2
+Primary GI bleeding,K92.2
+With complications GI bleeding,K92.2
+Without complications GI bleeding,K92.2
+Stable GI bleeding,K92.2
+Unstable GI bleeding,K92.2
+Progressive GI bleeding,K92.2
+Non progressive GI bleeding,K92.2
+Localized GI bleeding,K92.2
+Generalized GI bleeding,K92.2
+Hematemesis,K92.0
+Acute Hematemesis,K92.0
+Chronic Hematemesis,K92.0
+Severe Hematemesis,K92.0
+Mild Hematemesis,K92.0
+Moderate Hematemesis,K92.0
+Recurrent Hematemesis,K92.0
+Suspected Hematemesis,K92.0
+Uncontrolled Hematemesis,K92.0
+Controlled Hematemesis,K92.0
+Complicated Hematemesis,K92.0
+Uncomplicated Hematemesis,K92.0
+Early Hematemesis,K92.0
+Advanced Hematemesis,K92.0
+Intermittent Hematemesis,K92.0
+Persistent Hematemesis,K92.0
+New onset Hematemesis,K92.0
+Long standing Hematemesis,K92.0
+Drug induced Hematemesis,K92.0
+Post infectious Hematemesis,K92.0
+Idiopathic Hematemesis,K92.0
+Secondary Hematemesis,K92.0
+Primary Hematemesis,K92.0
+With complications Hematemesis,K92.0
+Without complications Hematemesis,K92.0
+Stable Hematemesis,K92.0
+Unstable Hematemesis,K92.0
+Progressive Hematemesis,K92.0
+Non progressive Hematemesis,K92.0
+Localized Hematemesis,K92.0
+Generalized Hematemesis,K92.0
+Melena,K92.1
+Acute Melena,K92.1
+Chronic Melena,K92.1
+Severe Melena,K92.1
+Mild Melena,K92.1
+Moderate Melena,K92.1
+Recurrent Melena,K92.1
+Suspected Melena,K92.1
+Uncontrolled Melena,K92.1
+Controlled Melena,K92.1
+Complicated Melena,K92.1
+Uncomplicated Melena,K92.1
+Early Melena,K92.1
+Advanced Melena,K92.1
+Intermittent Melena,K92.1
+Persistent Melena,K92.1
+New onset Melena,K92.1
+Long standing Melena,K92.1
+Drug induced Melena,K92.1
+Post infectious Melena,K92.1
+Idiopathic Melena,K92.1
+Secondary Melena,K92.1
+Primary Melena,K92.1
+With complications Melena,K92.1
+Without complications Melena,K92.1
+Stable Melena,K92.1
+Unstable Melena,K92.1
+Progressive Melena,K92.1
+Non progressive Melena,K92.1
+Localized Melena,K92.1
+Generalized Melena,K92.1
+Ascites,R18
+Acute Ascites,R18
+Chronic Ascites,R18
+Severe Ascites,R18
+Mild Ascites,R18
+Moderate Ascites,R18
+Recurrent Ascites,R18
+Suspected Ascites,R18
+Uncontrolled Ascites,R18
+Controlled Ascites,R18
+Complicated Ascites,R18
+Uncomplicated Ascites,R18
+Early Ascites,R18
+Advanced Ascites,R18
+Intermittent Ascites,R18
+Persistent Ascites,R18
+New onset Ascites,R18
+Long standing Ascites,R18
+Drug induced Ascites,R18
+Post infectious Ascites,R18
+Idiopathic Ascites,R18
+Secondary Ascites,R18
+Primary Ascites,R18
+With complications Ascites,R18
+Without complications Ascites,R18
+Stable Ascites,R18
+Unstable Ascites,R18
+Progressive Ascites,R18
+Non progressive Ascites,R18
+Localized Ascites,R18
+Generalized Ascites,R18
+Nonalcoholic fatty liver disease,K76.0
+Acute Nonalcoholic fatty liver disease,K76.0
+Chronic Nonalcoholic fatty liver disease,K76.0
+Severe Nonalcoholic fatty liver disease,K76.0
+Mild Nonalcoholic fatty liver disease,K76.0
+Moderate Nonalcoholic fatty liver disease,K76.0
+Recurrent Nonalcoholic fatty liver disease,K76.0
+Suspected Nonalcoholic fatty liver disease,K76.0
+Uncontrolled Nonalcoholic fatty liver disease,K76.0
+Controlled Nonalcoholic fatty liver disease,K76.0
+Complicated Nonalcoholic fatty liver disease,K76.0
+Uncomplicated Nonalcoholic fatty liver disease,K76.0
+Early Nonalcoholic fatty liver disease,K76.0
+Advanced Nonalcoholic fatty liver disease,K76.0
+Intermittent Nonalcoholic fatty liver disease,K76.0
+Persistent Nonalcoholic fatty liver disease,K76.0
+New onset Nonalcoholic fatty liver disease,K76.0
+Long standing Nonalcoholic fatty liver disease,K76.0
+Drug induced Nonalcoholic fatty liver disease,K76.0
+Post infectious Nonalcoholic fatty liver disease,K76.0
+Idiopathic Nonalcoholic fatty liver disease,K76.0
+Secondary Nonalcoholic fatty liver disease,K76.0
+Primary Nonalcoholic fatty liver disease,K76.0
+With complications Nonalcoholic fatty liver disease,K76.0
+Without complications Nonalcoholic fatty liver disease,K76.0
+Stable Nonalcoholic fatty liver disease,K76.0
+Unstable Nonalcoholic fatty liver disease,K76.0
+Progressive Nonalcoholic fatty liver disease,K76.0
+Non progressive Nonalcoholic fatty liver disease,K76.0
+Localized Nonalcoholic fatty liver disease,K76.0
+Generalized Nonalcoholic fatty liver disease,K76.0
+Alcoholic liver disease,K70.9
+Acute Alcoholic liver disease,K70.9
+Chronic Alcoholic liver disease,K70.9
+Severe Alcoholic liver disease,K70.9
+Mild Alcoholic liver disease,K70.9
+Moderate Alcoholic liver disease,K70.9
+Recurrent Alcoholic liver disease,K70.9
+Suspected Alcoholic liver disease,K70.9
+Uncontrolled Alcoholic liver disease,K70.9
+Controlled Alcoholic liver disease,K70.9
+Complicated Alcoholic liver disease,K70.9
+Uncomplicated Alcoholic liver disease,K70.9
+Early Alcoholic liver disease,K70.9
+Advanced Alcoholic liver disease,K70.9
+Intermittent Alcoholic liver disease,K70.9
+Persistent Alcoholic liver disease,K70.9
+New onset Alcoholic liver disease,K70.9
+Long standing Alcoholic liver disease,K70.9
+Drug induced Alcoholic liver disease,K70.9
+Post infectious Alcoholic liver disease,K70.9
+Idiopathic Alcoholic liver disease,K70.9
+Secondary Alcoholic liver disease,K70.9
+Primary Alcoholic liver disease,K70.9
+With complications Alcoholic liver disease,K70.9
+Without complications Alcoholic liver disease,K70.9
+Stable Alcoholic liver disease,K70.9
+Unstable Alcoholic liver disease,K70.9
+Progressive Alcoholic liver disease,K70.9
+Non progressive Alcoholic liver disease,K70.9
+Localized Alcoholic liver disease,K70.9
+Generalized Alcoholic liver disease,K70.9
+Acute hepatitis A,B15.9
+Acute Acute hepatitis A,B15.9
+Chronic Acute hepatitis A,B15.9
+Severe Acute hepatitis A,B15.9
+Mild Acute hepatitis A,B15.9
+Moderate Acute hepatitis A,B15.9
+Recurrent Acute hepatitis A,B15.9
+Suspected Acute hepatitis A,B15.9
+Uncontrolled Acute hepatitis A,B15.9
+Controlled Acute hepatitis A,B15.9
+Complicated Acute hepatitis A,B15.9
+Uncomplicated Acute hepatitis A,B15.9
+Early Acute hepatitis A,B15.9
+Advanced Acute hepatitis A,B15.9
+Intermittent Acute hepatitis A,B15.9
+Persistent Acute hepatitis A,B15.9
+New onset Acute hepatitis A,B15.9
+Long standing Acute hepatitis A,B15.9
+Drug induced Acute hepatitis A,B15.9
+Post infectious Acute hepatitis A,B15.9
+Idiopathic Acute hepatitis A,B15.9
+Secondary Acute hepatitis A,B15.9
+Primary Acute hepatitis A,B15.9
+With complications Acute hepatitis A,B15.9
+Without complications Acute hepatitis A,B15.9
+Stable Acute hepatitis A,B15.9
+Unstable Acute hepatitis A,B15.9
+Progressive Acute hepatitis A,B15.9
+Non progressive Acute hepatitis A,B15.9
+Localized Acute hepatitis A,B15.9
+Generalized Acute hepatitis A,B15.9
+Acute hepatitis B,B16.9
+Acute Acute hepatitis B,B16.9
+Chronic Acute hepatitis B,B16.9
+Severe Acute hepatitis B,B16.9
+Mild Acute hepatitis B,B16.9
+Moderate Acute hepatitis B,B16.9
+Recurrent Acute hepatitis B,B16.9
+Suspected Acute hepatitis B,B16.9
+Uncontrolled Acute hepatitis B,B16.9
+Controlled Acute hepatitis B,B16.9
+Complicated Acute hepatitis B,B16.9
+Uncomplicated Acute hepatitis B,B16.9
+Early Acute hepatitis B,B16.9
+Advanced Acute hepatitis B,B16.9
+Intermittent Acute hepatitis B,B16.9
+Persistent Acute hepatitis B,B16.9
+New onset Acute hepatitis B,B16.9
+Long standing Acute hepatitis B,B16.9
+Drug induced Acute hepatitis B,B16.9
+Post infectious Acute hepatitis B,B16.9
+Idiopathic Acute hepatitis B,B16.9
+Secondary Acute hepatitis B,B16.9
+Primary Acute hepatitis B,B16.9
+With complications Acute hepatitis B,B16.9
+Without complications Acute hepatitis B,B16.9
+Stable Acute hepatitis B,B16.9
+Unstable Acute hepatitis B,B16.9
+Progressive Acute hepatitis B,B16.9
+Non progressive Acute hepatitis B,B16.9
+Localized Acute hepatitis B,B16.9
+Generalized Acute hepatitis B,B16.9
+Chronic hepatitis B,B18.1
+Acute Chronic hepatitis B,B18.1
+Chronic Chronic hepatitis B,B18.1
+Severe Chronic hepatitis B,B18.1
+Mild Chronic hepatitis B,B18.1
+Moderate Chronic hepatitis B,B18.1
+Recurrent Chronic hepatitis B,B18.1
+Suspected Chronic hepatitis B,B18.1
+Uncontrolled Chronic hepatitis B,B18.1
+Controlled Chronic hepatitis B,B18.1
+Complicated Chronic hepatitis B,B18.1
+Uncomplicated Chronic hepatitis B,B18.1
+Early Chronic hepatitis B,B18.1
+Advanced Chronic hepatitis B,B18.1
+Intermittent Chronic hepatitis B,B18.1
+Persistent Chronic hepatitis B,B18.1
+New onset Chronic hepatitis B,B18.1
+Long standing Chronic hepatitis B,B18.1
+Drug induced Chronic hepatitis B,B18.1
+Post infectious Chronic hepatitis B,B18.1
+Idiopathic Chronic hepatitis B,B18.1
+Secondary Chronic hepatitis B,B18.1
+Primary Chronic hepatitis B,B18.1
+With complications Chronic hepatitis B,B18.1
+Without complications Chronic hepatitis B,B18.1
+Stable Chronic hepatitis B,B18.1
+Unstable Chronic hepatitis B,B18.1
+Progressive Chronic hepatitis B,B18.1
+Non progressive Chronic hepatitis B,B18.1
+Localized Chronic hepatitis B,B18.1
+Generalized Chronic hepatitis B,B18.1
+Chronic hepatitis C,B18.2
+Acute Chronic hepatitis C,B18.2
+Chronic Chronic hepatitis C,B18.2
+Severe Chronic hepatitis C,B18.2
+Mild Chronic hepatitis C,B18.2
+Moderate Chronic hepatitis C,B18.2
+Recurrent Chronic hepatitis C,B18.2
+Suspected Chronic hepatitis C,B18.2
+Uncontrolled Chronic hepatitis C,B18.2
+Controlled Chronic hepatitis C,B18.2
+Complicated Chronic hepatitis C,B18.2
+Uncomplicated Chronic hepatitis C,B18.2
+Early Chronic hepatitis C,B18.2
+Advanced Chronic hepatitis C,B18.2
+Intermittent Chronic hepatitis C,B18.2
+Persistent Chronic hepatitis C,B18.2
+New onset Chronic hepatitis C,B18.2
+Long standing Chronic hepatitis C,B18.2
+Drug induced Chronic hepatitis C,B18.2
+Post infectious Chronic hepatitis C,B18.2
+Idiopathic Chronic hepatitis C,B18.2
+Secondary Chronic hepatitis C,B18.2
+Primary Chronic hepatitis C,B18.2
+With complications Chronic hepatitis C,B18.2
+Without complications Chronic hepatitis C,B18.2
+Stable Chronic hepatitis C,B18.2
+Unstable Chronic hepatitis C,B18.2
+Progressive Chronic hepatitis C,B18.2
+Non progressive Chronic hepatitis C,B18.2
+Localized Chronic hepatitis C,B18.2
+Generalized Chronic hepatitis C,B18.2
+Autoimmune hepatitis,K75.4
+Acute Autoimmune hepatitis,K75.4
+Chronic Autoimmune hepatitis,K75.4
+Severe Autoimmune hepatitis,K75.4
+Mild Autoimmune hepatitis,K75.4
+Moderate Autoimmune hepatitis,K75.4
+Recurrent Autoimmune hepatitis,K75.4
+Suspected Autoimmune hepatitis,K75.4
+Uncontrolled Autoimmune hepatitis,K75.4
+Controlled Autoimmune hepatitis,K75.4
+Complicated Autoimmune hepatitis,K75.4
+Uncomplicated Autoimmune hepatitis,K75.4
+Early Autoimmune hepatitis,K75.4
+Advanced Autoimmune hepatitis,K75.4
+Intermittent Autoimmune hepatitis,K75.4
+Persistent Autoimmune hepatitis,K75.4
+New onset Autoimmune hepatitis,K75.4
+Long standing Autoimmune hepatitis,K75.4
+Drug induced Autoimmune hepatitis,K75.4
+Post infectious Autoimmune hepatitis,K75.4
+Idiopathic Autoimmune hepatitis,K75.4
+Secondary Autoimmune hepatitis,K75.4
+Primary Autoimmune hepatitis,K75.4
+With complications Autoimmune hepatitis,K75.4
+Without complications Autoimmune hepatitis,K75.4
+Stable Autoimmune hepatitis,K75.4
+Unstable Autoimmune hepatitis,K75.4
+Progressive Autoimmune hepatitis,K75.4
+Non progressive Autoimmune hepatitis,K75.4
+Localized Autoimmune hepatitis,K75.4
+Generalized Autoimmune hepatitis,K75.4
+Drug induced liver injury,K71.9
+Acute Drug induced liver injury,K71.9
+Chronic Drug induced liver injury,K71.9
+Severe Drug induced liver injury,K71.9
+Mild Drug induced liver injury,K71.9
+Moderate Drug induced liver injury,K71.9
+Recurrent Drug induced liver injury,K71.9
+Suspected Drug induced liver injury,K71.9
+Uncontrolled Drug induced liver injury,K71.9
+Controlled Drug induced liver injury,K71.9
+Complicated Drug induced liver injury,K71.9
+Uncomplicated Drug induced liver injury,K71.9
+Early Drug induced liver injury,K71.9
+Advanced Drug induced liver injury,K71.9
+Intermittent Drug induced liver injury,K71.9
+Persistent Drug induced liver injury,K71.9
+New onset Drug induced liver injury,K71.9
+Long standing Drug induced liver injury,K71.9
+Drug induced Drug induced liver injury,K71.9
+Post infectious Drug induced liver injury,K71.9
+Idiopathic Drug induced liver injury,K71.9
+Secondary Drug induced liver injury,K71.9
+Primary Drug induced liver injury,K71.9
+With complications Drug induced liver injury,K71.9
+Without complications Drug induced liver injury,K71.9
+Stable Drug induced liver injury,K71.9
+Unstable Drug induced liver injury,K71.9
+Progressive Drug induced liver injury,K71.9
+Non progressive Drug induced liver injury,K71.9
+Localized Drug induced liver injury,K71.9
+Generalized Drug induced liver injury,K71.9
+Liver cirrhosis,K74.6
+Acute Liver cirrhosis,K74.6
+Chronic Liver cirrhosis,K74.6
+Severe Liver cirrhosis,K74.6
+Mild Liver cirrhosis,K74.6
+Moderate Liver cirrhosis,K74.6
+Recurrent Liver cirrhosis,K74.6
+Suspected Liver cirrhosis,K74.6
+Uncontrolled Liver cirrhosis,K74.6
+Controlled Liver cirrhosis,K74.6
+Complicated Liver cirrhosis,K74.6
+Uncomplicated Liver cirrhosis,K74.6
+Early Liver cirrhosis,K74.6
+Advanced Liver cirrhosis,K74.6
+Intermittent Liver cirrhosis,K74.6
+Persistent Liver cirrhosis,K74.6
+New onset Liver cirrhosis,K74.6
+Long standing Liver cirrhosis,K74.6
+Drug induced Liver cirrhosis,K74.6
+Post infectious Liver cirrhosis,K74.6
+Idiopathic Liver cirrhosis,K74.6
+Secondary Liver cirrhosis,K74.6
+Primary Liver cirrhosis,K74.6
+With complications Liver cirrhosis,K74.6
+Without complications Liver cirrhosis,K74.6
+Stable Liver cirrhosis,K74.6
+Unstable Liver cirrhosis,K74.6
+Progressive Liver cirrhosis,K74.6
+Non progressive Liver cirrhosis,K74.6
+Localized Liver cirrhosis,K74.6
+Generalized Liver cirrhosis,K74.6
+Portal hypertension,K76.6
+Acute Portal hypertension,K76.6
+Chronic Portal hypertension,K76.6
+Severe Portal hypertension,K76.6
+Mild Portal hypertension,K76.6
+Moderate Portal hypertension,K76.6
+Recurrent Portal hypertension,K76.6
+Suspected Portal hypertension,K76.6
+Uncontrolled Portal hypertension,K76.6
+Controlled Portal hypertension,K76.6
+Complicated Portal hypertension,K76.6
+Uncomplicated Portal hypertension,K76.6
+Early Portal hypertension,K76.6
+Advanced Portal hypertension,K76.6
+Intermittent Portal hypertension,K76.6
+Persistent Portal hypertension,K76.6
+New onset Portal hypertension,K76.6
+Long standing Portal hypertension,K76.6
+Drug induced Portal hypertension,K76.6
+Post infectious Portal hypertension,K76.6
+Idiopathic Portal hypertension,K76.6
+Secondary Portal hypertension,K76.6
+Primary Portal hypertension,K76.6
+With complications Portal hypertension,K76.6
+Without complications Portal hypertension,K76.6
+Stable Portal hypertension,K76.6
+Unstable Portal hypertension,K76.6
+Progressive Portal hypertension,K76.6
+Non progressive Portal hypertension,K76.6
+Localized Portal hypertension,K76.6
+Generalized Portal hypertension,K76.6
+Hepatic encephalopathy,K72.9
+Acute Hepatic encephalopathy,K72.9
+Chronic Hepatic encephalopathy,K72.9
+Severe Hepatic encephalopathy,K72.9
+Mild Hepatic encephalopathy,K72.9
+Moderate Hepatic encephalopathy,K72.9
+Recurrent Hepatic encephalopathy,K72.9
+Suspected Hepatic encephalopathy,K72.9
+Uncontrolled Hepatic encephalopathy,K72.9
+Controlled Hepatic encephalopathy,K72.9
+Complicated Hepatic encephalopathy,K72.9
+Uncomplicated Hepatic encephalopathy,K72.9
+Early Hepatic encephalopathy,K72.9
+Advanced Hepatic encephalopathy,K72.9
+Intermittent Hepatic encephalopathy,K72.9
+Persistent Hepatic encephalopathy,K72.9
+New onset Hepatic encephalopathy,K72.9
+Long standing Hepatic encephalopathy,K72.9
+Drug induced Hepatic encephalopathy,K72.9
+Post infectious Hepatic encephalopathy,K72.9
+Idiopathic Hepatic encephalopathy,K72.9
+Secondary Hepatic encephalopathy,K72.9
+Primary Hepatic encephalopathy,K72.9
+With complications Hepatic encephalopathy,K72.9
+Without complications Hepatic encephalopathy,K72.9
+Stable Hepatic encephalopathy,K72.9
+Unstable Hepatic encephalopathy,K72.9
+Progressive Hepatic encephalopathy,K72.9
+Non progressive Hepatic encephalopathy,K72.9
+Localized Hepatic encephalopathy,K72.9
+Generalized Hepatic encephalopathy,K72.9
+Hepatomegaly,R16.0
+Acute Hepatomegaly,R16.0
+Chronic Hepatomegaly,R16.0
+Severe Hepatomegaly,R16.0
+Mild Hepatomegaly,R16.0
+Moderate Hepatomegaly,R16.0
+Recurrent Hepatomegaly,R16.0
+Suspected Hepatomegaly,R16.0
+Uncontrolled Hepatomegaly,R16.0
+Controlled Hepatomegaly,R16.0
+Complicated Hepatomegaly,R16.0
+Uncomplicated Hepatomegaly,R16.0
+Early Hepatomegaly,R16.0
+Advanced Hepatomegaly,R16.0
+Intermittent Hepatomegaly,R16.0
+Persistent Hepatomegaly,R16.0
+New onset Hepatomegaly,R16.0
+Long standing Hepatomegaly,R16.0
+Drug induced Hepatomegaly,R16.0
+Post infectious Hepatomegaly,R16.0
+Idiopathic Hepatomegaly,R16.0
+Secondary Hepatomegaly,R16.0
+Primary Hepatomegaly,R16.0
+With complications Hepatomegaly,R16.0
+Without complications Hepatomegaly,R16.0
+Stable Hepatomegaly,R16.0
+Unstable Hepatomegaly,R16.0
+Progressive Hepatomegaly,R16.0
+Non progressive Hepatomegaly,R16.0
+Localized Hepatomegaly,R16.0
+Generalized Hepatomegaly,R16.0
+Splenomegaly,R16.1
+Acute Splenomegaly,R16.1
+Chronic Splenomegaly,R16.1
+Severe Splenomegaly,R16.1
+Mild Splenomegaly,R16.1
+Moderate Splenomegaly,R16.1
+Recurrent Splenomegaly,R16.1
+Suspected Splenomegaly,R16.1
+Uncontrolled Splenomegaly,R16.1
+Controlled Splenomegaly,R16.1
+Complicated Splenomegaly,R16.1
+Uncomplicated Splenomegaly,R16.1
+Early Splenomegaly,R16.1
+Advanced Splenomegaly,R16.1
+Intermittent Splenomegaly,R16.1
+Persistent Splenomegaly,R16.1
+New onset Splenomegaly,R16.1
+Long standing Splenomegaly,R16.1
+Drug induced Splenomegaly,R16.1
+Post infectious Splenomegaly,R16.1
+Idiopathic Splenomegaly,R16.1
+Secondary Splenomegaly,R16.1
+Primary Splenomegaly,R16.1
+With complications Splenomegaly,R16.1
+Without complications Splenomegaly,R16.1
+Stable Splenomegaly,R16.1
+Unstable Splenomegaly,R16.1
+Progressive Splenomegaly,R16.1
+Non progressive Splenomegaly,R16.1
+Localized Splenomegaly,R16.1
+Generalized Splenomegaly,R16.1
+Hepatocellular carcinoma,C22.0
+Acute Hepatocellular carcinoma,C22.0
+Chronic Hepatocellular carcinoma,C22.0
+Severe Hepatocellular carcinoma,C22.0
+Mild Hepatocellular carcinoma,C22.0
+Moderate Hepatocellular carcinoma,C22.0
+Recurrent Hepatocellular carcinoma,C22.0
+Suspected Hepatocellular carcinoma,C22.0
+Uncontrolled Hepatocellular carcinoma,C22.0
+Controlled Hepatocellular carcinoma,C22.0
+Complicated Hepatocellular carcinoma,C22.0
+Uncomplicated Hepatocellular carcinoma,C22.0
+Early Hepatocellular carcinoma,C22.0
+Advanced Hepatocellular carcinoma,C22.0
+Intermittent Hepatocellular carcinoma,C22.0
+Persistent Hepatocellular carcinoma,C22.0
+New onset Hepatocellular carcinoma,C22.0
+Long standing Hepatocellular carcinoma,C22.0
+Drug induced Hepatocellular carcinoma,C22.0
+Post infectious Hepatocellular carcinoma,C22.0
+Idiopathic Hepatocellular carcinoma,C22.0
+Secondary Hepatocellular carcinoma,C22.0
+Primary Hepatocellular carcinoma,C22.0
+With complications Hepatocellular carcinoma,C22.0
+Without complications Hepatocellular carcinoma,C22.0
+Stable Hepatocellular carcinoma,C22.0
+Unstable Hepatocellular carcinoma,C22.0
+Progressive Hepatocellular carcinoma,C22.0
+Non progressive Hepatocellular carcinoma,C22.0
+Localized Hepatocellular carcinoma,C22.0
+Generalized Hepatocellular carcinoma,C22.0
+Cholelithiasis,K80.2
+Acute Cholelithiasis,K80.2
+Chronic Cholelithiasis,K80.2
+Severe Cholelithiasis,K80.2
+Mild Cholelithiasis,K80.2
+Moderate Cholelithiasis,K80.2
+Recurrent Cholelithiasis,K80.2
+Suspected Cholelithiasis,K80.2
+Uncontrolled Cholelithiasis,K80.2
+Controlled Cholelithiasis,K80.2
+Complicated Cholelithiasis,K80.2
+Uncomplicated Cholelithiasis,K80.2
+Early Cholelithiasis,K80.2
+Advanced Cholelithiasis,K80.2
+Intermittent Cholelithiasis,K80.2
+Persistent Cholelithiasis,K80.2
+New onset Cholelithiasis,K80.2
+Long standing Cholelithiasis,K80.2
+Drug induced Cholelithiasis,K80.2
+Post infectious Cholelithiasis,K80.2
+Idiopathic Cholelithiasis,K80.2
+Secondary Cholelithiasis,K80.2
+Primary Cholelithiasis,K80.2
+With complications Cholelithiasis,K80.2
+Without complications Cholelithiasis,K80.2
+Stable Cholelithiasis,K80.2
+Unstable Cholelithiasis,K80.2
+Progressive Cholelithiasis,K80.2
+Non progressive Cholelithiasis,K80.2
+Localized Cholelithiasis,K80.2
+Generalized Cholelithiasis,K80.2
+Acute cholecystitis,K81.0
+Acute Acute cholecystitis,K81.0
+Chronic Acute cholecystitis,K81.0
+Severe Acute cholecystitis,K81.0
+Mild Acute cholecystitis,K81.0
+Moderate Acute cholecystitis,K81.0
+Recurrent Acute cholecystitis,K81.0
+Suspected Acute cholecystitis,K81.0
+Uncontrolled Acute cholecystitis,K81.0
+Controlled Acute cholecystitis,K81.0
+Complicated Acute cholecystitis,K81.0
+Uncomplicated Acute cholecystitis,K81.0
+Early Acute cholecystitis,K81.0
+Advanced Acute cholecystitis,K81.0
+Intermittent Acute cholecystitis,K81.0
+Persistent Acute cholecystitis,K81.0
+New onset Acute cholecystitis,K81.0
+Long standing Acute cholecystitis,K81.0
+Drug induced Acute cholecystitis,K81.0
+Post infectious Acute cholecystitis,K81.0
+Idiopathic Acute cholecystitis,K81.0
+Secondary Acute cholecystitis,K81.0
+Primary Acute cholecystitis,K81.0
+With complications Acute cholecystitis,K81.0
+Without complications Acute cholecystitis,K81.0
+Stable Acute cholecystitis,K81.0
+Unstable Acute cholecystitis,K81.0
+Progressive Acute cholecystitis,K81.0
+Non progressive Acute cholecystitis,K81.0
+Localized Acute cholecystitis,K81.0
+Generalized Acute cholecystitis,K81.0
+Chronic cholecystitis,K81.1
+Acute Chronic cholecystitis,K81.1
+Chronic Chronic cholecystitis,K81.1
+Severe Chronic cholecystitis,K81.1
+Mild Chronic cholecystitis,K81.1
+Moderate Chronic cholecystitis,K81.1
+Recurrent Chronic cholecystitis,K81.1
+Suspected Chronic cholecystitis,K81.1
+Uncontrolled Chronic cholecystitis,K81.1
+Controlled Chronic cholecystitis,K81.1
+Complicated Chronic cholecystitis,K81.1
+Uncomplicated Chronic cholecystitis,K81.1
+Early Chronic cholecystitis,K81.1
+Advanced Chronic cholecystitis,K81.1
+Intermittent Chronic cholecystitis,K81.1
+Persistent Chronic cholecystitis,K81.1
+New onset Chronic cholecystitis,K81.1
+Long standing Chronic cholecystitis,K81.1
+Drug induced Chronic cholecystitis,K81.1
+Post infectious Chronic cholecystitis,K81.1
+Idiopathic Chronic cholecystitis,K81.1
+Secondary Chronic cholecystitis,K81.1
+Primary Chronic cholecystitis,K81.1
+With complications Chronic cholecystitis,K81.1
+Without complications Chronic cholecystitis,K81.1
+Stable Chronic cholecystitis,K81.1
+Unstable Chronic cholecystitis,K81.1
+Progressive Chronic cholecystitis,K81.1
+Non progressive Chronic cholecystitis,K81.1
+Localized Chronic cholecystitis,K81.1
+Generalized Chronic cholecystitis,K81.1
+Choledocholithiasis,K80.5
+Acute Choledocholithiasis,K80.5
+Chronic Choledocholithiasis,K80.5
+Severe Choledocholithiasis,K80.5
+Mild Choledocholithiasis,K80.5
+Moderate Choledocholithiasis,K80.5
+Recurrent Choledocholithiasis,K80.5
+Suspected Choledocholithiasis,K80.5
+Uncontrolled Choledocholithiasis,K80.5
+Controlled Choledocholithiasis,K80.5
+Complicated Choledocholithiasis,K80.5
+Uncomplicated Choledocholithiasis,K80.5
+Early Choledocholithiasis,K80.5
+Advanced Choledocholithiasis,K80.5
+Intermittent Choledocholithiasis,K80.5
+Persistent Choledocholithiasis,K80.5
+New onset Choledocholithiasis,K80.5
+Long standing Choledocholithiasis,K80.5
+Drug induced Choledocholithiasis,K80.5
+Post infectious Choledocholithiasis,K80.5
+Idiopathic Choledocholithiasis,K80.5
+Secondary Choledocholithiasis,K80.5
+Primary Choledocholithiasis,K80.5
+With complications Choledocholithiasis,K80.5
+Without complications Choledocholithiasis,K80.5
+Stable Choledocholithiasis,K80.5
+Unstable Choledocholithiasis,K80.5
+Progressive Choledocholithiasis,K80.5
+Non progressive Choledocholithiasis,K80.5
+Localized Choledocholithiasis,K80.5
+Generalized Choledocholithiasis,K80.5
+Cholangitis,K83.0
+Acute Cholangitis,K83.0
+Chronic Cholangitis,K83.0
+Severe Cholangitis,K83.0
+Mild Cholangitis,K83.0
+Moderate Cholangitis,K83.0
+Recurrent Cholangitis,K83.0
+Suspected Cholangitis,K83.0
+Uncontrolled Cholangitis,K83.0
+Controlled Cholangitis,K83.0
+Complicated Cholangitis,K83.0
+Uncomplicated Cholangitis,K83.0
+Early Cholangitis,K83.0
+Advanced Cholangitis,K83.0
+Intermittent Cholangitis,K83.0
+Persistent Cholangitis,K83.0
+New onset Cholangitis,K83.0
+Long standing Cholangitis,K83.0
+Drug induced Cholangitis,K83.0
+Post infectious Cholangitis,K83.0
+Idiopathic Cholangitis,K83.0
+Secondary Cholangitis,K83.0
+Primary Cholangitis,K83.0
+With complications Cholangitis,K83.0
+Without complications Cholangitis,K83.0
+Stable Cholangitis,K83.0
+Unstable Cholangitis,K83.0
+Progressive Cholangitis,K83.0
+Non progressive Cholangitis,K83.0
+Localized Cholangitis,K83.0
+Generalized Cholangitis,K83.0
+Primary biliary cholangitis,K74.3
+Acute Primary biliary cholangitis,K74.3
+Chronic Primary biliary cholangitis,K74.3
+Severe Primary biliary cholangitis,K74.3
+Mild Primary biliary cholangitis,K74.3
+Moderate Primary biliary cholangitis,K74.3
+Recurrent Primary biliary cholangitis,K74.3
+Suspected Primary biliary cholangitis,K74.3
+Uncontrolled Primary biliary cholangitis,K74.3
+Controlled Primary biliary cholangitis,K74.3
+Complicated Primary biliary cholangitis,K74.3
+Uncomplicated Primary biliary cholangitis,K74.3
+Early Primary biliary cholangitis,K74.3
+Advanced Primary biliary cholangitis,K74.3
+Intermittent Primary biliary cholangitis,K74.3
+Persistent Primary biliary cholangitis,K74.3
+New onset Primary biliary cholangitis,K74.3
+Long standing Primary biliary cholangitis,K74.3
+Drug induced Primary biliary cholangitis,K74.3
+Post infectious Primary biliary cholangitis,K74.3
+Idiopathic Primary biliary cholangitis,K74.3
+Secondary Primary biliary cholangitis,K74.3
+Primary Primary biliary cholangitis,K74.3
+With complications Primary biliary cholangitis,K74.3
+Without complications Primary biliary cholangitis,K74.3
+Stable Primary biliary cholangitis,K74.3
+Unstable Primary biliary cholangitis,K74.3
+Progressive Primary biliary cholangitis,K74.3
+Non progressive Primary biliary cholangitis,K74.3
+Localized Primary biliary cholangitis,K74.3
+Generalized Primary biliary cholangitis,K74.3
+Primary sclerosing cholangitis,K83.01
+Acute Primary sclerosing cholangitis,K83.01
+Chronic Primary sclerosing cholangitis,K83.01
+Severe Primary sclerosing cholangitis,K83.01
+Mild Primary sclerosing cholangitis,K83.01
+Moderate Primary sclerosing cholangitis,K83.01
+Recurrent Primary sclerosing cholangitis,K83.01
+Suspected Primary sclerosing cholangitis,K83.01
+Uncontrolled Primary sclerosing cholangitis,K83.01
+Controlled Primary sclerosing cholangitis,K83.01
+Complicated Primary sclerosing cholangitis,K83.01
+Uncomplicated Primary sclerosing cholangitis,K83.01
+Early Primary sclerosing cholangitis,K83.01
+Advanced Primary sclerosing cholangitis,K83.01
+Intermittent Primary sclerosing cholangitis,K83.01
+Persistent Primary sclerosing cholangitis,K83.01
+New onset Primary sclerosing cholangitis,K83.01
+Long standing Primary sclerosing cholangitis,K83.01
+Drug induced Primary sclerosing cholangitis,K83.01
+Post infectious Primary sclerosing cholangitis,K83.01
+Idiopathic Primary sclerosing cholangitis,K83.01
+Secondary Primary sclerosing cholangitis,K83.01
+Primary Primary sclerosing cholangitis,K83.01
+With complications Primary sclerosing cholangitis,K83.01
+Without complications Primary sclerosing cholangitis,K83.01
+Stable Primary sclerosing cholangitis,K83.01
+Unstable Primary sclerosing cholangitis,K83.01
+Progressive Primary sclerosing cholangitis,K83.01
+Non progressive Primary sclerosing cholangitis,K83.01
+Localized Primary sclerosing cholangitis,K83.01
+Generalized Primary sclerosing cholangitis,K83.01
+Acute pancreatitis,K85.9
+Acute Acute pancreatitis,K85.9
+Chronic Acute pancreatitis,K85.9
+Severe Acute pancreatitis,K85.9
+Mild Acute pancreatitis,K85.9
+Moderate Acute pancreatitis,K85.9
+Recurrent Acute pancreatitis,K85.9
+Suspected Acute pancreatitis,K85.9
+Uncontrolled Acute pancreatitis,K85.9
+Controlled Acute pancreatitis,K85.9
+Complicated Acute pancreatitis,K85.9
+Uncomplicated Acute pancreatitis,K85.9
+Early Acute pancreatitis,K85.9
+Advanced Acute pancreatitis,K85.9
+Intermittent Acute pancreatitis,K85.9
+Persistent Acute pancreatitis,K85.9
+New onset Acute pancreatitis,K85.9
+Long standing Acute pancreatitis,K85.9
+Drug induced Acute pancreatitis,K85.9
+Post infectious Acute pancreatitis,K85.9
+Idiopathic Acute pancreatitis,K85.9
+Secondary Acute pancreatitis,K85.9
+Primary Acute pancreatitis,K85.9
+With complications Acute pancreatitis,K85.9
+Without complications Acute pancreatitis,K85.9
+Stable Acute pancreatitis,K85.9
+Unstable Acute pancreatitis,K85.9
+Progressive Acute pancreatitis,K85.9
+Non progressive Acute pancreatitis,K85.9
+Localized Acute pancreatitis,K85.9
+Generalized Acute pancreatitis,K85.9
+Chronic pancreatitis,K86.1
+Acute Chronic pancreatitis,K86.1
+Chronic Chronic pancreatitis,K86.1
+Severe Chronic pancreatitis,K86.1
+Mild Chronic pancreatitis,K86.1
+Moderate Chronic pancreatitis,K86.1
+Recurrent Chronic pancreatitis,K86.1
+Suspected Chronic pancreatitis,K86.1
+Uncontrolled Chronic pancreatitis,K86.1
+Controlled Chronic pancreatitis,K86.1
+Complicated Chronic pancreatitis,K86.1
+Uncomplicated Chronic pancreatitis,K86.1
+Early Chronic pancreatitis,K86.1
+Advanced Chronic pancreatitis,K86.1
+Intermittent Chronic pancreatitis,K86.1
+Persistent Chronic pancreatitis,K86.1
+New onset Chronic pancreatitis,K86.1
+Long standing Chronic pancreatitis,K86.1
+Drug induced Chronic pancreatitis,K86.1
+Post infectious Chronic pancreatitis,K86.1
+Idiopathic Chronic pancreatitis,K86.1
+Secondary Chronic pancreatitis,K86.1
+Primary Chronic pancreatitis,K86.1
+With complications Chronic pancreatitis,K86.1
+Without complications Chronic pancreatitis,K86.1
+Stable Chronic pancreatitis,K86.1
+Unstable Chronic pancreatitis,K86.1
+Progressive Chronic pancreatitis,K86.1
+Non progressive Chronic pancreatitis,K86.1
+Localized Chronic pancreatitis,K86.1
+Generalized Chronic pancreatitis,K86.1
+Pancreatic pseudocyst,K86.3
+Acute Pancreatic pseudocyst,K86.3
+Chronic Pancreatic pseudocyst,K86.3
+Severe Pancreatic pseudocyst,K86.3
+Mild Pancreatic pseudocyst,K86.3
+Moderate Pancreatic pseudocyst,K86.3
+Recurrent Pancreatic pseudocyst,K86.3
+Suspected Pancreatic pseudocyst,K86.3
+Uncontrolled Pancreatic pseudocyst,K86.3
+Controlled Pancreatic pseudocyst,K86.3
+Complicated Pancreatic pseudocyst,K86.3
+Uncomplicated Pancreatic pseudocyst,K86.3
+Early Pancreatic pseudocyst,K86.3
+Advanced Pancreatic pseudocyst,K86.3
+Intermittent Pancreatic pseudocyst,K86.3
+Persistent Pancreatic pseudocyst,K86.3
+New onset Pancreatic pseudocyst,K86.3
+Long standing Pancreatic pseudocyst,K86.3
+Drug induced Pancreatic pseudocyst,K86.3
+Post infectious Pancreatic pseudocyst,K86.3
+Idiopathic Pancreatic pseudocyst,K86.3
+Secondary Pancreatic pseudocyst,K86.3
+Primary Pancreatic pseudocyst,K86.3
+With complications Pancreatic pseudocyst,K86.3
+Without complications Pancreatic pseudocyst,K86.3
+Stable Pancreatic pseudocyst,K86.3
+Unstable Pancreatic pseudocyst,K86.3
+Progressive Pancreatic pseudocyst,K86.3
+Non progressive Pancreatic pseudocyst,K86.3
+Localized Pancreatic pseudocyst,K86.3
+Generalized Pancreatic pseudocyst,K86.3
+Pancreatic cancer,C25.9
+Acute Pancreatic cancer,C25.9
+Chronic Pancreatic cancer,C25.9
+Severe Pancreatic cancer,C25.9
+Mild Pancreatic cancer,C25.9
+Moderate Pancreatic cancer,C25.9
+Recurrent Pancreatic cancer,C25.9
+Suspected Pancreatic cancer,C25.9
+Uncontrolled Pancreatic cancer,C25.9
+Controlled Pancreatic cancer,C25.9
+Complicated Pancreatic cancer,C25.9
+Uncomplicated Pancreatic cancer,C25.9
+Early Pancreatic cancer,C25.9
+Advanced Pancreatic cancer,C25.9
+Intermittent Pancreatic cancer,C25.9
+Persistent Pancreatic cancer,C25.9
+New onset Pancreatic cancer,C25.9
+Long standing Pancreatic cancer,C25.9
+Drug induced Pancreatic cancer,C25.9
+Post infectious Pancreatic cancer,C25.9
+Idiopathic Pancreatic cancer,C25.9
+Secondary Pancreatic cancer,C25.9
+Primary Pancreatic cancer,C25.9
+With complications Pancreatic cancer,C25.9
+Without complications Pancreatic cancer,C25.9
+Stable Pancreatic cancer,C25.9
+Unstable Pancreatic cancer,C25.9
+Progressive Pancreatic cancer,C25.9
+Non progressive Pancreatic cancer,C25.9
+Localized Pancreatic cancer,C25.9
+Generalized Pancreatic cancer,C25.9
+Essential hypertension,I10
+Acute Essential hypertension,I10
+Chronic Essential hypertension,I10
+Severe Essential hypertension,I10
+Mild Essential hypertension,I10
+Moderate Essential hypertension,I10
+Recurrent Essential hypertension,I10
+Suspected Essential hypertension,I10
+Uncontrolled Essential hypertension,I10
+Controlled Essential hypertension,I10
+Complicated Essential hypertension,I10
+Uncomplicated Essential hypertension,I10
+Early Essential hypertension,I10
+Advanced Essential hypertension,I10
+Intermittent Essential hypertension,I10
+Persistent Essential hypertension,I10
+New onset Essential hypertension,I10
+Long standing Essential hypertension,I10
+Drug induced Essential hypertension,I10
+Post infectious Essential hypertension,I10
+Idiopathic Essential hypertension,I10
+Secondary Essential hypertension,I10
+Primary Essential hypertension,I10
+With complications Essential hypertension,I10
+Without complications Essential hypertension,I10
+Stable Essential hypertension,I10
+Unstable Essential hypertension,I10
+Progressive Essential hypertension,I10
+Non progressive Essential hypertension,I10
+Localized Essential hypertension,I10
+Generalized Essential hypertension,I10
+Type 2 diabetes mellitus,E11.9
+Acute Type 2 diabetes mellitus,E11.9
+Chronic Type 2 diabetes mellitus,E11.9
+Severe Type 2 diabetes mellitus,E11.9
+Mild Type 2 diabetes mellitus,E11.9
+Moderate Type 2 diabetes mellitus,E11.9
+Recurrent Type 2 diabetes mellitus,E11.9
+Suspected Type 2 diabetes mellitus,E11.9
+Uncontrolled Type 2 diabetes mellitus,E11.9
+Controlled Type 2 diabetes mellitus,E11.9
+Complicated Type 2 diabetes mellitus,E11.9
+Uncomplicated Type 2 diabetes mellitus,E11.9
+Early Type 2 diabetes mellitus,E11.9
+Advanced Type 2 diabetes mellitus,E11.9
+Intermittent Type 2 diabetes mellitus,E11.9
+Persistent Type 2 diabetes mellitus,E11.9
+New onset Type 2 diabetes mellitus,E11.9
+Long standing Type 2 diabetes mellitus,E11.9
+Drug induced Type 2 diabetes mellitus,E11.9
+Post infectious Type 2 diabetes mellitus,E11.9
+Idiopathic Type 2 diabetes mellitus,E11.9
+Secondary Type 2 diabetes mellitus,E11.9
+Primary Type 2 diabetes mellitus,E11.9
+With complications Type 2 diabetes mellitus,E11.9
+Without complications Type 2 diabetes mellitus,E11.9
+Stable Type 2 diabetes mellitus,E11.9
+Unstable Type 2 diabetes mellitus,E11.9
+Progressive Type 2 diabetes mellitus,E11.9
+Non progressive Type 2 diabetes mellitus,E11.9
+Localized Type 2 diabetes mellitus,E11.9
+Generalized Type 2 diabetes mellitus,E11.9
+Type 1 diabetes mellitus,E10.9
+Acute Type 1 diabetes mellitus,E10.9
+Chronic Type 1 diabetes mellitus,E10.9
+Severe Type 1 diabetes mellitus,E10.9
+Mild Type 1 diabetes mellitus,E10.9
+Moderate Type 1 diabetes mellitus,E10.9
+Recurrent Type 1 diabetes mellitus,E10.9
+Suspected Type 1 diabetes mellitus,E10.9
+Uncontrolled Type 1 diabetes mellitus,E10.9
+Controlled Type 1 diabetes mellitus,E10.9
+Complicated Type 1 diabetes mellitus,E10.9
+Uncomplicated Type 1 diabetes mellitus,E10.9
+Early Type 1 diabetes mellitus,E10.9
+Advanced Type 1 diabetes mellitus,E10.9
+Intermittent Type 1 diabetes mellitus,E10.9
+Persistent Type 1 diabetes mellitus,E10.9
+New onset Type 1 diabetes mellitus,E10.9
+Long standing Type 1 diabetes mellitus,E10.9
+Drug induced Type 1 diabetes mellitus,E10.9
+Post infectious Type 1 diabetes mellitus,E10.9
+Idiopathic Type 1 diabetes mellitus,E10.9
+Secondary Type 1 diabetes mellitus,E10.9
+Primary Type 1 diabetes mellitus,E10.9
+With complications Type 1 diabetes mellitus,E10.9
+Without complications Type 1 diabetes mellitus,E10.9
+Stable Type 1 diabetes mellitus,E10.9
+Unstable Type 1 diabetes mellitus,E10.9
+Progressive Type 1 diabetes mellitus,E10.9
+Non progressive Type 1 diabetes mellitus,E10.9
+Localized Type 1 diabetes mellitus,E10.9
+Generalized Type 1 diabetes mellitus,E10.9
+Hypothyroidism,E03.9
+Acute Hypothyroidism,E03.9
+Chronic Hypothyroidism,E03.9
+Severe Hypothyroidism,E03.9
+Mild Hypothyroidism,E03.9
+Moderate Hypothyroidism,E03.9
+Recurrent Hypothyroidism,E03.9
+Suspected Hypothyroidism,E03.9
+Uncontrolled Hypothyroidism,E03.9
+Controlled Hypothyroidism,E03.9
+Complicated Hypothyroidism,E03.9
+Uncomplicated Hypothyroidism,E03.9
+Early Hypothyroidism,E03.9
+Advanced Hypothyroidism,E03.9
+Intermittent Hypothyroidism,E03.9
+Persistent Hypothyroidism,E03.9
+New onset Hypothyroidism,E03.9
+Long standing Hypothyroidism,E03.9
+Drug induced Hypothyroidism,E03.9
+Post infectious Hypothyroidism,E03.9
+Idiopathic Hypothyroidism,E03.9
+Secondary Hypothyroidism,E03.9
+Primary Hypothyroidism,E03.9
+With complications Hypothyroidism,E03.9
+Without complications Hypothyroidism,E03.9
+Stable Hypothyroidism,E03.9
+Unstable Hypothyroidism,E03.9
+Progressive Hypothyroidism,E03.9
+Non progressive Hypothyroidism,E03.9
+Localized Hypothyroidism,E03.9
+Generalized Hypothyroidism,E03.9
+Hyperthyroidism,E05.9
+Acute Hyperthyroidism,E05.9
+Chronic Hyperthyroidism,E05.9
+Severe Hyperthyroidism,E05.9
+Mild Hyperthyroidism,E05.9
+Moderate Hyperthyroidism,E05.9
+Recurrent Hyperthyroidism,E05.9
+Suspected Hyperthyroidism,E05.9
+Uncontrolled Hyperthyroidism,E05.9
+Controlled Hyperthyroidism,E05.9
+Complicated Hyperthyroidism,E05.9
+Uncomplicated Hyperthyroidism,E05.9
+Early Hyperthyroidism,E05.9
+Advanced Hyperthyroidism,E05.9
+Intermittent Hyperthyroidism,E05.9
+Persistent Hyperthyroidism,E05.9
+New onset Hyperthyroidism,E05.9
+Long standing Hyperthyroidism,E05.9
+Drug induced Hyperthyroidism,E05.9
+Post infectious Hyperthyroidism,E05.9
+Idiopathic Hyperthyroidism,E05.9
+Secondary Hyperthyroidism,E05.9
+Primary Hyperthyroidism,E05.9
+With complications Hyperthyroidism,E05.9
+Without complications Hyperthyroidism,E05.9
+Stable Hyperthyroidism,E05.9
+Unstable Hyperthyroidism,E05.9
+Progressive Hyperthyroidism,E05.9
+Non progressive Hyperthyroidism,E05.9
+Localized Hyperthyroidism,E05.9
+Generalized Hyperthyroidism,E05.9
+Obesity,E66.9
+Acute Obesity,E66.9
+Chronic Obesity,E66.9
+Severe Obesity,E66.9
+Mild Obesity,E66.9
+Moderate Obesity,E66.9
+Recurrent Obesity,E66.9
+Suspected Obesity,E66.9
+Uncontrolled Obesity,E66.9
+Controlled Obesity,E66.9
+Complicated Obesity,E66.9
+Uncomplicated Obesity,E66.9
+Early Obesity,E66.9
+Advanced Obesity,E66.9
+Intermittent Obesity,E66.9
+Persistent Obesity,E66.9
+New onset Obesity,E66.9
+Long standing Obesity,E66.9
+Drug induced Obesity,E66.9
+Post infectious Obesity,E66.9
+Idiopathic Obesity,E66.9
+Secondary Obesity,E66.9
+Primary Obesity,E66.9
+With complications Obesity,E66.9
+Without complications Obesity,E66.9
+Stable Obesity,E66.9
+Unstable Obesity,E66.9
+Progressive Obesity,E66.9
+Non progressive Obesity,E66.9
+Localized Obesity,E66.9
+Generalized Obesity,E66.9
+Iron deficiency anemia,D50.9
+Acute Iron deficiency anemia,D50.9
+Chronic Iron deficiency anemia,D50.9
+Severe Iron deficiency anemia,D50.9
+Mild Iron deficiency anemia,D50.9
+Moderate Iron deficiency anemia,D50.9
+Recurrent Iron deficiency anemia,D50.9
+Suspected Iron deficiency anemia,D50.9
+Uncontrolled Iron deficiency anemia,D50.9
+Controlled Iron deficiency anemia,D50.9
+Complicated Iron deficiency anemia,D50.9
+Uncomplicated Iron deficiency anemia,D50.9
+Early Iron deficiency anemia,D50.9
+Advanced Iron deficiency anemia,D50.9
+Intermittent Iron deficiency anemia,D50.9
+Persistent Iron deficiency anemia,D50.9
+New onset Iron deficiency anemia,D50.9
+Long standing Iron deficiency anemia,D50.9
+Drug induced Iron deficiency anemia,D50.9
+Post infectious Iron deficiency anemia,D50.9
+Idiopathic Iron deficiency anemia,D50.9
+Secondary Iron deficiency anemia,D50.9
+Primary Iron deficiency anemia,D50.9
+With complications Iron deficiency anemia,D50.9
+Without complications Iron deficiency anemia,D50.9
+Stable Iron deficiency anemia,D50.9
+Unstable Iron deficiency anemia,D50.9
+Progressive Iron deficiency anemia,D50.9
+Non progressive Iron deficiency anemia,D50.9
+Localized Iron deficiency anemia,D50.9
+Generalized Iron deficiency anemia,D50.9
+Vitamin B12 deficiency anemia,D51.9
+Acute Vitamin B12 deficiency anemia,D51.9
+Chronic Vitamin B12 deficiency anemia,D51.9
+Severe Vitamin B12 deficiency anemia,D51.9
+Mild Vitamin B12 deficiency anemia,D51.9
+Moderate Vitamin B12 deficiency anemia,D51.9
+Recurrent Vitamin B12 deficiency anemia,D51.9
+Suspected Vitamin B12 deficiency anemia,D51.9
+Uncontrolled Vitamin B12 deficiency anemia,D51.9
+Controlled Vitamin B12 deficiency anemia,D51.9
+Complicated Vitamin B12 deficiency anemia,D51.9
+Uncomplicated Vitamin B12 deficiency anemia,D51.9
+Early Vitamin B12 deficiency anemia,D51.9
+Advanced Vitamin B12 deficiency anemia,D51.9
+Intermittent Vitamin B12 deficiency anemia,D51.9
+Persistent Vitamin B12 deficiency anemia,D51.9
+New onset Vitamin B12 deficiency anemia,D51.9
+Long standing Vitamin B12 deficiency anemia,D51.9
+Drug induced Vitamin B12 deficiency anemia,D51.9
+Post infectious Vitamin B12 deficiency anemia,D51.9
+Idiopathic Vitamin B12 deficiency anemia,D51.9
+Secondary Vitamin B12 deficiency anemia,D51.9
+Primary Vitamin B12 deficiency anemia,D51.9
+With complications Vitamin B12 deficiency anemia,D51.9
+Without complications Vitamin B12 deficiency anemia,D51.9
+Stable Vitamin B12 deficiency anemia,D51.9
+Unstable Vitamin B12 deficiency anemia,D51.9
+Progressive Vitamin B12 deficiency anemia,D51.9
+Non progressive Vitamin B12 deficiency anemia,D51.9
+Localized Vitamin B12 deficiency anemia,D51.9
+Generalized Vitamin B12 deficiency anemia,D51.9
+Acute myocardial infarction,I21.9
+Acute Acute myocardial infarction,I21.9
+Chronic Acute myocardial infarction,I21.9
+Severe Acute myocardial infarction,I21.9
+Mild Acute myocardial infarction,I21.9
+Moderate Acute myocardial infarction,I21.9
+Recurrent Acute myocardial infarction,I21.9
+Suspected Acute myocardial infarction,I21.9
+Uncontrolled Acute myocardial infarction,I21.9
+Controlled Acute myocardial infarction,I21.9
+Complicated Acute myocardial infarction,I21.9
+Uncomplicated Acute myocardial infarction,I21.9
+Early Acute myocardial infarction,I21.9
+Advanced Acute myocardial infarction,I21.9
+Intermittent Acute myocardial infarction,I21.9
+Persistent Acute myocardial infarction,I21.9
+New onset Acute myocardial infarction,I21.9
+Long standing Acute myocardial infarction,I21.9
+Drug induced Acute myocardial infarction,I21.9
+Post infectious Acute myocardial infarction,I21.9
+Idiopathic Acute myocardial infarction,I21.9
+Secondary Acute myocardial infarction,I21.9
+Primary Acute myocardial infarction,I21.9
+With complications Acute myocardial infarction,I21.9
+Without complications Acute myocardial infarction,I21.9
+Stable Acute myocardial infarction,I21.9
+Unstable Acute myocardial infarction,I21.9
+Progressive Acute myocardial infarction,I21.9
+Non progressive Acute myocardial infarction,I21.9
+Localized Acute myocardial infarction,I21.9
+Generalized Acute myocardial infarction,I21.9
+Stable angina,I20.9
+Acute Stable angina,I20.9
+Chronic Stable angina,I20.9
+Severe Stable angina,I20.9
+Mild Stable angina,I20.9
+Moderate Stable angina,I20.9
+Recurrent Stable angina,I20.9
+Suspected Stable angina,I20.9
+Uncontrolled Stable angina,I20.9
+Controlled Stable angina,I20.9
+Complicated Stable angina,I20.9
+Uncomplicated Stable angina,I20.9
+Early Stable angina,I20.9
+Advanced Stable angina,I20.9
+Intermittent Stable angina,I20.9
+Persistent Stable angina,I20.9
+New onset Stable angina,I20.9
+Long standing Stable angina,I20.9
+Drug induced Stable angina,I20.9
+Post infectious Stable angina,I20.9
+Idiopathic Stable angina,I20.9
+Secondary Stable angina,I20.9
+Primary Stable angina,I20.9
+With complications Stable angina,I20.9
+Without complications Stable angina,I20.9
+Stable Stable angina,I20.9
+Unstable Stable angina,I20.9
+Progressive Stable angina,I20.9
+Non progressive Stable angina,I20.9
+Localized Stable angina,I20.9
+Generalized Stable angina,I20.9
+Heart failure,I50.9
+Acute Heart failure,I50.9
+Chronic Heart failure,I50.9
+Severe Heart failure,I50.9
+Mild Heart failure,I50.9
+Moderate Heart failure,I50.9
+Recurrent Heart failure,I50.9
+Suspected Heart failure,I50.9
+Uncontrolled Heart failure,I50.9
+Controlled Heart failure,I50.9
+Complicated Heart failure,I50.9
+Uncomplicated Heart failure,I50.9
+Early Heart failure,I50.9
+Advanced Heart failure,I50.9
+Intermittent Heart failure,I50.9
+Persistent Heart failure,I50.9
+New onset Heart failure,I50.9
+Long standing Heart failure,I50.9
+Drug induced Heart failure,I50.9
+Post infectious Heart failure,I50.9
+Idiopathic Heart failure,I50.9
+Secondary Heart failure,I50.9
+Primary Heart failure,I50.9
+With complications Heart failure,I50.9
+Without complications Heart failure,I50.9
+Stable Heart failure,I50.9
+Unstable Heart failure,I50.9
+Progressive Heart failure,I50.9
+Non progressive Heart failure,I50.9
+Localized Heart failure,I50.9
+Generalized Heart failure,I50.9
+Atrial fibrillation,I48.9
+Acute Atrial fibrillation,I48.9
+Chronic Atrial fibrillation,I48.9
+Severe Atrial fibrillation,I48.9
+Mild Atrial fibrillation,I48.9
+Moderate Atrial fibrillation,I48.9
+Recurrent Atrial fibrillation,I48.9
+Suspected Atrial fibrillation,I48.9
+Uncontrolled Atrial fibrillation,I48.9
+Controlled Atrial fibrillation,I48.9
+Complicated Atrial fibrillation,I48.9
+Uncomplicated Atrial fibrillation,I48.9
+Early Atrial fibrillation,I48.9
+Advanced Atrial fibrillation,I48.9
+Intermittent Atrial fibrillation,I48.9
+Persistent Atrial fibrillation,I48.9
+New onset Atrial fibrillation,I48.9
+Long standing Atrial fibrillation,I48.9
+Drug induced Atrial fibrillation,I48.9
+Post infectious Atrial fibrillation,I48.9
+Idiopathic Atrial fibrillation,I48.9
+Secondary Atrial fibrillation,I48.9
+Primary Atrial fibrillation,I48.9
+With complications Atrial fibrillation,I48.9
+Without complications Atrial fibrillation,I48.9
+Stable Atrial fibrillation,I48.9
+Unstable Atrial fibrillation,I48.9
+Progressive Atrial fibrillation,I48.9
+Non progressive Atrial fibrillation,I48.9
+Localized Atrial fibrillation,I48.9
+Generalized Atrial fibrillation,I48.9
+Ischemic stroke,I63.9
+Acute Ischemic stroke,I63.9
+Chronic Ischemic stroke,I63.9
+Severe Ischemic stroke,I63.9
+Mild Ischemic stroke,I63.9
+Moderate Ischemic stroke,I63.9
+Recurrent Ischemic stroke,I63.9
+Suspected Ischemic stroke,I63.9
+Uncontrolled Ischemic stroke,I63.9
+Controlled Ischemic stroke,I63.9
+Complicated Ischemic stroke,I63.9
+Uncomplicated Ischemic stroke,I63.9
+Early Ischemic stroke,I63.9
+Advanced Ischemic stroke,I63.9
+Intermittent Ischemic stroke,I63.9
+Persistent Ischemic stroke,I63.9
+New onset Ischemic stroke,I63.9
+Long standing Ischemic stroke,I63.9
+Drug induced Ischemic stroke,I63.9
+Post infectious Ischemic stroke,I63.9
+Idiopathic Ischemic stroke,I63.9
+Secondary Ischemic stroke,I63.9
+Primary Ischemic stroke,I63.9
+With complications Ischemic stroke,I63.9
+Without complications Ischemic stroke,I63.9
+Stable Ischemic stroke,I63.9
+Unstable Ischemic stroke,I63.9
+Progressive Ischemic stroke,I63.9
+Non progressive Ischemic stroke,I63.9
+Localized Ischemic stroke,I63.9
+Generalized Ischemic stroke,I63.9
+Hemorrhagic stroke,I61.9
+Acute Hemorrhagic stroke,I61.9
+Chronic Hemorrhagic stroke,I61.9
+Severe Hemorrhagic stroke,I61.9
+Mild Hemorrhagic stroke,I61.9
+Moderate Hemorrhagic stroke,I61.9
+Recurrent Hemorrhagic stroke,I61.9
+Suspected Hemorrhagic stroke,I61.9
+Uncontrolled Hemorrhagic stroke,I61.9
+Controlled Hemorrhagic stroke,I61.9
+Complicated Hemorrhagic stroke,I61.9
+Uncomplicated Hemorrhagic stroke,I61.9
+Early Hemorrhagic stroke,I61.9
+Advanced Hemorrhagic stroke,I61.9
+Intermittent Hemorrhagic stroke,I61.9
+Persistent Hemorrhagic stroke,I61.9
+New onset Hemorrhagic stroke,I61.9
+Long standing Hemorrhagic stroke,I61.9
+Drug induced Hemorrhagic stroke,I61.9
+Post infectious Hemorrhagic stroke,I61.9
+Idiopathic Hemorrhagic stroke,I61.9
+Secondary Hemorrhagic stroke,I61.9
+Primary Hemorrhagic stroke,I61.9
+With complications Hemorrhagic stroke,I61.9
+Without complications Hemorrhagic stroke,I61.9
+Stable Hemorrhagic stroke,I61.9
+Unstable Hemorrhagic stroke,I61.9
+Progressive Hemorrhagic stroke,I61.9
+Non progressive Hemorrhagic stroke,I61.9
+Localized Hemorrhagic stroke,I61.9
+Generalized Hemorrhagic stroke,I61.9
+Migraine,G43.9
+Acute Migraine,G43.9
+Chronic Migraine,G43.9
+Severe Migraine,G43.9
+Mild Migraine,G43.9
+Moderate Migraine,G43.9
+Recurrent Migraine,G43.9
+Suspected Migraine,G43.9
+Uncontrolled Migraine,G43.9
+Controlled Migraine,G43.9
+Complicated Migraine,G43.9
+Uncomplicated Migraine,G43.9
+Early Migraine,G43.9
+Advanced Migraine,G43.9
+Intermittent Migraine,G43.9
+Persistent Migraine,G43.9
+New onset Migraine,G43.9
+Long standing Migraine,G43.9
+Drug induced Migraine,G43.9
+Post infectious Migraine,G43.9
+Idiopathic Migraine,G43.9
+Secondary Migraine,G43.9
+Primary Migraine,G43.9
+With complications Migraine,G43.9
+Without complications Migraine,G43.9
+Stable Migraine,G43.9
+Unstable Migraine,G43.9
+Progressive Migraine,G43.9
+Non progressive Migraine,G43.9
+Localized Migraine,G43.9
+Generalized Migraine,G43.9
+Epilepsy,G40.9
+Acute Epilepsy,G40.9
+Chronic Epilepsy,G40.9
+Severe Epilepsy,G40.9
+Mild Epilepsy,G40.9
+Moderate Epilepsy,G40.9
+Recurrent Epilepsy,G40.9
+Suspected Epilepsy,G40.9
+Uncontrolled Epilepsy,G40.9
+Controlled Epilepsy,G40.9
+Complicated Epilepsy,G40.9
+Uncomplicated Epilepsy,G40.9
+Early Epilepsy,G40.9
+Advanced Epilepsy,G40.9
+Intermittent Epilepsy,G40.9
+Persistent Epilepsy,G40.9
+New onset Epilepsy,G40.9
+Long standing Epilepsy,G40.9
+Drug induced Epilepsy,G40.9
+Post infectious Epilepsy,G40.9
+Idiopathic Epilepsy,G40.9
+Secondary Epilepsy,G40.9
+Primary Epilepsy,G40.9
+With complications Epilepsy,G40.9
+Without complications Epilepsy,G40.9
+Stable Epilepsy,G40.9
+Unstable Epilepsy,G40.9
+Progressive Epilepsy,G40.9
+Non progressive Epilepsy,G40.9
+Localized Epilepsy,G40.9
+Generalized Epilepsy,G40.9
+Parkinson disease,G20
+Acute Parkinson disease,G20
+Chronic Parkinson disease,G20
+Severe Parkinson disease,G20
+Mild Parkinson disease,G20
+Moderate Parkinson disease,G20
+Recurrent Parkinson disease,G20
+Suspected Parkinson disease,G20
+Uncontrolled Parkinson disease,G20
+Controlled Parkinson disease,G20
+Complicated Parkinson disease,G20
+Uncomplicated Parkinson disease,G20
+Early Parkinson disease,G20
+Advanced Parkinson disease,G20
+Intermittent Parkinson disease,G20
+Persistent Parkinson disease,G20
+New onset Parkinson disease,G20
+Long standing Parkinson disease,G20
+Drug induced Parkinson disease,G20
+Post infectious Parkinson disease,G20
+Idiopathic Parkinson disease,G20
+Secondary Parkinson disease,G20
+Primary Parkinson disease,G20
+With complications Parkinson disease,G20
+Without complications Parkinson disease,G20
+Stable Parkinson disease,G20
+Unstable Parkinson disease,G20
+Progressive Parkinson disease,G20
+Non progressive Parkinson disease,G20
+Localized Parkinson disease,G20
+Generalized Parkinson disease,G20
+Alzheimer disease,G30.9
+Acute Alzheimer disease,G30.9
+Chronic Alzheimer disease,G30.9
+Severe Alzheimer disease,G30.9
+Mild Alzheimer disease,G30.9
+Moderate Alzheimer disease,G30.9
+Recurrent Alzheimer disease,G30.9
+Suspected Alzheimer disease,G30.9
+Uncontrolled Alzheimer disease,G30.9
+Controlled Alzheimer disease,G30.9
+Complicated Alzheimer disease,G30.9
+Uncomplicated Alzheimer disease,G30.9
+Early Alzheimer disease,G30.9
+Advanced Alzheimer disease,G30.9
+Intermittent Alzheimer disease,G30.9
+Persistent Alzheimer disease,G30.9
+New onset Alzheimer disease,G30.9
+Long standing Alzheimer disease,G30.9
+Drug induced Alzheimer disease,G30.9
+Post infectious Alzheimer disease,G30.9
+Idiopathic Alzheimer disease,G30.9
+Secondary Alzheimer disease,G30.9
+Primary Alzheimer disease,G30.9
+With complications Alzheimer disease,G30.9
+Without complications Alzheimer disease,G30.9
+Stable Alzheimer disease,G30.9
+Unstable Alzheimer disease,G30.9
+Progressive Alzheimer disease,G30.9
+Non progressive Alzheimer disease,G30.9
+Localized Alzheimer disease,G30.9
+Generalized Alzheimer disease,G30.9
+Asthma,J45.9
+Acute Asthma,J45.9
+Chronic Asthma,J45.9
+Severe Asthma,J45.9
+Mild Asthma,J45.9
+Moderate Asthma,J45.9
+Recurrent Asthma,J45.9
+Suspected Asthma,J45.9
+Uncontrolled Asthma,J45.9
+Controlled Asthma,J45.9
+Complicated Asthma,J45.9
+Uncomplicated Asthma,J45.9
+Early Asthma,J45.9
+Advanced Asthma,J45.9
+Intermittent Asthma,J45.9
+Persistent Asthma,J45.9
+New onset Asthma,J45.9
+Long standing Asthma,J45.9
+Drug induced Asthma,J45.9
+Post infectious Asthma,J45.9
+Idiopathic Asthma,J45.9
+Secondary Asthma,J45.9
+Primary Asthma,J45.9
+With complications Asthma,J45.9
+Without complications Asthma,J45.9
+Stable Asthma,J45.9
+Unstable Asthma,J45.9
+Progressive Asthma,J45.9
+Non progressive Asthma,J45.9
+Localized Asthma,J45.9
+Generalized Asthma,J45.9
+Chronic obstructive pulmonary disease,J44.9
+Acute Chronic obstructive pulmonary disease,J44.9
+Chronic Chronic obstructive pulmonary disease,J44.9
+Severe Chronic obstructive pulmonary disease,J44.9
+Mild Chronic obstructive pulmonary disease,J44.9
+Moderate Chronic obstructive pulmonary disease,J44.9
+Recurrent Chronic obstructive pulmonary disease,J44.9
+Suspected Chronic obstructive pulmonary disease,J44.9
+Uncontrolled Chronic obstructive pulmonary disease,J44.9
+Controlled Chronic obstructive pulmonary disease,J44.9
+Complicated Chronic obstructive pulmonary disease,J44.9
+Uncomplicated Chronic obstructive pulmonary disease,J44.9
+Early Chronic obstructive pulmonary disease,J44.9
+Advanced Chronic obstructive pulmonary disease,J44.9
+Intermittent Chronic obstructive pulmonary disease,J44.9
+Persistent Chronic obstructive pulmonary disease,J44.9
+New onset Chronic obstructive pulmonary disease,J44.9
+Long standing Chronic obstructive pulmonary disease,J44.9
+Drug induced Chronic obstructive pulmonary disease,J44.9
+Post infectious Chronic obstructive pulmonary disease,J44.9
+Idiopathic Chronic obstructive pulmonary disease,J44.9
+Secondary Chronic obstructive pulmonary disease,J44.9
+Primary Chronic obstructive pulmonary disease,J44.9
+With complications Chronic obstructive pulmonary disease,J44.9
+Without complications Chronic obstructive pulmonary disease,J44.9
+Stable Chronic obstructive pulmonary disease,J44.9
+Unstable Chronic obstructive pulmonary disease,J44.9
+Progressive Chronic obstructive pulmonary disease,J44.9
+Non progressive Chronic obstructive pulmonary disease,J44.9
+Localized Chronic obstructive pulmonary disease,J44.9
+Generalized Chronic obstructive pulmonary disease,J44.9
+Pneumonia,J18.9
+Acute Pneumonia,J18.9
+Chronic Pneumonia,J18.9
+Severe Pneumonia,J18.9
+Mild Pneumonia,J18.9
+Moderate Pneumonia,J18.9
+Recurrent Pneumonia,J18.9
+Suspected Pneumonia,J18.9
+Uncontrolled Pneumonia,J18.9
+Controlled Pneumonia,J18.9
+Complicated Pneumonia,J18.9
+Uncomplicated Pneumonia,J18.9
+Early Pneumonia,J18.9
+Advanced Pneumonia,J18.9
+Intermittent Pneumonia,J18.9
+Persistent Pneumonia,J18.9
+New onset Pneumonia,J18.9
+Long standing Pneumonia,J18.9
+Drug induced Pneumonia,J18.9
+Post infectious Pneumonia,J18.9
+Idiopathic Pneumonia,J18.9
+Secondary Pneumonia,J18.9
+Primary Pneumonia,J18.9
+With complications Pneumonia,J18.9
+Without complications Pneumonia,J18.9
+Stable Pneumonia,J18.9
+Unstable Pneumonia,J18.9
+Progressive Pneumonia,J18.9
+Non progressive Pneumonia,J18.9
+Localized Pneumonia,J18.9
+Generalized Pneumonia,J18.9
+Acute bronchitis,J20.9
+Acute Acute bronchitis,J20.9
+Chronic Acute bronchitis,J20.9
+Severe Acute bronchitis,J20.9
+Mild Acute bronchitis,J20.9
+Moderate Acute bronchitis,J20.9
+Recurrent Acute bronchitis,J20.9
+Suspected Acute bronchitis,J20.9
+Uncontrolled Acute bronchitis,J20.9
+Controlled Acute bronchitis,J20.9
+Complicated Acute bronchitis,J20.9
+Uncomplicated Acute bronchitis,J20.9
+Early Acute bronchitis,J20.9
+Advanced Acute bronchitis,J20.9
+Intermittent Acute bronchitis,J20.9
+Persistent Acute bronchitis,J20.9
+New onset Acute bronchitis,J20.9
+Long standing Acute bronchitis,J20.9
+Drug induced Acute bronchitis,J20.9
+Post infectious Acute bronchitis,J20.9
+Idiopathic Acute bronchitis,J20.9
+Secondary Acute bronchitis,J20.9
+Primary Acute bronchitis,J20.9
+With complications Acute bronchitis,J20.9
+Without complications Acute bronchitis,J20.9
+Stable Acute bronchitis,J20.9
+Unstable Acute bronchitis,J20.9
+Progressive Acute bronchitis,J20.9
+Non progressive Acute bronchitis,J20.9
+Localized Acute bronchitis,J20.9
+Generalized Acute bronchitis,J20.9
+Common cold,J00
+Acute Common cold,J00
+Chronic Common cold,J00
+Severe Common cold,J00
+Mild Common cold,J00
+Moderate Common cold,J00
+Recurrent Common cold,J00
+Suspected Common cold,J00
+Uncontrolled Common cold,J00
+Controlled Common cold,J00
+Complicated Common cold,J00
+Uncomplicated Common cold,J00
+Early Common cold,J00
+Advanced Common cold,J00
+Intermittent Common cold,J00
+Persistent Common cold,J00
+New onset Common cold,J00
+Long standing Common cold,J00
+Drug induced Common cold,J00
+Post infectious Common cold,J00
+Idiopathic Common cold,J00
+Secondary Common cold,J00
+Primary Common cold,J00
+With complications Common cold,J00
+Without complications Common cold,J00
+Stable Common cold,J00
+Unstable Common cold,J00
+Progressive Common cold,J00
+Non progressive Common cold,J00
+Localized Common cold,J00
+Generalized Common cold,J00
+Pulmonary tuberculosis,A15.0
+Acute Pulmonary tuberculosis,A15.0
+Chronic Pulmonary tuberculosis,A15.0
+Severe Pulmonary tuberculosis,A15.0
+Mild Pulmonary tuberculosis,A15.0
+Moderate Pulmonary tuberculosis,A15.0
+Recurrent Pulmonary tuberculosis,A15.0
+Suspected Pulmonary tuberculosis,A15.0
+Uncontrolled Pulmonary tuberculosis,A15.0
+Controlled Pulmonary tuberculosis,A15.0
+Complicated Pulmonary tuberculosis,A15.0
+Uncomplicated Pulmonary tuberculosis,A15.0
+Early Pulmonary tuberculosis,A15.0
+Advanced Pulmonary tuberculosis,A15.0
+Intermittent Pulmonary tuberculosis,A15.0
+Persistent Pulmonary tuberculosis,A15.0
+New onset Pulmonary tuberculosis,A15.0
+Long standing Pulmonary tuberculosis,A15.0
+Drug induced Pulmonary tuberculosis,A15.0
+Post infectious Pulmonary tuberculosis,A15.0
+Idiopathic Pulmonary tuberculosis,A15.0
+Secondary Pulmonary tuberculosis,A15.0
+Primary Pulmonary tuberculosis,A15.0
+With complications Pulmonary tuberculosis,A15.0
+Without complications Pulmonary tuberculosis,A15.0
+Stable Pulmonary tuberculosis,A15.0
+Unstable Pulmonary tuberculosis,A15.0
+Progressive Pulmonary tuberculosis,A15.0
+Non progressive Pulmonary tuberculosis,A15.0
+Localized Pulmonary tuberculosis,A15.0
+Generalized Pulmonary tuberculosis,A15.0
+Urinary tract infection,N39.0
+Acute Urinary tract infection,N39.0
+Chronic Urinary tract infection,N39.0
+Severe Urinary tract infection,N39.0
+Mild Urinary tract infection,N39.0
+Moderate Urinary tract infection,N39.0
+Recurrent Urinary tract infection,N39.0
+Suspected Urinary tract infection,N39.0
+Uncontrolled Urinary tract infection,N39.0
+Controlled Urinary tract infection,N39.0
+Complicated Urinary tract infection,N39.0
+Uncomplicated Urinary tract infection,N39.0
+Early Urinary tract infection,N39.0
+Advanced Urinary tract infection,N39.0
+Intermittent Urinary tract infection,N39.0
+Persistent Urinary tract infection,N39.0
+New onset Urinary tract infection,N39.0
+Long standing Urinary tract infection,N39.0
+Drug induced Urinary tract infection,N39.0
+Post infectious Urinary tract infection,N39.0
+Idiopathic Urinary tract infection,N39.0
+Secondary Urinary tract infection,N39.0
+Primary Urinary tract infection,N39.0
+With complications Urinary tract infection,N39.0
+Without complications Urinary tract infection,N39.0
+Stable Urinary tract infection,N39.0
+Unstable Urinary tract infection,N39.0
+Progressive Urinary tract infection,N39.0
+Non progressive Urinary tract infection,N39.0
+Localized Urinary tract infection,N39.0
+Generalized Urinary tract infection,N39.0
+Chronic kidney disease,N18.9
+Acute Chronic kidney disease,N18.9
+Chronic Chronic kidney disease,N18.9
+Severe Chronic kidney disease,N18.9
+Mild Chronic kidney disease,N18.9
+Moderate Chronic kidney disease,N18.9
+Recurrent Chronic kidney disease,N18.9
+Suspected Chronic kidney disease,N18.9
+Uncontrolled Chronic kidney disease,N18.9
+Controlled Chronic kidney disease,N18.9
+Complicated Chronic kidney disease,N18.9
+Uncomplicated Chronic kidney disease,N18.9
+Early Chronic kidney disease,N18.9
+Advanced Chronic kidney disease,N18.9
+Intermittent Chronic kidney disease,N18.9
+Persistent Chronic kidney disease,N18.9
+New onset Chronic kidney disease,N18.9
+Long standing Chronic kidney disease,N18.9
+Drug induced Chronic kidney disease,N18.9
+Post infectious Chronic kidney disease,N18.9
+Idiopathic Chronic kidney disease,N18.9
+Secondary Chronic kidney disease,N18.9
+Primary Chronic kidney disease,N18.9
+With complications Chronic kidney disease,N18.9
+Without complications Chronic kidney disease,N18.9
+Stable Chronic kidney disease,N18.9
+Unstable Chronic kidney disease,N18.9
+Progressive Chronic kidney disease,N18.9
+Non progressive Chronic kidney disease,N18.9
+Localized Chronic kidney disease,N18.9
+Generalized Chronic kidney disease,N18.9
+Acute kidney injury,N17.9
+Acute Acute kidney injury,N17.9
+Chronic Acute kidney injury,N17.9
+Severe Acute kidney injury,N17.9
+Mild Acute kidney injury,N17.9
+Moderate Acute kidney injury,N17.9
+Recurrent Acute kidney injury,N17.9
+Suspected Acute kidney injury,N17.9
+Uncontrolled Acute kidney injury,N17.9
+Controlled Acute kidney injury,N17.9
+Complicated Acute kidney injury,N17.9
+Uncomplicated Acute kidney injury,N17.9
+Early Acute kidney injury,N17.9
+Advanced Acute kidney injury,N17.9
+Intermittent Acute kidney injury,N17.9
+Persistent Acute kidney injury,N17.9
+New onset Acute kidney injury,N17.9
+Long standing Acute kidney injury,N17.9
+Drug induced Acute kidney injury,N17.9
+Post infectious Acute kidney injury,N17.9
+Idiopathic Acute kidney injury,N17.9
+Secondary Acute kidney injury,N17.9
+Primary Acute kidney injury,N17.9
+With complications Acute kidney injury,N17.9
+Without complications Acute kidney injury,N17.9
+Stable Acute kidney injury,N17.9
+Unstable Acute kidney injury,N17.9
+Progressive Acute kidney injury,N17.9
+Non progressive Acute kidney injury,N17.9
+Localized Acute kidney injury,N17.9
+Generalized Acute kidney injury,N17.9
+Benign prostatic hyperplasia,N40
+Acute Benign prostatic hyperplasia,N40
+Chronic Benign prostatic hyperplasia,N40
+Severe Benign prostatic hyperplasia,N40
+Mild Benign prostatic hyperplasia,N40
+Moderate Benign prostatic hyperplasia,N40
+Recurrent Benign prostatic hyperplasia,N40
+Suspected Benign prostatic hyperplasia,N40
+Uncontrolled Benign prostatic hyperplasia,N40
+Controlled Benign prostatic hyperplasia,N40
+Complicated Benign prostatic hyperplasia,N40
+Uncomplicated Benign prostatic hyperplasia,N40
+Early Benign prostatic hyperplasia,N40
+Advanced Benign prostatic hyperplasia,N40
+Intermittent Benign prostatic hyperplasia,N40
+Persistent Benign prostatic hyperplasia,N40
+New onset Benign prostatic hyperplasia,N40
+Long standing Benign prostatic hyperplasia,N40
+Drug induced Benign prostatic hyperplasia,N40
+Post infectious Benign prostatic hyperplasia,N40
+Idiopathic Benign prostatic hyperplasia,N40
+Secondary Benign prostatic hyperplasia,N40
+Primary Benign prostatic hyperplasia,N40
+With complications Benign prostatic hyperplasia,N40
+Without complications Benign prostatic hyperplasia,N40
+Stable Benign prostatic hyperplasia,N40
+Unstable Benign prostatic hyperplasia,N40
+Progressive Benign prostatic hyperplasia,N40
+Non progressive Benign prostatic hyperplasia,N40
+Localized Benign prostatic hyperplasia,N40
+Generalized Benign prostatic hyperplasia,N40
+Osteoarthritis,M19.9
+Acute Osteoarthritis,M19.9
+Chronic Osteoarthritis,M19.9
+Severe Osteoarthritis,M19.9
+Mild Osteoarthritis,M19.9
+Moderate Osteoarthritis,M19.9
+Recurrent Osteoarthritis,M19.9
+Suspected Osteoarthritis,M19.9
+Uncontrolled Osteoarthritis,M19.9
+Controlled Osteoarthritis,M19.9
+Complicated Osteoarthritis,M19.9
+Uncomplicated Osteoarthritis,M19.9
+Early Osteoarthritis,M19.9
+Advanced Osteoarthritis,M19.9
+Intermittent Osteoarthritis,M19.9
+Persistent Osteoarthritis,M19.9
+New onset Osteoarthritis,M19.9
+Long standing Osteoarthritis,M19.9
+Drug induced Osteoarthritis,M19.9
+Post infectious Osteoarthritis,M19.9
+Idiopathic Osteoarthritis,M19.9
+Secondary Osteoarthritis,M19.9
+Primary Osteoarthritis,M19.9
+With complications Osteoarthritis,M19.9
+Without complications Osteoarthritis,M19.9
+Stable Osteoarthritis,M19.9
+Unstable Osteoarthritis,M19.9
+Progressive Osteoarthritis,M19.9
+Non progressive Osteoarthritis,M19.9
+Localized Osteoarthritis,M19.9
+Generalized Osteoarthritis,M19.9
+Rheumatoid arthritis,M06.9
+Acute Rheumatoid arthritis,M06.9
+Chronic Rheumatoid arthritis,M06.9
+Severe Rheumatoid arthritis,M06.9
+Mild Rheumatoid arthritis,M06.9
+Moderate Rheumatoid arthritis,M06.9
+Recurrent Rheumatoid arthritis,M06.9
+Suspected Rheumatoid arthritis,M06.9
+Uncontrolled Rheumatoid arthritis,M06.9
+Controlled Rheumatoid arthritis,M06.9
+Complicated Rheumatoid arthritis,M06.9
+Uncomplicated Rheumatoid arthritis,M06.9
+Early Rheumatoid arthritis,M06.9
+Advanced Rheumatoid arthritis,M06.9
+Intermittent Rheumatoid arthritis,M06.9
+Persistent Rheumatoid arthritis,M06.9
+New onset Rheumatoid arthritis,M06.9
+Long standing Rheumatoid arthritis,M06.9
+Drug induced Rheumatoid arthritis,M06.9
+Post infectious Rheumatoid arthritis,M06.9
+Idiopathic Rheumatoid arthritis,M06.9
+Secondary Rheumatoid arthritis,M06.9
+Primary Rheumatoid arthritis,M06.9
+With complications Rheumatoid arthritis,M06.9
+Without complications Rheumatoid arthritis,M06.9
+Stable Rheumatoid arthritis,M06.9
+Unstable Rheumatoid arthritis,M06.9
+Progressive Rheumatoid arthritis,M06.9
+Non progressive Rheumatoid arthritis,M06.9
+Localized Rheumatoid arthritis,M06.9
+Generalized Rheumatoid arthritis,M06.9
+Gout,M10.9
+Acute Gout,M10.9
+Chronic Gout,M10.9
+Severe Gout,M10.9
+Mild Gout,M10.9
+Moderate Gout,M10.9
+Recurrent Gout,M10.9
+Suspected Gout,M10.9
+Uncontrolled Gout,M10.9
+Controlled Gout,M10.9
+Complicated Gout,M10.9
+Uncomplicated Gout,M10.9
+Early Gout,M10.9
+Advanced Gout,M10.9
+Intermittent Gout,M10.9
+Persistent Gout,M10.9
+New onset Gout,M10.9
+Long standing Gout,M10.9
+Drug induced Gout,M10.9
+Post infectious Gout,M10.9
+Idiopathic Gout,M10.9
+Secondary Gout,M10.9
+Primary Gout,M10.9
+With complications Gout,M10.9
+Without complications Gout,M10.9
+Stable Gout,M10.9
+Unstable Gout,M10.9
+Progressive Gout,M10.9
+Non progressive Gout,M10.9
+Localized Gout,M10.9
+Generalized Gout,M10.9
+Low back pain,M54.5
+Acute Low back pain,M54.5
+Chronic Low back pain,M54.5
+Severe Low back pain,M54.5
+Mild Low back pain,M54.5
+Moderate Low back pain,M54.5
+Recurrent Low back pain,M54.5
+Suspected Low back pain,M54.5
+Uncontrolled Low back pain,M54.5
+Controlled Low back pain,M54.5
+Complicated Low back pain,M54.5
+Uncomplicated Low back pain,M54.5
+Early Low back pain,M54.5
+Advanced Low back pain,M54.5
+Intermittent Low back pain,M54.5
+Persistent Low back pain,M54.5
+New onset Low back pain,M54.5
+Long standing Low back pain,M54.5
+Drug induced Low back pain,M54.5
+Post infectious Low back pain,M54.5
+Idiopathic Low back pain,M54.5
+Secondary Low back pain,M54.5
+Primary Low back pain,M54.5
+With complications Low back pain,M54.5
+Without complications Low back pain,M54.5
+Stable Low back pain,M54.5
+Unstable Low back pain,M54.5
+Progressive Low back pain,M54.5
+Non progressive Low back pain,M54.5
+Localized Low back pain,M54.5
+Generalized Low back pain,M54.5
+Cervical spondylosis,M47.9
+Acute Cervical spondylosis,M47.9
+Chronic Cervical spondylosis,M47.9
+Severe Cervical spondylosis,M47.9
+Mild Cervical spondylosis,M47.9
+Moderate Cervical spondylosis,M47.9
+Recurrent Cervical spondylosis,M47.9
+Suspected Cervical spondylosis,M47.9
+Uncontrolled Cervical spondylosis,M47.9
+Controlled Cervical spondylosis,M47.9
+Complicated Cervical spondylosis,M47.9
+Uncomplicated Cervical spondylosis,M47.9
+Early Cervical spondylosis,M47.9
+Advanced Cervical spondylosis,M47.9
+Intermittent Cervical spondylosis,M47.9
+Persistent Cervical spondylosis,M47.9
+New onset Cervical spondylosis,M47.9
+Long standing Cervical spondylosis,M47.9
+Drug induced Cervical spondylosis,M47.9
+Post infectious Cervical spondylosis,M47.9
+Idiopathic Cervical spondylosis,M47.9
+Secondary Cervical spondylosis,M47.9
+Primary Cervical spondylosis,M47.9
+With complications Cervical spondylosis,M47.9
+Without complications Cervical spondylosis,M47.9
+Stable Cervical spondylosis,M47.9
+Unstable Cervical spondylosis,M47.9
+Progressive Cervical spondylosis,M47.9
+Non progressive Cervical spondylosis,M47.9
+Localized Cervical spondylosis,M47.9
+Generalized Cervical spondylosis,M47.9
+Osteoporosis,M81.0
+Acute Osteoporosis,M81.0
+Chronic Osteoporosis,M81.0
+Severe Osteoporosis,M81.0
+Mild Osteoporosis,M81.0
+Moderate Osteoporosis,M81.0
+Recurrent Osteoporosis,M81.0
+Suspected Osteoporosis,M81.0
+Uncontrolled Osteoporosis,M81.0
+Controlled Osteoporosis,M81.0
+Complicated Osteoporosis,M81.0
+Uncomplicated Osteoporosis,M81.0
+Early Osteoporosis,M81.0
+Advanced Osteoporosis,M81.0
+Intermittent Osteoporosis,M81.0
+Persistent Osteoporosis,M81.0
+New onset Osteoporosis,M81.0
+Long standing Osteoporosis,M81.0
+Drug induced Osteoporosis,M81.0
+Post infectious Osteoporosis,M81.0
+Idiopathic Osteoporosis,M81.0
+Secondary Osteoporosis,M81.0
+Primary Osteoporosis,M81.0
+With complications Osteoporosis,M81.0
+Without complications Osteoporosis,M81.0
+Stable Osteoporosis,M81.0
+Unstable Osteoporosis,M81.0
+Progressive Osteoporosis,M81.0
+Non progressive Osteoporosis,M81.0
+Localized Osteoporosis,M81.0
+Generalized Osteoporosis,M81.0
+Major depressive disorder,F32.9
+Acute Major depressive disorder,F32.9
+Chronic Major depressive disorder,F32.9
+Severe Major depressive disorder,F32.9
+Mild Major depressive disorder,F32.9
+Moderate Major depressive disorder,F32.9
+Recurrent Major depressive disorder,F32.9
+Suspected Major depressive disorder,F32.9
+Uncontrolled Major depressive disorder,F32.9
+Controlled Major depressive disorder,F32.9
+Complicated Major depressive disorder,F32.9
+Uncomplicated Major depressive disorder,F32.9
+Early Major depressive disorder,F32.9
+Advanced Major depressive disorder,F32.9
+Intermittent Major depressive disorder,F32.9
+Persistent Major depressive disorder,F32.9
+New onset Major depressive disorder,F32.9
+Long standing Major depressive disorder,F32.9
+Drug induced Major depressive disorder,F32.9
+Post infectious Major depressive disorder,F32.9
+Idiopathic Major depressive disorder,F32.9
+Secondary Major depressive disorder,F32.9
+Primary Major depressive disorder,F32.9
+With complications Major depressive disorder,F32.9
+Without complications Major depressive disorder,F32.9
+Stable Major depressive disorder,F32.9
+Unstable Major depressive disorder,F32.9
+Progressive Major depressive disorder,F32.9
+Non progressive Major depressive disorder,F32.9
+Localized Major depressive disorder,F32.9
+Generalized Major depressive disorder,F32.9
+Anxiety disorder,F41.9
+Acute Anxiety disorder,F41.9
+Chronic Anxiety disorder,F41.9
+Severe Anxiety disorder,F41.9
+Mild Anxiety disorder,F41.9
+Moderate Anxiety disorder,F41.9
+Recurrent Anxiety disorder,F41.9
+Suspected Anxiety disorder,F41.9
+Uncontrolled Anxiety disorder,F41.9
+Controlled Anxiety disorder,F41.9
+Complicated Anxiety disorder,F41.9
+Uncomplicated Anxiety disorder,F41.9
+Early Anxiety disorder,F41.9
+Advanced Anxiety disorder,F41.9
+Intermittent Anxiety disorder,F41.9
+Persistent Anxiety disorder,F41.9
+New onset Anxiety disorder,F41.9
+Long standing Anxiety disorder,F41.9
+Drug induced Anxiety disorder,F41.9
+Post infectious Anxiety disorder,F41.9
+Idiopathic Anxiety disorder,F41.9
+Secondary Anxiety disorder,F41.9
+Primary Anxiety disorder,F41.9
+With complications Anxiety disorder,F41.9
+Without complications Anxiety disorder,F41.9
+Stable Anxiety disorder,F41.9
+Unstable Anxiety disorder,F41.9
+Progressive Anxiety disorder,F41.9
+Non progressive Anxiety disorder,F41.9
+Localized Anxiety disorder,F41.9
+Generalized Anxiety disorder,F41.9
+Insomnia,G47.0
+Acute Insomnia,G47.0
+Chronic Insomnia,G47.0
+Severe Insomnia,G47.0
+Mild Insomnia,G47.0
+Moderate Insomnia,G47.0
+Recurrent Insomnia,G47.0
+Suspected Insomnia,G47.0
+Uncontrolled Insomnia,G47.0
+Controlled Insomnia,G47.0
+Complicated Insomnia,G47.0
+Uncomplicated Insomnia,G47.0
+Early Insomnia,G47.0
+Advanced Insomnia,G47.0
+Intermittent Insomnia,G47.0
+Persistent Insomnia,G47.0
+New onset Insomnia,G47.0
+Long standing Insomnia,G47.0
+Drug induced Insomnia,G47.0
+Post infectious Insomnia,G47.0
+Idiopathic Insomnia,G47.0
+Secondary Insomnia,G47.0
+Primary Insomnia,G47.0
+With complications Insomnia,G47.0
+Without complications Insomnia,G47.0
+Stable Insomnia,G47.0
+Unstable Insomnia,G47.0
+Progressive Insomnia,G47.0
+Non progressive Insomnia,G47.0
+Localized Insomnia,G47.0
+Generalized Insomnia,G47.0
+Fever,R50.9
+Acute Fever,R50.9
+Chronic Fever,R50.9
+Severe Fever,R50.9
+Mild Fever,R50.9
+Moderate Fever,R50.9
+Recurrent Fever,R50.9
+Suspected Fever,R50.9
+Uncontrolled Fever,R50.9
+Controlled Fever,R50.9
+Complicated Fever,R50.9
+Uncomplicated Fever,R50.9
+Early Fever,R50.9
+Advanced Fever,R50.9
+Intermittent Fever,R50.9
+Persistent Fever,R50.9
+New onset Fever,R50.9
+Long standing Fever,R50.9
+Drug induced Fever,R50.9
+Post infectious Fever,R50.9
+Idiopathic Fever,R50.9
+Secondary Fever,R50.9
+Primary Fever,R50.9
+With complications Fever,R50.9
+Without complications Fever,R50.9
+Stable Fever,R50.9
+Unstable Fever,R50.9
+Progressive Fever,R50.9
+Non progressive Fever,R50.9
+Localized Fever,R50.9
+Generalized Fever,R50.9
+Abdominal pain,R10.9
+Acute Abdominal pain,R10.9
+Chronic Abdominal pain,R10.9
+Severe Abdominal pain,R10.9
+Mild Abdominal pain,R10.9
+Moderate Abdominal pain,R10.9
+Recurrent Abdominal pain,R10.9
+Suspected Abdominal pain,R10.9
+Uncontrolled Abdominal pain,R10.9
+Controlled Abdominal pain,R10.9
+Complicated Abdominal pain,R10.9
+Uncomplicated Abdominal pain,R10.9
+Early Abdominal pain,R10.9
+Advanced Abdominal pain,R10.9
+Intermittent Abdominal pain,R10.9
+Persistent Abdominal pain,R10.9
+New onset Abdominal pain,R10.9
+Long standing Abdominal pain,R10.9
+Drug induced Abdominal pain,R10.9
+Post infectious Abdominal pain,R10.9
+Idiopathic Abdominal pain,R10.9
+Secondary Abdominal pain,R10.9
+Primary Abdominal pain,R10.9
+With complications Abdominal pain,R10.9
+Without complications Abdominal pain,R10.9
+Stable Abdominal pain,R10.9
+Unstable Abdominal pain,R10.9
+Progressive Abdominal pain,R10.9
+Non progressive Abdominal pain,R10.9
+Localized Abdominal pain,R10.9
+Generalized Abdominal pain,R10.9
+Chest pain,R07.9
+Acute Chest pain,R07.9
+Chronic Chest pain,R07.9
+Severe Chest pain,R07.9
+Mild Chest pain,R07.9
+Moderate Chest pain,R07.9
+Recurrent Chest pain,R07.9
+Suspected Chest pain,R07.9
+Uncontrolled Chest pain,R07.9
+Controlled Chest pain,R07.9
+Complicated Chest pain,R07.9
+Uncomplicated Chest pain,R07.9
+Early Chest pain,R07.9
+Advanced Chest pain,R07.9
+Intermittent Chest pain,R07.9
+Persistent Chest pain,R07.9
+New onset Chest pain,R07.9
+Long standing Chest pain,R07.9
+Drug induced Chest pain,R07.9
+Post infectious Chest pain,R07.9
+Idiopathic Chest pain,R07.9
+Secondary Chest pain,R07.9
+Primary Chest pain,R07.9
+With complications Chest pain,R07.9
+Without complications Chest pain,R07.9
+Stable Chest pain,R07.9
+Unstable Chest pain,R07.9
+Progressive Chest pain,R07.9
+Non progressive Chest pain,R07.9
+Localized Chest pain,R07.9
+Generalized Chest pain,R07.9
+Dyspnea,R06.0
+Acute Dyspnea,R06.0
+Chronic Dyspnea,R06.0
+Severe Dyspnea,R06.0
+Mild Dyspnea,R06.0
+Moderate Dyspnea,R06.0
+Recurrent Dyspnea,R06.0
+Suspected Dyspnea,R06.0
+Uncontrolled Dyspnea,R06.0
+Controlled Dyspnea,R06.0
+Complicated Dyspnea,R06.0
+Uncomplicated Dyspnea,R06.0
+Early Dyspnea,R06.0
+Advanced Dyspnea,R06.0
+Intermittent Dyspnea,R06.0
+Persistent Dyspnea,R06.0
+New onset Dyspnea,R06.0
+Long standing Dyspnea,R06.0
+Drug induced Dyspnea,R06.0
+Post infectious Dyspnea,R06.0
+Idiopathic Dyspnea,R06.0
+Secondary Dyspnea,R06.0
+Primary Dyspnea,R06.0
+With complications Dyspnea,R06.0
+Without complications Dyspnea,R06.0
+Stable Dyspnea,R06.0
+Unstable Dyspnea,R06.0
+Progressive Dyspnea,R06.0
+Non progressive Dyspnea,R06.0
+Localized Dyspnea,R06.0
+Generalized Dyspnea,R06.0
+Cough,R05
+Acute Cough,R05
+Chronic Cough,R05
+Severe Cough,R05
+Mild Cough,R05
+Moderate Cough,R05
+Recurrent Cough,R05
+Suspected Cough,R05
+Uncontrolled Cough,R05
+Controlled Cough,R05
+Complicated Cough,R05
+Uncomplicated Cough,R05
+Early Cough,R05
+Advanced Cough,R05
+Intermittent Cough,R05
+Persistent Cough,R05
+New onset Cough,R05
+Long standing Cough,R05
+Drug induced Cough,R05
+Post infectious Cough,R05
+Idiopathic Cough,R05
+Secondary Cough,R05
+Primary Cough,R05
+With complications Cough,R05
+Without complications Cough,R05
+Stable Cough,R05
+Unstable Cough,R05
+Progressive Cough,R05
+Non progressive Cough,R05
+Localized Cough,R05
+Generalized Cough,R05
+Headache,R51
+Acute Headache,R51
+Chronic Headache,R51
+Severe Headache,R51
+Mild Headache,R51
+Moderate Headache,R51
+Recurrent Headache,R51
+Suspected Headache,R51
+Uncontrolled Headache,R51
+Controlled Headache,R51
+Complicated Headache,R51
+Uncomplicated Headache,R51
+Early Headache,R51
+Advanced Headache,R51
+Intermittent Headache,R51
+Persistent Headache,R51
+New onset Headache,R51
+Long standing Headache,R51
+Drug induced Headache,R51
+Post infectious Headache,R51
+Idiopathic Headache,R51
+Secondary Headache,R51
+Primary Headache,R51
+With complications Headache,R51
+Without complications Headache,R51
+Stable Headache,R51
+Unstable Headache,R51
+Progressive Headache,R51
+Non progressive Headache,R51
+Localized Headache,R51
+Generalized Headache,R51
+Syncope,R55
+Acute Syncope,R55
+Chronic Syncope,R55
+Severe Syncope,R55
+Mild Syncope,R55
+Moderate Syncope,R55
+Recurrent Syncope,R55
+Suspected Syncope,R55
+Uncontrolled Syncope,R55
+Controlled Syncope,R55
+Complicated Syncope,R55
+Uncomplicated Syncope,R55
+Early Syncope,R55
+Advanced Syncope,R55
+Intermittent Syncope,R55
+Persistent Syncope,R55
+New onset Syncope,R55
+Long standing Syncope,R55
+Drug induced Syncope,R55
+Post infectious Syncope,R55
+Idiopathic Syncope,R55
+Secondary Syncope,R55
+Primary Syncope,R55
+With complications Syncope,R55
+Without complications Syncope,R55
+Stable Syncope,R55
+Unstable Syncope,R55
+Progressive Syncope,R55
+Non progressive Syncope,R55
+Localized Syncope,R55
+Generalized Syncope,R55
+Fatigue,R53
+Acute Fatigue,R53
+Chronic Fatigue,R53
+Severe Fatigue,R53
+Mild Fatigue,R53
+Moderate Fatigue,R53
+Recurrent Fatigue,R53
+Suspected Fatigue,R53
+Uncontrolled Fatigue,R53
+Controlled Fatigue,R53
+Complicated Fatigue,R53
+Uncomplicated Fatigue,R53
+Early Fatigue,R53
+Advanced Fatigue,R53
+Intermittent Fatigue,R53
+Persistent Fatigue,R53
+New onset Fatigue,R53
+Long standing Fatigue,R53
+Drug induced Fatigue,R53
+Post infectious Fatigue,R53
+Idiopathic Fatigue,R53
+Secondary Fatigue,R53
+Primary Fatigue,R53
+With complications Fatigue,R53
+Without complications Fatigue,R53
+Stable Fatigue,R53
+Unstable Fatigue,R53
+Progressive Fatigue,R53
+Non progressive Fatigue,R53
+Localized Fatigue,R53
+Generalized Fatigue,R53
+Weight loss,R63.4
+Acute Weight loss,R63.4
+Chronic Weight loss,R63.4
+Severe Weight loss,R63.4
+Mild Weight loss,R63.4
+Moderate Weight loss,R63.4
+Recurrent Weight loss,R63.4
+Suspected Weight loss,R63.4
+Uncontrolled Weight loss,R63.4
+Controlled Weight loss,R63.4
+Complicated Weight loss,R63.4
+Uncomplicated Weight loss,R63.4
+Early Weight loss,R63.4
+Advanced Weight loss,R63.4
+Intermittent Weight loss,R63.4
+Persistent Weight loss,R63.4
+New onset Weight loss,R63.4
+Long standing Weight loss,R63.4
+Drug induced Weight loss,R63.4
+Post infectious Weight loss,R63.4
+Idiopathic Weight loss,R63.4
+Secondary Weight loss,R63.4
+Primary Weight loss,R63.4
+With complications Weight loss,R63.4
+Without complications Weight loss,R63.4
+Stable Weight loss,R63.4
+Unstable Weight loss,R63.4
+Progressive Weight loss,R63.4
+Non progressive Weight loss,R63.4
+Localized Weight loss,R63.4
+Generalized Weight loss,R63.4
+Weight gain,R63.5
+Acute Weight gain,R63.5
+Chronic Weight gain,R63.5
+Severe Weight gain,R63.5
+Mild Weight gain,R63.5
+Moderate Weight gain,R63.5
+Recurrent Weight gain,R63.5
+Suspected Weight gain,R63.5
+Uncontrolled Weight gain,R63.5
+Controlled Weight gain,R63.5
+Complicated Weight gain,R63.5
+Uncomplicated Weight gain,R63.5
+Early Weight gain,R63.5
+Advanced Weight gain,R63.5
+Intermittent Weight gain,R63.5
+Persistent Weight gain,R63.5
+New onset Weight gain,R63.5
+Long standing Weight gain,R63.5
+Drug induced Weight gain,R63.5
+Post infectious Weight gain,R63.5
+Idiopathic Weight gain,R63.5
+Secondary Weight gain,R63.5
+Primary Weight gain,R63.5
+With complications Weight gain,R63.5
+Without complications Weight gain,R63.5
+Stable Weight gain,R63.5
+Unstable Weight gain,R63.5
+Progressive Weight gain,R63.5
+Non progressive Weight gain,R63.5
+Localized Weight gain,R63.5
+Generalized Weight gain,R63.5
+Edema,R60.9
+Acute Edema,R60.9
+Chronic Edema,R60.9
+Severe Edema,R60.9
+Mild Edema,R60.9
+Moderate Edema,R60.9
+Recurrent Edema,R60.9
+Suspected Edema,R60.9
+Uncontrolled Edema,R60.9
+Controlled Edema,R60.9
+Complicated Edema,R60.9
+Uncomplicated Edema,R60.9
+Early Edema,R60.9
+Advanced Edema,R60.9
+Intermittent Edema,R60.9
+Persistent Edema,R60.9
+New onset Edema,R60.9
+Long standing Edema,R60.9
+Drug induced Edema,R60.9
+Post infectious Edema,R60.9
+Idiopathic Edema,R60.9
+Secondary Edema,R60.9
+Primary Edema,R60.9
+With complications Edema,R60.9
+Without complications Edema,R60.9
+Stable Edema,R60.9
+Unstable Edema,R60.9
+Progressive Edema,R60.9
+Non progressive Edema,R60.9
+Localized Edema,R60.9
+Generalized Edema,R60.9
+Nausea,R11
+Acute Nausea,R11
+Chronic Nausea,R11
+Severe Nausea,R11
+Mild Nausea,R11
+Moderate Nausea,R11
+Recurrent Nausea,R11
+Suspected Nausea,R11
+Uncontrolled Nausea,R11
+Controlled Nausea,R11
+Complicated Nausea,R11
+Uncomplicated Nausea,R11
+Early Nausea,R11
+Advanced Nausea,R11
+Intermittent Nausea,R11
+Persistent Nausea,R11
+New onset Nausea,R11
+Long standing Nausea,R11
+Drug induced Nausea,R11
+Post infectious Nausea,R11
+Idiopathic Nausea,R11
+Secondary Nausea,R11
+Primary Nausea,R11
+With complications Nausea,R11
+Without complications Nausea,R11
+Stable Nausea,R11
+Unstable Nausea,R11
+Progressive Nausea,R11
+Non progressive Nausea,R11
+Localized Nausea,R11
+Generalized Nausea,R11
+Vomiting,R11
+Acute Vomiting,R11
+Chronic Vomiting,R11
+Severe Vomiting,R11
+Mild Vomiting,R11
+Moderate Vomiting,R11
+Recurrent Vomiting,R11
+Suspected Vomiting,R11
+Uncontrolled Vomiting,R11
+Controlled Vomiting,R11
+Complicated Vomiting,R11
+Uncomplicated Vomiting,R11
+Early Vomiting,R11
+Advanced Vomiting,R11
+Intermittent Vomiting,R11
+Persistent Vomiting,R11
+New onset Vomiting,R11
+Long standing Vomiting,R11
+Drug induced Vomiting,R11
+Post infectious Vomiting,R11
+Idiopathic Vomiting,R11
+Secondary Vomiting,R11
+Primary Vomiting,R11
+With complications Vomiting,R11
+Without complications Vomiting,R11
+Stable Vomiting,R11
+Unstable Vomiting,R11
+Progressive Vomiting,R11
+Non progressive Vomiting,R11
+Localized Vomiting,R11
+Generalized Vomiting,R11
+Diarrhea,R19.7
+Acute Diarrhea,R19.7
+Chronic Diarrhea,R19.7
+Severe Diarrhea,R19.7
+Mild Diarrhea,R19.7
+Moderate Diarrhea,R19.7
+Recurrent Diarrhea,R19.7
+Suspected Diarrhea,R19.7
+Uncontrolled Diarrhea,R19.7
+Controlled Diarrhea,R19.7
+Complicated Diarrhea,R19.7
+Uncomplicated Diarrhea,R19.7
+Early Diarrhea,R19.7
+Advanced Diarrhea,R19.7
+Intermittent Diarrhea,R19.7
+Persistent Diarrhea,R19.7
+New onset Diarrhea,R19.7
+Long standing Diarrhea,R19.7
+Drug induced Diarrhea,R19.7
+Post infectious Diarrhea,R19.7
+Idiopathic Diarrhea,R19.7
+Secondary Diarrhea,R19.7
+Primary Diarrhea,R19.7
+With complications Diarrhea,R19.7
+Without complications Diarrhea,R19.7
+Stable Diarrhea,R19.7
+Unstable Diarrhea,R19.7
+Progressive Diarrhea,R19.7
+Non progressive Diarrhea,R19.7
+Localized Diarrhea,R19.7
+Generalized Diarrhea,R19.7
+Constipation symptom,R19.4
+Acute Constipation symptom,R19.4
+Chronic Constipation symptom,R19.4
+Severe Constipation symptom,R19.4
+Mild Constipation symptom,R19.4
+Moderate Constipation symptom,R19.4
+Recurrent Constipation symptom,R19.4
+Suspected Constipation symptom,R19.4
+Uncontrolled Constipation symptom,R19.4
+Controlled Constipation symptom,R19.4
+Complicated Constipation symptom,R19.4
+Uncomplicated Constipation symptom,R19.4
+Early Constipation symptom,R19.4
+Advanced Constipation symptom,R19.4
+Intermittent Constipation symptom,R19.4
+Persistent Constipation symptom,R19.4
+New onset Constipation symptom,R19.4
+Long standing Constipation symptom,R19.4
+Drug induced Constipation symptom,R19.4
+Post infectious Constipation symptom,R19.4
+Idiopathic Constipation symptom,R19.4
+Secondary Constipation symptom,R19.4
+Primary Constipation symptom,R19.4
+With complications Constipation symptom,R19.4
+Without complications Constipation symptom,R19.4
+Stable Constipation symptom,R19.4
+Unstable Constipation symptom,R19.4
+Progressive Constipation symptom,R19.4
+Non progressive Constipation symptom,R19.4
+Localized Constipation symptom,R19.4
+Generalized Constipation symptom,R19.4
+Dizziness,R42
+Acute Dizziness,R42
+Chronic Dizziness,R42
+Severe Dizziness,R42
+Mild Dizziness,R42
+Moderate Dizziness,R42
+Recurrent Dizziness,R42
+Suspected Dizziness,R42
+Uncontrolled Dizziness,R42
+Controlled Dizziness,R42
+Complicated Dizziness,R42
+Uncomplicated Dizziness,R42
+Early Dizziness,R42
+Advanced Dizziness,R42
+Intermittent Dizziness,R42
+Persistent Dizziness,R42
+New onset Dizziness,R42
+Long standing Dizziness,R42
+Drug induced Dizziness,R42
+Post infectious Dizziness,R42
+Idiopathic Dizziness,R42
+Secondary Dizziness,R42
+Primary Dizziness,R42
+With complications Dizziness,R42
+Without complications Dizziness,R42
+Stable Dizziness,R42
+Unstable Dizziness,R42
+Progressive Dizziness,R42
+Non progressive Dizziness,R42
+Localized Dizziness,R42
+Generalized Dizziness,R42
+Palpitations,R00.2
+Acute Palpitations,R00.2
+Chronic Palpitations,R00.2
+Severe Palpitations,R00.2
+Mild Palpitations,R00.2
+Moderate Palpitations,R00.2
+Recurrent Palpitations,R00.2
+Suspected Palpitations,R00.2
+Uncontrolled Palpitations,R00.2
+Controlled Palpitations,R00.2
+Complicated Palpitations,R00.2
+Uncomplicated Palpitations,R00.2
+Early Palpitations,R00.2
+Advanced Palpitations,R00.2
+Intermittent Palpitations,R00.2
+Persistent Palpitations,R00.2
+New onset Palpitations,R00.2
+Long standing Palpitations,R00.2
+Drug induced Palpitations,R00.2
+Post infectious Palpitations,R00.2
+Idiopathic Palpitations,R00.2
+Secondary Palpitations,R00.2
+Primary Palpitations,R00.2
+With complications Palpitations,R00.2
+Without complications Palpitations,R00.2
+Stable Palpitations,R00.2
+Unstable Palpitations,R00.2
+Progressive Palpitations,R00.2
+Non progressive Palpitations,R00.2
+Localized Palpitations,R00.2
+Generalized Palpitations,R00.2
+Loss of appetite,R63.0
+Acute Loss of appetite,R63.0
+Chronic Loss of appetite,R63.0
+Severe Loss of appetite,R63.0
+Mild Loss of appetite,R63.0
+Moderate Loss of appetite,R63.0
+Recurrent Loss of appetite,R63.0
+Suspected Loss of appetite,R63.0
+Uncontrolled Loss of appetite,R63.0
+Controlled Loss of appetite,R63.0
+Complicated Loss of appetite,R63.0
+Uncomplicated Loss of appetite,R63.0
+Early Loss of appetite,R63.0
+Advanced Loss of appetite,R63.0
+Intermittent Loss of appetite,R63.0
+Persistent Loss of appetite,R63.0
+New onset Loss of appetite,R63.0
+Long standing Loss of appetite,R63.0
+Drug induced Loss of appetite,R63.0
+Post infectious Loss of appetite,R63.0
+Idiopathic Loss of appetite,R63.0
+Secondary Loss of appetite,R63.0
+Primary Loss of appetite,R63.0
+With complications Loss of appetite,R63.0
+Without complications Loss of appetite,R63.0
+Stable Loss of appetite,R63.0
+Unstable Loss of appetite,R63.0
+Progressive Loss of appetite,R63.0
+Non progressive Loss of appetite,R63.0
+Localized Loss of appetite,R63.0
+Generalized Loss of appetite,R63.0
+Jaundice,R17
+Acute Jaundice,R17
+Chronic Jaundice,R17
+Severe Jaundice,R17
+Mild Jaundice,R17
+Moderate Jaundice,R17
+Recurrent Jaundice,R17
+Suspected Jaundice,R17
+Uncontrolled Jaundice,R17
+Controlled Jaundice,R17
+Complicated Jaundice,R17
+Uncomplicated Jaundice,R17
+Early Jaundice,R17
+Advanced Jaundice,R17
+Intermittent Jaundice,R17
+Persistent Jaundice,R17
+New onset Jaundice,R17
+Long standing Jaundice,R17
+Drug induced Jaundice,R17
+Post infectious Jaundice,R17
+Idiopathic Jaundice,R17
+Secondary Jaundice,R17
+Primary Jaundice,R17
+With complications Jaundice,R17
+Without complications Jaundice,R17
+Stable Jaundice,R17
+Unstable Jaundice,R17
+Progressive Jaundice,R17
+Non progressive Jaundice,R17
+Localized Jaundice,R17
+Generalized Jaundice,R17
+Hematuria,R31.9
+Acute Hematuria,R31.9
+Chronic Hematuria,R31.9
+Severe Hematuria,R31.9
+Mild Hematuria,R31.9
+Moderate Hematuria,R31.9
+Recurrent Hematuria,R31.9
+Suspected Hematuria,R31.9
+Uncontrolled Hematuria,R31.9
+Controlled Hematuria,R31.9
+Complicated Hematuria,R31.9
+Uncomplicated Hematuria,R31.9
+Early Hematuria,R31.9
+Advanced Hematuria,R31.9
+Intermittent Hematuria,R31.9
+Persistent Hematuria,R31.9
+New onset Hematuria,R31.9
+Long standing Hematuria,R31.9
+Drug induced Hematuria,R31.9
+Post infectious Hematuria,R31.9
+Idiopathic Hematuria,R31.9
+Secondary Hematuria,R31.9
+Primary Hematuria,R31.9
+With complications Hematuria,R31.9
+Without complications Hematuria,R31.9
+Stable Hematuria,R31.9
+Unstable Hematuria,R31.9
+Progressive Hematuria,R31.9
+Non progressive Hematuria,R31.9
+Localized Hematuria,R31.9
+Generalized Hematuria,R31.9
