@@ -12,6 +12,9 @@ import FirstTimeSetup from './components/FirstTimeSetup';
 import { getClinicInfo, saveClinicInfo, getReportLayout, saveReportLayout } from './services/clinicService';
 import { subscribeToPatients, savePatient, deletePatient, deleteAllPatients } from './services/patientService';
 
+// Vercel deployment trigger - unblocking build pipeline
+
+
 // ── Test / demo account constants ─────────────────────────────────────────────
 const TEST_DOCTORS = [
   { id: 'doc-test-1', doctorName: 'Test Doctor', doctorTitle: 'MD', specialization: 'General Practice', currentDesignation: '', licenseNumber: 'TEST-001' }
