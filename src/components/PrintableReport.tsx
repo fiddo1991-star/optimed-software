@@ -147,7 +147,7 @@ export default function PrintableReport({ patient, recommendations, prescription
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
   };
 
-  const sectionTitle = (_id: string, text: string, rightContent?: React.ReactNode) => {
+  const sectionTitle = (_id: string, text: string, rightContent?: React.ReactNode, inline?: boolean) => {
     const tStyle = layoutConfig.templateStyle || 'solid-basic';
     const sColor = ts.headerColor || (tStyle === 'solid-dark' ? '#ffffff' : theme.primary);
     const sBg = ts.headerBgColor || (tStyle === 'solid-dark' ? theme.primary : tStyle === 'solid-boxed' ? theme.light : 'transparent');
@@ -157,26 +157,47 @@ export default function PrintableReport({ patient, recommendations, prescription
     const titleContent = (
       <>
         <span>{text}</span>
-        {rightContent && <span style={{ fontSize: globalFs - 1, fontWeight: 'normal', color: 'inherit', opacity: 0.9 }}>{rightContent}</span>}
+        {rightContent && (
+          <span style={{ 
+            fontSize: globalFs - 1, 
+            fontWeight: 'normal', 
+            color: 'inherit', 
+            opacity: 0.9,
+            marginLeft: inline ? 12 : 0 
+          }}>
+            {rightContent}
+          </span>
+        )}
       </>
     );
 
+    const containerStyle: React.CSSProperties = {
+      display: 'flex',
+      justifyContent: inline ? 'flex-start' : 'space-between',
+      alignItems: 'center',
+      fontSize: sFs,
+      fontWeight: sBold,
+      color: sColor,
+      marginBottom: sp.section,
+      marginTop: sp.section
+    };
+
     if (tStyle === 'solid-dark') {
       return (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: sFs, fontWeight: sBold, color: sColor, background: sBg, padding: '4px 10px', borderRadius: '4px', marginBottom: sp.section, marginTop: sp.section }}>
+        <div style={{ ...containerStyle, background: sBg, padding: '4px 10px', borderRadius: '4px' }}>
           {titleContent}
         </div>
       );
     }
     if (tStyle === 'solid-boxed') {
       return (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: sFs, fontWeight: sBold, color: sColor, border: `2px solid ${sColor}`, background: sBg, padding: '4px 8px', borderRadius: '4px', marginBottom: sp.section, marginTop: sp.section, textTransform: 'uppercase' }}>
+        <div style={{ ...containerStyle, border: `2px solid ${sColor}`, background: sBg, padding: '4px 8px', borderRadius: '4px', textTransform: 'uppercase' }}>
           {titleContent}
         </div>
       );
     }
     return (
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: sFs, fontWeight: sBold, color: sColor, borderBottom: `1.5px solid ${sColor}`, paddingBottom: 2, marginBottom: sp.section, marginTop: sp.section }}>
+      <div style={{ ...containerStyle, borderBottom: `1.5px solid ${sColor}`, paddingBottom: 2 }}>
         {titleContent}
       </div>
     );
@@ -367,7 +388,7 @@ export default function PrintableReport({ patient, recommendations, prescription
                     </strong></span>
                   )}
                 </div>
-              ))}
+              ), true)}
             </div>
           )}
 
@@ -518,7 +539,7 @@ export default function PrintableReport({ patient, recommendations, prescription
             <div style={getSectionStyle('followup')}>
               {sectionTitle('followup', 'Follow-Up Plan', (
                 <span><span style={{ fontWeight: 600 }}>Next Appointment:</span> {recommendations.followUpDate}</span>
-              ))}
+              ), true)}
             </div>
           )}
 
