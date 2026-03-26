@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import type { Recommendations, PrescriptionItem, PrescriptionTemplate, Diagnosis } from '../types';
 import { LAB_CATALOG, IMAGING_CATALOG } from '../data/medicalKnowledge';
 import { ICD_CODES } from '../data/icdCodes';
@@ -66,6 +66,27 @@ export default function RecommendationPanel({ recommendations, setRecommendation
   const [newFollowUp, setNewFollowUp] = useState('');
   const [newInstructionTitle, setNewInstructionTitle] = useState('');
   const [newInstruction, setNewInstruction] = useState('');
+
+  // 1. Setup Ref for Date Picker
+  const dateRef = useRef<HTMLInputElement>(null);
+
+  // 2. State Binding Logic for Date Picker
+  const displayValue = useMemo(() => {
+    const val = recommendations.followUpDate || '';
+    if (/^\d{2}\/\d{2}\/\d{4}$/.test(val)) {
+      const [d, m, y] = val.split('/');
+      return `${y}-${m}-${d}`;
+    }
+    return '';
+  }, [recommendations.followUpDate]);
+
+  // 3. onChange Logic for Date Picker
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const date = e.target.value; // yyyy-mm-dd
+    if (!date) return;
+    const [y, m, d] = date.split('-');
+    setRecommendations({ ...recommendations, followUpDate: `${d}/${m}/${y}` });
+  };
 
   // Scroll spy logic
   useEffect(() => {
@@ -882,6 +903,27 @@ export default function RecommendationPanel({ recommendations, setRecommendation
               <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                 <h4 className="text-base font-black text-blue-900 flex items-center gap-2">
                   <span className="text-xl">📅</span> Follow-Up Plan
+                  {/* Integrated Date Picker Toggle */}
+                  <div className="flex items-center ml-2 border-l border-blue-200 pl-3">
+                    <input
+                      type="date"
+                      ref={dateRef}
+                      value={displayValue}
+                      onChange={handleDateChange}
+                      className="opacity-0 absolute w-0 h-0 pointer-events-none"
+                    />
+                    <button
+                      onClick={() => dateRef.current?.showPicker()}
+                      className="flex items-center gap-1.5 px-2.5 py-1.5 bg-blue-100 text-blue-700 rounded-lg text-[11px] font-black uppercase hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+                    >
+                      <span>📅</span> Select Date
+                    </button>
+                    {displayValue && (
+                      <span className="ml-2 text-[10px] font-black text-blue-500 uppercase">
+                        {recommendations.followUpDate}
+                      </span>
+                    )}
+                  </div>
                 </h4>
                 <div className="flex items-center gap-2">
                   <input value={newFollowUp} onChange={e => setNewFollowUp(e.target.value)}
