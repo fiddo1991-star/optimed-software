@@ -210,7 +210,9 @@ export interface Clinic {
 export interface AuthState {
   isAuthenticated: boolean;
   user: User | null;
+  sessionUser?: any | null;
   clinic: Clinic | null;
   loading: boolean;
   error: string | null;
 }
+

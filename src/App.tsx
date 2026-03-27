@@ -8,7 +8,9 @@ import ClinicSettingsModal from './components/ClinicSettingsModal';
 import PatientHistoryPanel from './components/PatientHistoryPanel';
 import ReportCustomizer from './components/ReportCustomizer';
 import WelcomeScreen from './components/WelcomeScreen';
+import LoginScreen from './components/LoginScreen';
 import FirstTimeSetup from './components/FirstTimeSetup';
+
 import { getClinicInfo, saveClinicInfo, getReportLayout, saveReportLayout, initializeClinic } from './services/clinicService';
 import { subscribeToPatients, savePatient, deletePatient, deleteAllPatients } from './services/patientService';
 import { updateUserProfile } from './services/userService';
@@ -89,7 +91,8 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [needsSetup, setNeedsSetup] = useState<boolean | null>(null);
 
-  const { user, clinic, loading, activeProfile, switchProfile } = useAuth();
+  const { user, sessionUser, clinic, loading, activeProfile, switchProfile } = useAuth();
+
   const currentClinicId = clinic?.id || 'default';
   const currentUser = { 
     id: activeProfile?.id || user?.id || 'admin-local', 
@@ -338,7 +341,14 @@ function App() {
 
   if (showWelcome && (clinicInfo.splashSettings?.showSplash !== false)) return <WelcomeScreen clinicInfo={clinicInfo} onComplete={() => setShowWelcome(false)} />;
 
+  if (loading) return null;
+
+  if (!sessionUser) {
+    return <LoginScreen />;
+  }
+
   if (needsSetup === true) {
+
     return (
       <>
         <FirstTimeSetup
@@ -349,8 +359,16 @@ function App() {
             try {
               if (cid === 'default' || !cid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
                 cid = await initializeClinic(info);
-                if (user?.id) {
-                  await updateUserProfile(user.id, { clinicId: cid } as any);
+                if (sessionUser?.id) {
+                  // We also create the profile here for the first time
+                  await updateUserProfile(sessionUser.id, { 
+                    id: sessionUser.id,
+                    clinicId: cid,
+                    full_name: (sessionUser.user_metadata?.full_name || info.doctors[0].doctorName),
+                    role: 'admin',
+                    email: sessionUser.email,
+                    status: 'active'
+                  } as any);
                 }
               } else {
                 await saveClinicInfo(cid, info);

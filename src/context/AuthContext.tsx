@@ -37,10 +37,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const checkSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session?.user) {
-        await fetchUserData(session.user.id);
+        await fetchUserData(session.user);
       } else {
         setState(prev => ({ ...prev, loading: false }));
       }
+
     };
 
     checkSession();
@@ -48,8 +49,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === 'SIGNED_IN' && session?.user) {
-        await fetchUserData(session.user.id);
+        await fetchUserData(session.user);
       } else if (event === 'SIGNED_OUT') {
+
         setState({
           isAuthenticated: false,
           user: null,
@@ -65,9 +67,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, []);
 
-  const fetchUserData = async (userId: string) => {
+  const fetchUserData = async (sUser: any) => {
     try {
-      const profile = await getUserProfile(userId);
+      const profile = await getUserProfile(sUser.id);
+
       if (profile) {
         const clinicData = await getClinic(profile.clinicId);
         
@@ -91,14 +94,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setState({
           isAuthenticated: true,
           user: profile,
+          sessionUser: sUser,
           clinic,
           loading: false,
           error: null,
         });
 
       } else {
-        setState(prev => ({ ...prev, loading: false }));
+        setState(prev => ({ ...prev, loading: false, sessionUser: sUser }));
       }
+
     } catch (err) {
       console.error('Error fetching user data:', err);
       setState(prev => ({ ...prev, loading: false, error: 'Failed to load user profile' }));
