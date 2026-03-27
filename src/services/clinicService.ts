@@ -10,14 +10,13 @@ const CLINIC_TABLE = 'clinics';
 
 // ─── Clinic Record ────────────────────────────────────────────────────────────
 export async function getClinic(clinicId: string): Promise<any | null> {
-  if (!clinicId || clinicId === 'default') return null;
+  if (!clinicId || clinicId === 'default' || !clinicId.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) return null;
 
   const { data, error } = await supabase
     .from(CLINIC_TABLE)
     .select('*')
     .eq('id', clinicId)
     .maybeSingle();
-
 
   if (error) {
     console.error('Error fetching clinic:', error);
@@ -26,6 +25,26 @@ export async function getClinic(clinicId: string): Promise<any | null> {
 
   return data;
 }
+
+export async function initializeClinic(info: ClinicInfo): Promise<string> {
+  const { data, error } = await supabase
+    .from(CLINIC_TABLE)
+    .insert({ 
+      clinic_name: info.clinicName,
+      clinic_info: info,
+      report_layout: {}
+    })
+    .select('id')
+    .single();
+
+  if (error) {
+    console.error('Error initializing clinic:', error);
+    throw error;
+  }
+
+  return data.id;
+}
+
 
 // ─── Clinic Info ──────────────────────────────────────────────────────────────
 export async function getClinicInfo(clinicId: string): Promise<ClinicInfo | null> {

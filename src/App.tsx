@@ -9,8 +9,10 @@ import PatientHistoryPanel from './components/PatientHistoryPanel';
 import ReportCustomizer from './components/ReportCustomizer';
 import WelcomeScreen from './components/WelcomeScreen';
 import FirstTimeSetup from './components/FirstTimeSetup';
-import { getClinicInfo, saveClinicInfo, getReportLayout, saveReportLayout } from './services/clinicService';
+import { getClinicInfo, saveClinicInfo, getReportLayout, saveReportLayout, initializeClinic } from './services/clinicService';
 import { subscribeToPatients, savePatient, deletePatient, deleteAllPatients } from './services/patientService';
+import { updateUserProfile } from './services/userService';
+
 import PinLoginOverlay from './components/PinLoginOverlay';
 import { useAuth, AuthProvider } from './context/AuthContext';
 
@@ -342,8 +344,22 @@ function App() {
         <FirstTimeSetup
           onComplete={async (info) => {
             setClinicInfo(info);
-            await saveClinicInfo(currentClinicId, info);
-            setNeedsSetup(false);
+            let cid = currentClinicId;
+            
+            try {
+              if (cid === 'default' || !cid.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i)) {
+                cid = await initializeClinic(info);
+                if (user?.id) {
+                  await updateUserProfile(user.id, { clinicId: cid } as any);
+                }
+              } else {
+                await saveClinicInfo(cid, info);
+              }
+              setNeedsSetup(false);
+            } catch (err) {
+              console.error('Failed to launch clinic:', err);
+              alert('Error saving clinic. Check database connectivity.');
+            }
           }}
         />
         
@@ -351,8 +367,8 @@ function App() {
         <PinLoginOverlay />
       </>
     );
-
   }
+
 
   if (needsSetup === null || loading) return null;
 
