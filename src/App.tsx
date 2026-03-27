@@ -11,6 +11,10 @@ import WelcomeScreen from './components/WelcomeScreen';
 import FirstTimeSetup from './components/FirstTimeSetup';
 import { getClinicInfo, saveClinicInfo, getReportLayout, saveReportLayout } from './services/clinicService';
 import { subscribeToPatients, savePatient, deletePatient, deleteAllPatients } from './services/patientService';
+import PinLoginOverlay from './components/PinLoginOverlay';
+import { useAuth, AuthProvider } from './context/AuthContext';
+
+
 
 // Vercel deployment trigger - unblocking build pipeline
 
@@ -56,9 +60,12 @@ const DEFAULT_LAYOUT: ReportLayoutConfig = {
 
 export default function AppWrapper() {
   return (
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   );
 }
+
 
 function App() {
   const [step, setStep] = useState(0);
@@ -80,15 +87,26 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [needsSetup, setNeedsSetup] = useState<boolean | null>(null);
 
-  const currentUser = { id: 'admin-local', name: 'Admin', role: 'admin', clinicId: 'clinic-local' };
+  const { user, clinic, loading, activeProfile, switchProfile } = useAuth();
+  const currentClinicId = clinic?.id || 'default';
+  const currentUser = { 
+    id: activeProfile?.id || user?.id || 'admin-local', 
+    name: activeProfile?.full_name || user?.full_name || 'Doctor', 
+    role: activeProfile?.role || user?.role || 'admin', 
+    clinicId: currentClinicId 
+  };
+
+
+
 
   // ── On mount: load clinic info + layout ──────────────────────
   useEffect(() => {
     (async () => {
       const [info, layout] = await Promise.all([
-        getClinicInfo(),
-        getReportLayout(),
+        getClinicInfo(currentClinicId),
+        getReportLayout(currentClinicId),
       ]);
+
       
       if (info) {
         setClinicInfo(info);
@@ -108,8 +126,9 @@ function App() {
 
   // ── Subscribe to patient records (local) ───────────────────
   useEffect(() => {
-    if (needsSetup === true) return;
-    const unsub = subscribeToPatients('local', (records) => {
+    if (needsSetup === true || !currentClinicId || currentClinicId === 'default') return;
+    const unsub = subscribeToPatients(currentClinicId, (records) => {
+
       setSavedRecords(records);
       
       // Inject dummy Pakistani patient if list is empty
@@ -172,28 +191,30 @@ function App() {
           customLabs: [],
           customImaging: []
         };
-        savePatient('local', dummyPatient);
+        savePatient(currentClinicId, dummyPatient);
       }
     });
     return unsub; 
-  }, [needsSetup, clinicInfo.activeDoctorId]);
+  }, [needsSetup, clinicInfo.activeDoctorId, currentClinicId]);
+
 
   // ── Auto-save clinic info whenever it changes ──────────────────
   useEffect(() => {
     // Only save automatically if we are 100% initialized AND NOT in a setup state
-    if (needsSetup !== false) return;
+    if (needsSetup !== false || !currentClinicId || currentClinicId === 'default') return;
     
     // Check if what we're about to save is actually worth saving (not just initial defaults)
     if (clinicInfo.clinicName === 'Test Clinic' && clinicInfo.doctors.length === 1 && !clinicInfo.logoDataUrl) return;
 
-    saveClinicInfo('local', clinicInfo).catch(console.error);
-  }, [clinicInfo, needsSetup]);
+    saveClinicInfo(currentClinicId, clinicInfo).catch(console.error);
+  }, [clinicInfo, needsSetup, currentClinicId]);
 
   // ── Auto-save report layout ────────────────────────────────────
   useEffect(() => {
-    if (needsSetup !== false) return; // Only save AFTER load/setup completes
-    saveReportLayout('local', layoutConfig).catch(console.error);
-  }, [layoutConfig, needsSetup]);
+    if (needsSetup !== false || !currentClinicId || currentClinicId === 'default') return; // Only save AFTER load/setup completes
+    saveReportLayout(currentClinicId, layoutConfig).catch(console.error);
+  }, [layoutConfig, needsSetup, currentClinicId]);
+
 
   const activeDoctor = clinicInfo.doctors.find(d => d.id === clinicInfo.activeDoctorId) || clinicInfo.doctors[0];
 
@@ -217,10 +238,11 @@ function App() {
       doctorId: clinicInfo.activeDoctorId,
       patientData, recommendations, prescriptions,
       selectedLabs, selectedImaging, customLabs, customImaging,
-      clinicId: 'local',
+      clinicId: currentClinicId,
     };
     if (!editingRecordId) setEditingRecordId(recordId);
-    await savePatient('local', record);
+    await savePatient(currentClinicId, record);
+
   }, [patientData, recommendations, prescriptions, selectedLabs, selectedImaging, customLabs, customImaging, clinicInfo.activeDoctorId, editingRecordId]);
 
   const handleNewPatient = useCallback(() => {
@@ -297,12 +319,13 @@ function App() {
   };
 
   const deleteRecord = async (id: string) => {
-    await deletePatient('local', id);
+    await deletePatient(currentClinicId, id);
   };
 
   const clearAllRecords = async () => {
-    await deleteAllPatients('local');
+    await deleteAllPatients(currentClinicId);
   };
+
 
 
   const steps = [
@@ -315,20 +338,29 @@ function App() {
 
   if (needsSetup === true) {
     return (
-      <FirstTimeSetup
-        onComplete={async (info) => {
-          setClinicInfo(info);
-          await saveClinicInfo('local', info);
-          setNeedsSetup(false);
-        }}
-      />
+      <>
+        <FirstTimeSetup
+          onComplete={async (info) => {
+            setClinicInfo(info);
+            await saveClinicInfo(currentClinicId, info);
+            setNeedsSetup(false);
+          }}
+        />
+        
+        {/* Secure PIN Lock */}
+        <PinLoginOverlay />
+      </>
     );
+
   }
 
-  if (needsSetup === null) return null;
+  if (needsSetup === null || loading) return null;
+
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <PinLoginOverlay />
+
       {/* Header */}
       <header className="bg-white border-b shadow-sm sticky top-0 z-40 no-print">
         <div className="max-w-7xl mx-auto px-4 min-h-[3.5rem] py-2 flex items-center justify-between flex-wrap gap-2">
@@ -341,9 +373,16 @@ function App() {
               <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white text-sm font-bold shadow-sm">M</div>
             )}
             <div>
-              <h1 className="text-sm font-bold text-gray-800 leading-tight">{clinicInfo.clinicName}</h1>
+              <div className="flex items-center gap-2">
+                <h1 className="text-sm font-bold text-gray-800 leading-tight">{clinicInfo.clinicName}</h1>
+                <div className="flex items-center gap-1 px-1.5 py-0.5 bg-green-50 rounded-full border border-green-100">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_4px_rgba(34,197,94,0.6)]"></span>
+                  <span className="text-[8px] font-black text-green-700 uppercase tracking-tighter">Live Cloud Sync</span>
+                </div>
+              </div>
               <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider leading-tight">{currentUser.role}: {currentUser.name}</p>
             </div>
+
           </div>
 
           {/* Step navigator */}
@@ -423,6 +462,17 @@ function App() {
             <button onClick={handleNewPatient} className="h-8 px-3 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 active:scale-95 transition-all flex items-center gap-1 shadow-sm">
               <span className="text-base font-bold leading-none">+</span><span>New Patient</span>
             </button>
+
+            {activeProfile && (
+              <button 
+                onClick={() => switchProfile()} 
+                title="Switch User / Lock"
+                className="h-8 w-8 bg-amber-50 text-amber-600 border border-amber-200 rounded-lg text-xs font-bold hover:bg-amber-100 transition-all flex items-center justify-center"
+              >
+                🔐
+              </button>
+            )}
+
           </div>
 
         </div>
@@ -477,8 +527,9 @@ function App() {
                     onSaveTemplates={async (templates: any) => {
                       const updated = { ...clinicInfo, reportTemplates: templates };
                       setClinicInfo(updated);
-                      await saveClinicInfo('local', updated);
+                      await saveClinicInfo(currentClinicId, updated);
                     }}
+
                   />
                 </div>
               </div>
@@ -497,8 +548,9 @@ function App() {
           clinicInfo={clinicInfo}
           onSave={async (info) => {
             setClinicInfo(info);
-            await saveClinicInfo('local', info);
+            await saveClinicInfo(currentClinicId, info);
           }}
+
           onClose={() => setShowSettings(false)}
         />
       )}

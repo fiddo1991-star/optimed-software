@@ -177,15 +177,18 @@ export type UserRole = 'admin' | 'doctor' | 'receptionist';
 export interface User {
   id: string;
   clinicId: string;
-  name: string;
+  full_name: string;
   username?: string;
   email: string;
   role: UserRole;
   status: 'active' | 'inactive';
-  pin?: string; // 4-digit PIN for quick login
+  pin_code?: string; // 4-digit PIN for quick login
   isTestUser?: boolean;
   createdAt: string;
 }
+
+export type UserProfile = User;
+
 
 export interface LoginResponse {
   success: boolean;

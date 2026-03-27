@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import type { PatientData } from '../types';
-import SpeechMicButton from './SpeechMicButton';
+import { useAuth } from '../context/AuthContext';
+import * as libraryService from '../services/libraryService';
 
 const SYMPTOM_LIST = [
+
   // General
   'Fever', 'Chills', 'Night Sweats', 'Fatigue', 'Malaise', 'Weight Loss', 'Weight Gain', 'Loss of Appetite', 'Excessive Thirst', 'Sweating',
   // Head & Neurological
@@ -87,32 +87,33 @@ export default function PatientInputForm({ onSubmit, initialData, recentPatients
   const vitalsRef = useRef<HTMLElement>(null);
   const diagnosticsRef = useRef<HTMLElement>(null);
 
-  const [symptomList, setSymptomList] = useState<string[]>(() => {
-    const savedAll = localStorage.getItem('symptomList');
-    if (savedAll) return JSON.parse(savedAll);
+  const { clinic } = useAuth();
+  const clinicId = clinic?.id || 'default';
 
-    const defaults = [...SYMPTOM_LIST];
-    const savedCustom = localStorage.getItem('savedCustomSymptoms');
-    if (savedCustom) return [...defaults, ...JSON.parse(savedCustom)];
-    return defaults;
-  });
-
-  const [pmhList, setPmhList] = useState<string[]>(() => {
-    const savedAll = localStorage.getItem('pmhList');
-    if (savedAll) return JSON.parse(savedAll);
-
-    const defaults = [...PMH_LIST];
-    const savedCustom = localStorage.getItem('savedCustomPMH');
-    if (savedCustom) return [...defaults, ...JSON.parse(savedCustom)];
-    return defaults;
-  });
+  const [symptomList, setSymptomList] = useState<string[]>(SYMPTOM_LIST);
+  const [pmhList, setPmhList] = useState<string[]>(PMH_LIST);
 
   useEffect(() => {
-    localStorage.setItem('symptomList', JSON.stringify(symptomList));
-  }, [symptomList]);
-  useEffect(() => {
-    localStorage.setItem('pmhList', JSON.stringify(pmhList));
-  }, [pmhList]);
+    if (!clinicId) return;
+    const unsubSym = libraryService.subscribeToLibrary(clinicId, 'symptoms', (items) => {
+      if (items && items.length > 0) setSymptomList(items);
+    });
+    const unsubPMH = libraryService.subscribeToLibrary(clinicId, 'pmh', (items) => {
+      if (items && items.length > 0) setPmhList(items);
+    });
+    return () => { unsubSym(); unsubPMH(); };
+  }, [clinicId]);
+
+  const saveSymptomList = (newItems: string[]) => {
+    setSymptomList(newItems);
+    libraryService.saveLibraryItems(clinicId, 'symptoms', newItems);
+  };
+
+  const savePmhList = (newItems: string[]) => {
+    setPmhList(newItems);
+    libraryService.saveLibraryItems(clinicId, 'pmh', newItems);
+  };
+
 
   const sections = [
     { id: 'demographics', label: 'Demographics', icon: '👤', ref: demographicsRef },
@@ -185,18 +186,20 @@ export default function PatientInputForm({ onSubmit, initialData, recentPatients
   const handleAddCustomSymptom = () => {
     const val = newSymptom.trim();
     if (!val) return;
-    if (!symptomList.some(s => s.toLowerCase() === val.toLowerCase())) setSymptomList([...symptomList, val]);
+    if (!symptomList.some(s => s.toLowerCase() === val.toLowerCase())) saveSymptomList([...symptomList, val]);
     if (!data.symptoms.includes(val)) toggleSymptom(val);
     setNewSymptom('');
   };
 
+
   const handleAddCustomPMH = () => {
     const val = newPMH.trim();
     if (!val) return;
-    if (!pmhList.some(h => h.toLowerCase() === val.toLowerCase())) setPmhList([...pmhList, val]);
+    if (!pmhList.some(h => h.toLowerCase() === val.toLowerCase())) savePmhList([...pmhList, val]);
     if (!data.medicalHistory.includes(val)) togglePMH(val);
     setNewPMH('');
   };
+
 
   const filteredSymptoms = symptomList.filter(s => s.toLowerCase().includes(symSearch.toLowerCase()));
   const filteredPMH = pmhList.filter(h => h.toLowerCase().includes(pmhSearch.toLowerCase()));
@@ -286,10 +289,11 @@ export default function PatientInputForm({ onSubmit, initialData, recentPatients
                   <button onClick={() => toggleSymptom(s)} className={`pr-8 pl-4 py-2 rounded-xl text-xs font-semibold transition-all border ${data.symptoms.includes(s) ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-white text-gray-600 border-gray-200 hover:border-blue-300'}`}>
                     {data.symptoms.includes(s) ? '✓ ' : '+ '}{s}
                   </button>
-                  <button onClick={(e) => { e.stopPropagation(); setSymptomList(symptomList.filter(item => item !== s)); }}
+                  <button onClick={(e) => { e.stopPropagation(); saveSymptomList(symptomList.filter(item => item !== s)); }}
                     className="absolute right-1 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full text-red-500 hover:bg-red-100 opacity-0 group-hover:opacity-100 transition-opacity">
                     ×
                   </button>
+
                 </div>
               ))}
             </div>
@@ -317,10 +321,11 @@ export default function PatientInputForm({ onSubmit, initialData, recentPatients
                     <button onClick={() => togglePMH(h)} className={`pr-8 pl-3 py-1.5 rounded-lg text-xs font-medium transition-all ${data.medicalHistory.includes(h) ? 'bg-purple-600 text-white shadow-md' : 'bg-white text-gray-600 border'}`}>
                       {h}
                     </button>
-                    <button onClick={(e) => { e.stopPropagation(); setPmhList(pmhList.filter(item => item !== h)); }}
+                    <button onClick={(e) => { e.stopPropagation(); savePmhList(pmhList.filter(item => item !== h)); }}
                       className="absolute right-1 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full text-red-300 hover:text-red-600 hover:bg-red-50 opacity-0 group-hover:opacity-100 transition-opacity">
                       ×
                     </button>
+
                   </div>
                 ))}
               </div>

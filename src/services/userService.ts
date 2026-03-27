@@ -1,92 +1,114 @@
 /**
  * userService.ts
- * Local mock for staff/user management (no Auth integration)
+ * Supabase integration for staff/user profile management.
  */
 
+import { supabase } from '../lib/supabaseClient';
 import type { User } from '../types';
 
-export interface StoredUser extends User {
-  password?: string;
+const PROFILE_TABLE = 'profiles';
+
+export async function getUserProfile(uid: string): Promise<User | null> {
+  const { data, error } = await supabase
+    .from(PROFILE_TABLE)
+    .select('*')
+    .eq('id', uid)
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error fetching user profile:', error);
+    return null;
+  }
+
+  return data as User | null;
 }
 
-const LOCAL_STORAGE_KEY = 'medassist_users';
+export async function getProfilesByClinic(clinicId: string): Promise<User[]> {
+  const { data, error } = await supabase
+    .from(PROFILE_TABLE)
+    .select('*')
+    .eq('clinicId', clinicId);
 
-const DEFAULT_ADMIN: StoredUser = {
-  id: 'admin-local',
-  clinicId: 'clinic-local',
-  name: 'Clinic Administrator',
-  username: 'admin',
-  email: 'admin@medassist.local',
-  role: 'admin',
-  status: 'active',
-  pin: '1234',
-  password: 'admin',
-  createdAt: new Date().toISOString(),
-};
+  if (error) {
+    console.error('Error fetching clinic users:', error);
+    return [];
+  }
 
-function getLocalUsers(): StoredUser[] {
-  const data = localStorage.getItem(LOCAL_STORAGE_KEY);
-  if (!data) return [DEFAULT_ADMIN];
-  return JSON.parse(data);
+  return (data || []) as User[];
 }
 
-function saveLocalUsers(users: StoredUser[]) {
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(users));
-}
 
-export async function getUserProfile(uid: string): Promise<StoredUser | null> {
-  return getLocalUsers().find(u => u.id === uid) || null;
-}
+/**
+ * Creates a profile for an existing Supabase Auth user.
+ */
+export async function createProfile(
+  profile: Omit<User, 'createdAt'>
+): Promise<void> {
+  const { error } = await supabase
+    .from(PROFILE_TABLE)
+    .upsert({
+      ...profile,
+      created_at: new Date().toISOString()
+    });
 
-export async function getClinicUsers(_clinicId: string): Promise<StoredUser[]> {
-  return getLocalUsers();
-}
-
-export async function createClinicUser(
-  email: string,
-  password: string,
-  profile: Omit<StoredUser, 'id' | 'createdAt'>
-): Promise<string> {
-  const users = getLocalUsers();
-  const id = 'user-' + Date.now();
-  const newUser: StoredUser = {
-    ...profile,
-    id,
-    email,
-    password,
-    createdAt: new Date().toISOString(),
-  };
-  users.push(newUser);
-  saveLocalUsers(users);
-  return id;
+  if (error) {
+    console.error('Error creating user profile:', error);
+    throw error;
+  }
 }
 
 export async function updateUserProfile(
   uid: string,
-  updates: Partial<StoredUser>
+  updates: Partial<User>
 ): Promise<void> {
-  const users = getLocalUsers();
-  const index = users.findIndex(u => u.id === uid);
-  if (index >= 0) {
-    users[index] = { ...users[index], ...updates };
-    saveLocalUsers(users);
+  const { error } = await supabase
+    .from(PROFILE_TABLE)
+    .update(updates)
+    .eq('id', uid);
+
+  if (error) {
+    console.error('Error updating profile:', error);
+    throw error;
   }
 }
 
 export async function deleteClinicUser(uid: string): Promise<void> {
-  const users = getLocalUsers();
-  const filtered = users.filter(u => u.id !== uid);
-  saveLocalUsers(filtered);
+  // Note: This only deletes the profile. To delete the user completely, 
+  // you must also delete them from Supabase Auth (usually via Edge Functions or Admin API).
+  const { error } = await supabase
+    .from(PROFILE_TABLE)
+    .delete()
+    .eq('id', uid);
+
+  if (error) {
+    console.error('Error deleting profile:', error);
+    throw error;
+  }
 }
 
 export async function getUserByPin(
-  _clinicId: string,
+  clinicId: string,
   pin: string
-): Promise<StoredUser | null> {
-  return getLocalUsers().find(u => u.pin === pin && u.status === 'active') || null;
+): Promise<User | null> {
+  const { data, error } = await supabase
+    .from(PROFILE_TABLE)
+    .select('*')
+    .eq('clinicId', clinicId)
+    .eq('pin_code', pin)
+    .eq('status', 'active')
+    .maybeSingle();
+
+
+  if (error) {
+    console.error('Error fetching user by PIN:', error);
+    return null;
+  }
+
+  return data as User | null;
 }
 
 export async function ensureTestUser(): Promise<void> {
-  // Logic not required locally
+  // Logic usually handled in seed scripts or Supabase dashboard
 }
+
 

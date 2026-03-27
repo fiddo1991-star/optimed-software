@@ -4,6 +4,9 @@ import { LAB_CATALOG, IMAGING_CATALOG } from '../data/medicalKnowledge';
 import { ICD_CODES } from '../data/icdCodes';
 import { MEDICINES_LIST } from '../data/medicines';
 import SpeechMicButton from './SpeechMicButton';
+import { useAuth } from '../context/AuthContext';
+import * as libraryService from '../services/libraryService';
+
 
 interface CustomICDCode {
   code: string;
@@ -33,7 +36,6 @@ interface Props {
   onNext: () => void;
 }
 
-const DOSE_OPTIONS = ['0', '½', '1', '1½', '2', '3'];
 
 let cachedIcdApiBaseUrl: string | null = null;
 
@@ -48,24 +50,27 @@ export default function RecommendationPanel({ recommendations, setRecommendation
   const [activeMedRow, setActiveMedRow] = useState<number | null>(null);
   const [activeMedSuggestionIndex, setActiveMedSuggestionIndex] = useState<number>(-1);
 
-  const [customMedicines, setCustomMedicines] = useState<string[]>(() => {
-    const saved = localStorage.getItem('customMedicines');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const { clinic } = useAuth();
+  const clinicId = clinic?.id || 'default';
 
-  // Refetch custom medicines on mount/focus in case they were updated in settings
+  const [customMedicines, setCustomMedicines] = useState<string[]>([]);
+  
+  // Real-time subscription for customMedicines
   useEffect(() => {
-    const handleStorage = () => {
-      const saved = localStorage.getItem('customMedicines');
-      if (saved) setCustomMedicines(JSON.parse(saved));
-    };
-    window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
-  }, []);
+    if (!clinicId) return;
+    return libraryService.subscribeToLibrary(clinicId, 'medicines', setCustomMedicines);
+  }, [clinicId]);
+
+  const saveCustomMedicines = (newItems: string[]) => {
+    setCustomMedicines(newItems);
+    libraryService.saveLibraryItems(clinicId, 'medicines', newItems);
+  };
+
 
   const [newFollowUp, setNewFollowUp] = useState('');
-  const [newInstructionTitle, setNewInstructionTitle] = useState('');
-  const [newInstruction, setNewInstruction] = useState('');
+
+// Legacy instruction states removed
+
 
   // 1. Setup Ref for Date Picker
   const dateRef = useRef<HTMLInputElement>(null);
@@ -107,24 +112,26 @@ export default function RecommendationPanel({ recommendations, setRecommendation
     return () => observer.disconnect();
   }, []);
 
-  const [followUpList, setFollowUpList] = useState<string[]>(() => {
-    const savedAll = localStorage.getItem('followUpList');
-    if (savedAll) return JSON.parse(savedAll);
-
-    const defaults = ['5 Days', '1 Week', '2 Weeks', '3 Weeks', '1 Month'];
-    const savedCustom = localStorage.getItem('savedCustomFollowUps');
-    if (savedCustom) return [...defaults, ...JSON.parse(savedCustom)];
-    return defaults;
-  });
+  const [followUpList, setFollowUpList] = useState<string[]>(['5 Days', '1 Week', '2 Weeks', '3 Weeks', '1 Month']);
 
   useEffect(() => {
-    localStorage.setItem('followUpList', JSON.stringify(followUpList));
-  }, [followUpList]);
+    if (!clinicId) return;
+    return libraryService.subscribeToLibrary(clinicId, 'followups', (items) => {
+      if (items && items.length > 0) {
+        setFollowUpList(items);
+      }
+    });
+  }, [clinicId]);
 
-  const [specialInstructions, setSpecialInstructions] = useState<string[]>(() => {
-    const savedAll = localStorage.getItem('specialInstructions');
-    if (savedAll) return JSON.parse(savedAll);
+  const saveFollowUpList = (newItems: string[]) => {
+    setFollowUpList(newItems);
+    libraryService.saveLibraryItems(clinicId, 'followups', newItems);
+  };
 
+  const [specialInstructions, setSpecialInstructions] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!clinicId) return;
     const defaults = [
       'ایک صبح ناشتے سے آدھا گھنٹہ پہلے',
       'ایک صبح، دوپہر اور رات کھانے سے آدھا گھنٹہ پہلے',
@@ -147,27 +154,27 @@ export default function RecommendationPanel({ recommendations, setRecommendation
       'ایک گولی روزانہ رات سونے سے پہلے',
       'ایک گولی ضرورت پڑنے پر (درد یا تکلیف کی صورت میں)'
     ];
+    return libraryService.subscribeToLibrary(clinicId, 'instructions', (items) => {
+        setSpecialInstructions(items?.length > 0 ? items : defaults);
+    });
+  }, [clinicId]);
 
-    const savedCustom = localStorage.getItem('customSpecialInstructions');
-    if (savedCustom) {
-      return [...defaults, ...JSON.parse(savedCustom)];
-    }
-    return defaults;
-  });
+  const saveSpecialInstructions = (newItems: string[]) => {
+    setSpecialInstructions(newItems);
+    libraryService.saveLibraryItems(clinicId, 'instructions', newItems);
+  };
 
-  useEffect(() => {
-    localStorage.setItem('specialInstructions', JSON.stringify(specialInstructions));
-  }, [specialInstructions]);
 
   const [showSaveModal, setShowSaveModal] = useState<'prescription' | 'instruction' | null>(null);
   const [activeInstDropdown, setActiveInstDropdown] = useState<number | null>(null);
   const [showGenInstDropdown, setShowGenInstDropdown] = useState(false);
   const [showMedTemplateDropdown, setShowMedTemplateDropdown] = useState(false);
   const [templateName, setTemplateName] = useState('');
-  const [templates, setTemplates] = useState<PrescriptionTemplate[]>(() => {
-    const saved = localStorage.getItem('prescriptionTemplates');
-    if (saved) return JSON.parse(saved);
-    return [
+  const [templates, setTemplates] = useState<PrescriptionTemplate[]>([]);
+
+  useEffect(() => {
+     if (!clinicId) return;
+     const defaults = [
       {
         id: 'viral-flu', name: 'Viral Flu Protocol',
         prescriptions: [
@@ -183,7 +190,16 @@ export default function RecommendationPanel({ recommendations, setRecommendation
         ]
       }
     ];
-  });
+    return libraryService.subscribeToLibrary(clinicId, 'prescriptionTemplates', (items) => {
+        setTemplates(items?.length > 0 ? items : defaults);
+    });
+  }, [clinicId]);
+
+  const saveTemplates = (newItems: PrescriptionTemplate[]) => {
+    setTemplates(newItems);
+    libraryService.saveLibraryItems(clinicId, 'prescriptionTemplates', newItems);
+  };
+
   const defaultInstructionTemplates: InstructionTemplate[] = [
     { id: 'gen-1', name: '1۔سینے میں جلن اور وزن زیادہ ہونے کی صورت میں احتیاط', text: 'بستر کے سرہانے والی سائیڈ 6 انچ اونچی رکھیں۔ رات کا کھانا سونے سے 3 گھنٹے پہلے کھائیں۔ کھانا کھانے کے فوراً بعد لیٹنے سے اجتناب کریں۔ سگریٹ نوشی سے مکمل پرہیز کریں۔ وزن مناسب رکھیں۔ تنگ کپڑے نہ پہنیں۔ کچا پیاز، کچا ادرک، تلی ہوئی چیزیں، تیز مرچ مصالحے اور چکنائی سے پرہیز کریں۔ کافی اور کولڈ ڈرنک سے پرہیز کریں۔ چینی، شکر اور چاول سے مکمل پرہیز کریں۔ چھوٹا بڑا گوشت، پھلیاں، دالیں، مٹر، گوبھی اور ٹماٹر سے پرہیز کریں۔ مرغی، مچھلی، آلو، اروی، کدو، ٹنڈے، پالک اور توری کا استعمال کریں۔ صبح و شام کم از کم دو میل پیدل چلیں۔ دوپہر اور رات کے کھانے سے ایک گھنٹہ پہلے مکھن نکلی ہوئی لسی کا ایک گلاس استعمال کریں اس کے بعد ایک چھوٹی چپاتی کے ساتھ کھانا کھائیں۔ چکنائی والے بسکٹ، مٹھائی، چاکلیٹ، حلوہ جات سے پرہیز کریں۔ پھلوں میں سیب، امرود اور کیلے کا استعمال کریں جبکہ مالٹا، لیموں، گریپ فروٹ سے پرہیز کریں۔ باقاعدگی سے نماز ادا کریں۔' },
     { id: 'gen-2', name: '2۔جگر کے سکڑنے (CLD) کی صورت میں احتیاط', text: 'نمک سے مکمل پرہیز کریں۔ اس کے متبادل Rite Salt یا Low Salt کا استعمال کریں۔ دن میں تین سے زیادہ گلاس پانی کسی بھی شکل میں استعمال نہ کریں۔ دن میں 2 انڈوں کی سفیدی، 2 بوٹی گوشت، 2 پیالے دہی اور 2 چمچ آئل ضرور استعمال کریں بوتلیں، ڈبے والے جوس، بیکری کا سامان اور سوڈے والی اشیاء استعمال نہ کریں۔ اپنی کنگھی، ٹوتھ برش اور نیل کٹر علیحدہ رکھیں۔ اکٹھے کھانے پینے سے بچوں کو چومنے سے ایک ہی گھر میں رہنے سے ایک ہی بستر پر لیٹنے سے بیماری نہیں پھیلتی۔ درد کیلئے Panadol کے علاوہ کوئی دوا استعمال نہ کریں۔ اینٹی بائیوٹک ادویات میں Clarithromycin, Tetracycline, Erythromycin, Augmentin وغیرہ استعمال نہ کریں۔ شوگر کی صورت میں چینی، شکر، شہد اور چاول مکمل طور پر بند کر دیں اور قبض نہ ہونے دیں۔ باقاعدگی سے نماز ادا کریں۔' },
@@ -195,49 +211,56 @@ export default function RecommendationPanel({ recommendations, setRecommendation
     { id: 'gen-8', name: '8۔جنرل ہدایات :', text: 'ادویات کا استعمال ہمیشہ ڈاکٹر کی ہدایات کے مطابق مقررہ وقت پر کریں اور تمام ادویات پانی کے ساتھ لیں۔ اپنی مرضی سے دوا کی مقدار میں کمی بیشی نہ کریں اور نہ ہی ڈاکٹر کے مشورے کے بغیر کسی دوا کو بند کریں۔ اگر کوئی خوراک بھول جائے تو اسے پورا کرنے کے لیے دوہری مقدار لینے سے گریز کریں۔ علامات میں بہتری کے لیے کم از کم پندرہ دن انتظار کریں، تاہم کسی بھی مسئلے کی صورت میں فوری اپنے معالج سے رابطہ کریں۔ صحت مند زندگی کے لیے متوازن غذا کا استعمال کریں اور خود کو ذہنی فکر یا پریشانی سے دور رکھیں۔' }
   ];
 
-  const [instructionTemplates, setInstructionTemplates] = useState<InstructionTemplate[]>(() => {
-    const saved = localStorage.getItem('instructionTemplates');
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      // Ensure we always use the latest defaults from code, plus any user custom templates
-      const customTemplates = parsed.filter((t: InstructionTemplate) =>
-        !t.id.startsWith('gen-') && !t.id.startsWith('ur-') && !t.id.startsWith('inst-')
-      );
-      return [...defaultInstructionTemplates, ...customTemplates];
-    }
-    return defaultInstructionTemplates;
-  });
+  const [instructionTemplates, setInstructionTemplates] = useState<InstructionTemplate[]>([]);
 
   useEffect(() => {
-    localStorage.setItem('instructionTemplates', JSON.stringify(instructionTemplates));
-  }, [instructionTemplates]);
+    if (!clinicId) return;
+    return libraryService.subscribeToLibrary(clinicId, 'instructionTemplates', (items) => {
+        setInstructionTemplates(items?.length > 0 ? items : defaultInstructionTemplates);
+    });
+  }, [clinicId]);
 
-  const [customIcdCodes, setCustomIcdCodes] = useState<CustomICDCode[]>(() => {
-    const saved = localStorage.getItem('customIcdCodes');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const saveInstructionTemplates = (newItems: InstructionTemplate[]) => {
+    setInstructionTemplates(newItems);
+    libraryService.saveLibraryItems(clinicId, 'instructionTemplates', newItems);
+  };
 
-  useEffect(() => {
-    localStorage.setItem('customIcdCodes', JSON.stringify(customIcdCodes));
-  }, [customIcdCodes]);
-
-  const [savedCustomLabs, setSavedCustomLabs] = useState<string[]>(() => {
-    const saved = localStorage.getItem('savedCustomLabs');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [customIcdCodes, setCustomIcdCodes] = useState<CustomICDCode[]>([]);
 
   useEffect(() => {
-    localStorage.setItem('savedCustomLabs', JSON.stringify(savedCustomLabs));
-  }, [savedCustomLabs]);
+    if (!clinicId) return;
+    return libraryService.subscribeToLibrary(clinicId, 'icdcodes', setCustomIcdCodes);
+  }, [clinicId]);
 
-  const [savedCustomImaging, setSavedCustomImaging] = useState<string[]>(() => {
-    const saved = localStorage.getItem('savedCustomImaging');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const saveCustomIcdCodes = (newItems: CustomICDCode[]) => {
+    setCustomIcdCodes(newItems);
+    libraryService.saveLibraryItems(clinicId, 'icdcodes', newItems);
+  };
+
+  const [savedCustomLabs, setSavedCustomLabs] = useState<string[]>([]);
+  
+  useEffect(() => {
+    if (!clinicId) return;
+    return libraryService.subscribeToLibrary(clinicId, 'labs', setSavedCustomLabs);
+  }, [clinicId]);
+
+  const saveSavedCustomLabs = (newItems: string[]) => {
+    setSavedCustomLabs(newItems);
+    libraryService.saveLibraryItems(clinicId, 'labs', newItems);
+  };
+
+  const [savedCustomImaging, setSavedCustomImaging] = useState<string[]>([]);
 
   useEffect(() => {
-    localStorage.setItem('savedCustomImaging', JSON.stringify(savedCustomImaging));
-  }, [savedCustomImaging]);
+    if (!clinicId) return;
+    return libraryService.subscribeToLibrary(clinicId, 'imaging', setSavedCustomImaging);
+  }, [clinicId]);
+
+  const saveSavedCustomImaging = (newItems: string[]) => {
+    setSavedCustomImaging(newItems);
+    libraryService.saveLibraryItems(clinicId, 'imaging', newItems);
+  };
+
 
   const [imgSearch, setImgSearch] = useState('');
   const [showLabDropdown, setShowLabDropdown] = useState(false);
@@ -434,8 +457,9 @@ export default function RecommendationPanel({ recommendations, setRecommendation
     setShowImgDropdown(false);
   };
 
-  const noLabMatch = labSearch.trim() && allLabTests.filter(t => t.toLowerCase().includes(labSearch.toLowerCase()) && !existingLabs.has(t)).length === 0;
-  const noImgMatch = imgSearch.trim() && allImaging.filter(s => s.toLowerCase().includes(imgSearch.toLowerCase()) && !existingImaging.has(s)).length === 0;
+
+  // Search logic
+
 
   return (
     <>
@@ -575,8 +599,9 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                               const parts = icdSearch.split('-');
                               const code = parts.length > 1 ? parts[parts.length - 1].trim() : 'CUSTOM';
                               const desc = parts.length > 1 ? parts.slice(0, -1).join('-').trim() : icdSearch.trim();
-                              setCustomIcdCodes([...customIcdCodes, { code, description: desc, category: 'Custom Added' }]);
+                              saveCustomIcdCodes([...customIcdCodes, { code, description: desc, category: 'Custom Added' }]);
                               selectIcdCode(i, code, desc);
+
                             }}
                             className="px-6 py-4 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 shadow-lg active:scale-95 transition-all flex items-center gap-2"
                           >
@@ -640,8 +665,9 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                             className="flex-1 text-left px-4 py-3 text-xs font-bold text-gray-700 group-hover:bg-blue-50 transition-all truncate pr-2">
                             {t.name}
                           </button>
-                          <button onClick={(e) => { e.stopPropagation(); setTemplates(templates.filter(temp => temp.id !== t.id)); }}
+                          <button onClick={(e) => { e.stopPropagation(); saveTemplates(templates.filter(temp => temp.id !== t.id)); }}
                             title="Delete Template"
+
                             className="px-4 text-red-300 hover:bg-red-50 hover:text-red-500 font-bold transition-all text-sm rounded-r-lg">
                             ×
                           </button>
@@ -719,6 +745,27 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                           onFocus={() => { setActiveMedRow(i); setMedSearch(p.medicineName); setActiveMedSuggestionIndex(-1); }}
                           className="w-full bg-gray-50 border-2 border-gray-100 rounded-xl px-4 py-3 text-base font-bold outline-none focus:bg-white focus:border-blue-600 transition-all" />
                         
+                        {(activeMedRow === i && medSearch.trim() && !allMedicines.some(m => m.toLowerCase() === medSearch.toLowerCase())) && (
+                          <button 
+                            onMouseDown={(e) => {
+                              e.preventDefault();
+                              const val = medSearch.trim();
+                              saveCustomMedicines([...customMedicines, val]);
+                              updatePrescription(i, 'medicineName', val);
+                              setActiveMedRow(null);
+                              setMedSearch('');
+                            }}
+                            className="absolute z-[60] top-[105%] left-0 right-0 p-4 bg-emerald-50 border-2 border-emerald-200 rounded-2xl flex items-center justify-between hover:bg-emerald-100 transition-all shadow-xl group"
+                          >
+                            <div className="flex flex-col items-start">
+                              <span className="text-[10px] font-black text-emerald-800 uppercase tracking-widest">New Medicine</span>
+                              <span className="text-sm font-bold text-gray-800">{medSearch}</span>
+                            </div>
+                            <span className="bg-emerald-600 text-white text-[10px] font-black px-3 py-1 rounded-lg group-hover:scale-110 transition-transform">SAVE & ADD</span>
+                          </button>
+                        )}
+
+                        
                         {activeMedRow === i && medSearch.trim() && filteredMedicines.length > 0 && (
                           <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-2xl shadow-2xl max-h-60 overflow-y-auto overflow-x-hidden">
                             {filteredMedicines.map((med, idx) => (
@@ -781,9 +828,11 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                         <button onClick={() => {
                           const val = p.instructions.trim();
                           if (val && !specialInstructions.includes(val)) {
-                            setSpecialInstructions([...specialInstructions, val]);
+                            saveSpecialInstructions([...specialInstructions, val]);
                           }
                         }} className="px-3 py-2 bg-emerald-50 text-emerald-700 text-[11px] font-black uppercase tracking-wider rounded-lg hover:bg-emerald-100 transition-all">
+
+
                           💾 Save
                         </button>
                         <div className="relative flex-1 md:w-48">
@@ -803,8 +852,9 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                                       className="flex-1 text-left px-4 py-2 text-xs font-bold text-gray-700 group-hover:bg-blue-50 transition-all truncate pr-2">
                                       {inst}
                                     </button>
-                                    <button onClick={(e) => { e.stopPropagation(); setSpecialInstructions(specialInstructions.filter(item => item !== inst)); }}
+                                    <button onClick={(e) => { e.stopPropagation(); saveSpecialInstructions(specialInstructions.filter(item => item !== inst)); }}
                                       title="Delete Preset"
+
                                       className="px-3 text-red-300 hover:bg-red-50 hover:text-red-500 font-bold transition-all text-sm rounded-r-lg">
                                       ×
                                     </button>
@@ -931,9 +981,10 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                   <button onClick={() => {
                     const val = newFollowUp.trim();
                     if (!val) return;
-                    if (!followUpList.some(f => f.toLowerCase() === val.toLowerCase())) setFollowUpList([...followUpList, val]);
+                    if (!followUpList.some(f => f.toLowerCase() === val.toLowerCase())) saveFollowUpList([...followUpList, val]);
                     setRecommendations({ ...recommendations, followUpDate: val });
                     setNewFollowUp('');
+
                   }} className="px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-bold shadow-md hover:bg-blue-700 transition-all shrink-0">
                     Add
                   </button>
@@ -947,8 +998,9 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                         className={`px-3 py-1.5 rounded-l-lg text-xs font-bold border-2 border-r-0 transition-all ${recommendations.followUpDate === period ? 'bg-blue-600 border-blue-600 text-white shadow-md' : 'bg-white border-blue-100 text-blue-700 hover:border-blue-300'}`}>
                         {period}
                       </button>
-                      <button onClick={() => setFollowUpList(followUpList.filter(p => p !== period))}
+                      <button onClick={() => saveFollowUpList(followUpList.filter(p => p !== period))}
                         className={`px-2 flex items-center justify-center rounded-r-lg border-2 border-l border-blue-100 hover:bg-red-50 hover:text-red-500 hover:border-red-200 transition-all font-bold ${recommendations.followUpDate === period ? 'bg-blue-600 border-blue-600 border-l-blue-500 text-white' : 'bg-white text-gray-400'}`}>
+
                         ×
                       </button>
                     </div>
@@ -1004,8 +1056,15 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                     onChange={e => showLabDropdown ? setLabSearch(e.target.value) : setManualLabInput(e.target.value)}
                     onFocus={() => { setShowLabDropdown(true); setLabSearch(manualLabInput); }}
                     className="flex-1 bg-white border-2 border-emerald-100 rounded-2xl px-6 py-4 text-base font-bold outline-none focus:border-emerald-500 transition-all font-sans" placeholder="🔍 Search or type medical tests..." />
-                  <button onClick={() => (showLabDropdown ? labSearch : manualLabInput).trim() && addCustomLab((showLabDropdown ? labSearch : manualLabInput).trim())}
+                  <button onClick={() => {
+                      const val = (showLabDropdown ? labSearch : manualLabInput).trim();
+                      if (val && !allLabTests.includes(val)) {
+                        saveSavedCustomLabs([...savedCustomLabs, val]);
+                      }
+                      addCustomLab(val);
+                    }}
                     className="px-8 py-4 bg-emerald-600 text-white rounded-2xl font-black shadow-lg hover:bg-emerald-700 transition-all active:scale-95">Add</button>
+
                 </div>
                 {showLabDropdown && (
                   <div className="absolute z-50 top-full left-0 right-0 mt-3 bg-white border-2 border-emerald-50 rounded-2xl shadow-2xl max-h-80 overflow-y-auto">
@@ -1057,8 +1116,15 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                     onChange={e => showImgDropdown ? setImgSearch(e.target.value) : setManualImgInput(e.target.value)}
                     onFocus={() => { setShowImgDropdown(true); setImgSearch(manualImgInput); }}
                     className="flex-1 bg-white border-2 border-cyan-100 rounded-2xl px-6 py-4 text-base font-bold outline-none focus:border-cyan-500 transition-all font-sans" placeholder="🔍 Search or type imaging (X-Ray, MRI, Ultrasound)..." />
-                  <button onClick={() => (showImgDropdown ? imgSearch : manualImgInput).trim() && addCustomImaging((showImgDropdown ? imgSearch : manualImgInput).trim())}
+                  <button onClick={() => {
+                      const val = (showImgDropdown ? imgSearch : manualImgInput).trim();
+                      if (val && !allImaging.includes(val)) {
+                        saveSavedCustomImaging([...savedCustomImaging, val]);
+                      }
+                      addCustomImaging(val);
+                    }}
                     className="px-8 py-4 bg-cyan-600 text-white rounded-2xl font-black shadow-lg hover:bg-cyan-700 transition-all active:scale-95">Add</button>
+
                 </div>
                 {showImgDropdown && (
                   <div className="absolute z-50 top-full left-0 right-0 mt-3 bg-white border-2 border-cyan-50 rounded-2xl shadow-2xl max-h-80 overflow-y-auto">
@@ -1080,8 +1146,8 @@ export default function RecommendationPanel({ recommendations, setRecommendation
             </div>
           </div>
         </section>
-      </div>
-    </div>
+
+
 
       {/* Summary & Next */}
       <div className="mt-6 flex items-center justify-between">
@@ -1091,7 +1157,11 @@ export default function RecommendationPanel({ recommendations, setRecommendation
         <button onClick={onNext} className="px-8 py-2.5 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition-all">
           📄 View Report →
         </button>
-      </div>
+        </div> {/* matches 1131 summary block */}
+        </div> {/* matches 514 flex-1 column */}
+      </div> {/* matches 465 flex root container */}
+
+
 
       {/* Save Template Modal */}
       {showSaveModal && (
@@ -1115,18 +1185,19 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                   if (showSaveModal === 'prescription') {
                     const existing = templates.find(t => t.name.toLowerCase() === tName.toLowerCase());
                     if (existing) {
-                      setTemplates(templates.map(t => t.id === existing.id ? { ...t, prescriptions: prescriptions.map(p => ({ ...p })) } : t));
+                      saveTemplates(templates.map(t => t.id === existing.id ? { ...t, prescriptions: prescriptions.map(p => ({ ...p })) } : t));
                     } else {
-                      setTemplates([...templates, { id: 'tpl-' + Date.now(), name: tName, prescriptions: prescriptions.map(p => ({ ...p })) }]);
+                      saveTemplates([...templates, { id: 'tpl-' + Date.now(), name: tName, prescriptions: prescriptions.map(p => ({ ...p })) }]);
                     }
                   } else {
                     const existing = instructionTemplates.find(t => t.name.toLowerCase() === tName.toLowerCase());
                     if (existing) {
-                      setInstructionTemplates(instructionTemplates.map(t => t.id === existing.id ? { ...t, text: recommendations.instructions } : t));
+                      saveInstructionTemplates(instructionTemplates.map(t => t.id === existing.id ? { ...t, text: recommendations.instructions } : t));
                     } else {
-                      setInstructionTemplates([...instructionTemplates, { id: 'inst-' + Date.now(), name: tName, text: recommendations.instructions }]);
+                      saveInstructionTemplates([...instructionTemplates, { id: 'inst-' + Date.now(), name: tName, text: recommendations.instructions }]);
                     }
                   }
+
                   setShowSaveModal(null);
                   setTemplateName('');
                 }
@@ -1148,18 +1219,19 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                   if (showSaveModal === 'prescription') {
                     const existing = templates.find(t => t.name.toLowerCase() === tName.toLowerCase());
                     if (existing) {
-                      setTemplates(templates.map(t => t.id === existing.id ? { ...t, prescriptions: prescriptions.map(p => ({ ...p })) } : t));
+                      saveTemplates(templates.map(t => t.id === existing.id ? { ...t, prescriptions: prescriptions.map(p => ({ ...p })) } : t));
                     } else {
-                      setTemplates([...templates, { id: 'tpl-' + Date.now(), name: tName, prescriptions: prescriptions.map(p => ({ ...p })) }]);
+                      saveTemplates([...templates, { id: 'tpl-' + Date.now(), name: tName, prescriptions: prescriptions.map(p => ({ ...p })) }]);
                     }
                   } else {
                     const existing = instructionTemplates.find(t => t.name.toLowerCase() === tName.toLowerCase());
                     if (existing) {
-                      setInstructionTemplates(instructionTemplates.map(t => t.id === existing.id ? { ...t, text: recommendations.instructions } : t));
+                      saveInstructionTemplates(instructionTemplates.map(t => t.id === existing.id ? { ...t, text: recommendations.instructions } : t));
                     } else {
-                      setInstructionTemplates([...instructionTemplates, { id: 'inst-' + Date.now(), name: tName, text: recommendations.instructions }]);
+                      saveInstructionTemplates([...instructionTemplates, { id: 'inst-' + Date.now(), name: tName, text: recommendations.instructions }]);
                     }
                   }
+
                   setShowSaveModal(null);
                   setTemplateName('');
                 }}
