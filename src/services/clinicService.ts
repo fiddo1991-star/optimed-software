@@ -10,11 +10,14 @@ const CLINIC_TABLE = 'clinics';
 
 // ─── Clinic Record ────────────────────────────────────────────────────────────
 export async function getClinic(clinicId: string): Promise<any | null> {
+  if (!clinicId || clinicId === 'default') return null;
+
   const { data, error } = await supabase
     .from(CLINIC_TABLE)
     .select('*')
     .eq('id', clinicId)
     .maybeSingle();
+
 
   if (error) {
     console.error('Error fetching clinic:', error);
@@ -26,11 +29,14 @@ export async function getClinic(clinicId: string): Promise<any | null> {
 
 // ─── Clinic Info ──────────────────────────────────────────────────────────────
 export async function getClinicInfo(clinicId: string): Promise<ClinicInfo | null> {
+  if (!clinicId || clinicId === 'default') return null;
+
   const { data, error } = await supabase
     .from(CLINIC_TABLE)
     .select('clinic_info')
     .eq('id', clinicId)
     .maybeSingle();
+
 
   if (error) {
     console.error('Error fetching clinic info:', error);
@@ -55,11 +61,14 @@ export async function saveClinicInfo(clinicId: string, info: ClinicInfo): Promis
 
 // ─── Report Layout ────────────────────────────────────────────────────────────
 export async function getReportLayout(clinicId: string): Promise<ReportLayoutConfig | null> {
+  if (!clinicId || clinicId === 'default') return null;
+
   const { data, error } = await supabase
     .from(CLINIC_TABLE)
     .select('report_layout')
     .eq('id', clinicId)
     .maybeSingle();
+
 
   if (error) {
     console.error('Error fetching report layout:', error);
