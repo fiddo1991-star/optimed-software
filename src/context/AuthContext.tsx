@@ -105,6 +105,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           loading: false,
           error: null,
         });
+        
+        // Auto-select the profile to bypass the PIN login screen
+        if (profile) setActiveProfile(profile);
 
       } else {
         setState(prev => ({ ...prev, loading: false, sessionUser: sUser }));
