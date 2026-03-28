@@ -35,23 +35,40 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     // Check initial session
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session?.user) {
-        await fetchUserData(session.user);
-      } else {
+      // Safety timeout to prevent infinite loading state on mobile
+      const timeout = setTimeout(() => {
         setState(prev => ({ ...prev, loading: false }));
-      }
+      }, 5000); // 5 seconds safety net
 
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) {
+          console.error('Session check error:', error);
+          setState(prev => ({ ...prev, loading: false, error: 'Database connection failed' }));
+          return;
+        }
+
+        if (session?.user) {
+          await fetchUserData(session.user);
+        } else {
+          setState(prev => ({ ...prev, loading: false }));
+        }
+      } catch (err) {
+        console.error('Auth initialization failed:', err);
+        setState(prev => ({ ...prev, loading: false, error: 'Authorization unreachable' }));
+      } finally {
+        clearTimeout(timeout);
+      }
     };
 
     checkSession();
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === 'SIGNED_IN' && session?.user) {
+      console.log('Auth Event:', event);
+      if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session?.user) {
         await fetchUserData(session.user);
       } else if (event === 'SIGNED_OUT') {
-
         setState({
           isAuthenticated: false,
           user: null,
@@ -59,6 +76,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           loading: false,
           error: null,
         });
+        setActiveProfile(null);
       }
     });
 

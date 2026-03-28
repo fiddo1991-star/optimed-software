@@ -324,15 +324,20 @@ function App() {
 
 
 
+  const hideWelcome = useCallback(() => setShowWelcome(false), []);
+
   const steps = [
     { label: 'Patient Input', icon: '📝' },
     { label: 'Recommendations', icon: '💊' },
     { label: 'Report', icon: '📄' },
   ];
 
-  if (showWelcome && (clinicInfo.splashSettings?.showSplash !== false)) return <WelcomeScreen clinicInfo={clinicInfo} onComplete={() => setShowWelcome(false)} />;
+  // Combined loading + splash screen logic 
+  const isInitializing = loading || (showWelcome && (clinicInfo.splashSettings?.showSplash !== false));
 
-  if (loading) return null;
+  if (isInitializing) {
+    return <WelcomeScreen clinicInfo={clinicInfo} onComplete={hideWelcome} isLoading={loading} />;
+  }
 
   if (!sessionUser) {
     return <LoginScreen />;

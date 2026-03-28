@@ -4,19 +4,28 @@ import type { ClinicInfo } from '../types';
 interface Props {
     clinicInfo: ClinicInfo;
     onComplete: () => void;
+    isLoading?: boolean;
 }
 
-export default function WelcomeScreen({ clinicInfo, onComplete }: Props) {
+export default function WelcomeScreen({ clinicInfo, onComplete, isLoading = false }: Props) {
     const splash = clinicInfo.splashSettings || { title: 'MedAssist', subtitle: 'Clinical Practice Management', loadingText: 'Initializing Healthcare Engine' };
     const [fadeOut, setFadeOut] = useState(false);
+    const [timerDone, setTimerDone] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setFadeOut(true);
-            setTimeout(onComplete, 600);
+            setTimerDone(true);
         }, 1200);
         return () => clearTimeout(timer);
-    }, [onComplete]);
+    }, []);
+
+    useEffect(() => {
+        if (timerDone && !isLoading) {
+            setFadeOut(true);
+            const exitTimer = setTimeout(onComplete, 600);
+            return () => clearTimeout(exitTimer);
+        }
+    }, [timerDone, isLoading, onComplete]);
 
     return (
         <div className={`fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden transition-all duration-1000 ${fadeOut ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
@@ -61,7 +70,9 @@ export default function WelcomeScreen({ clinicInfo, onComplete }: Props) {
                 </div>
 
                 <p className="mt-4 text-white/30 text-[10px] uppercase font-bold tracking-widest animate-pulse">
-                    {splash.loadingText}
+                    {timerDone && isLoading 
+                        ? 'Connecting to Clinic Network...' 
+                        : splash.loadingText}
                 </p>
             </div>
 
