@@ -111,7 +111,13 @@ function App() {
   useEffect(() => {
     (async () => {
       // Don't try to load if we don't have a valid clinic ID yet
-      if (!currentClinicId || currentClinicId === 'default') return;
+      if (!currentClinicId || currentClinicId === 'default') {
+        if (!loading && sessionUser) {
+          // If we have a session but NO clinic/profile, it's definitively a new setup
+          setNeedsSetup(true);
+        }
+        return;
+      }
 
       const [info, layout] = await Promise.all([
         getClinicInfo(currentClinicId),
