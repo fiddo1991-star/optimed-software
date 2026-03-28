@@ -173,6 +173,7 @@ export default function PrintableReport({ patient, recommendations, prescription
 
     const containerStyle: React.CSSProperties = {
       display: 'flex',
+      flexWrap: 'wrap',
       justifyContent: inline ? 'flex-start' : 'space-between',
       alignItems: 'center',
       fontSize: sFs,
