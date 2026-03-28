@@ -23,6 +23,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [state, setState] = useState<AuthState>({
     isAuthenticated: false,
     user: null,
+    sessionUser: null,
     clinic: null,
     loading: true,
     error: null,
@@ -72,11 +73,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setState({
           isAuthenticated: false,
           user: null,
+          sessionUser: null,
           clinic: null,
           loading: false,
           error: null,
         });
         setActiveProfile(null);
+        setProfiles([]);
       }
     });
 
@@ -173,8 +176,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
 
   const logout = async () => {
-    await supabase.auth.signOut();
     setActiveProfile(null);
+    setProfiles([]);
+    setState({
+      isAuthenticated: false,
+      user: null,
+      sessionUser: null,
+      clinic: null,
+      loading: false,
+      error: null,
+    });
+    await supabase.auth.signOut();
   };
   
   const isAdmin = () => (activeProfile?.role || state.user?.role) === 'admin';
