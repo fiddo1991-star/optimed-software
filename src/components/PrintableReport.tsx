@@ -57,6 +57,10 @@ export default function PrintableReport({ patient, recommendations, prescription
   const getSectionStyle = (id: string, defAlign?: string, defColor?: string) => {
     const s = ts.sections?.[id] || {};
     return {
+      maxWidth: '100%',
+      boxSizing: 'border-box' as const,
+      overflow: 'hidden',
+      wordBreak: 'break-word' as const,
       color: s.color || defColor || 'inherit',
       fontFamily: s.fontFamily ? getFontFamily(s.fontFamily) : 'inherit',
       fontWeight: s.bold ? 'bold' : 'inherit',
@@ -414,7 +418,7 @@ export default function PrintableReport({ patient, recommendations, prescription
           {isSectionVisible('diagnoses') && (
             <div style={getSectionStyle('diagnoses')}>
               {sectionTitle('diagnoses', 'Assessment — Differential Diagnoses')}
-              <table style={{ width: '100%', borderCollapse: 'collapse', ...getSectionStyle('diagnoses') }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed', ...getSectionStyle('diagnoses') }}>
                 <thead>
                   <tr style={{ background: theme.light }}>
                     <th style={{ textAlign: 'left', ...thStyle }}>#</th>
@@ -468,7 +472,7 @@ export default function PrintableReport({ patient, recommendations, prescription
                   ))}
                 </div>
               ) : (
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: fs }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed', fontSize: fs }}>
                   <thead>
                     <tr style={{ background: theme.light }}>
                       <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>#</th>
