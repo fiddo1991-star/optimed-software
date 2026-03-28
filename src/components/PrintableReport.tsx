@@ -254,7 +254,10 @@ export default function PrintableReport({ patient, recommendations, prescription
           color: globalColor,
           fontFamily: getFontFamily(undefined, layoutConfig.fontFamily),
           lineHeight: layoutConfig.lineSpacing === 'tight' ? '1.2' : layoutConfig.lineSpacing === 'relaxed' ? '1.6' : '1.4',
-          position: 'relative', zIndex: 1
+          position: 'relative', zIndex: 1,
+          wordWrap: 'break-word',
+          overflowWrap: 'break-word',
+          maxWidth: '100%'
         }}>
 
           {/* HEADER */}
@@ -352,8 +355,8 @@ export default function PrintableReport({ patient, recommendations, prescription
           {/* CLINICAL SUMMARY */}
           {isSectionVisible('clinical') && (
             <div style={getSectionStyle('clinical')}>
-              {sectionTitle('clinical', 'Clinical Summary')}
-              <div>
+              {sectionTitle('clinical', 'Symptoms & Complaints')}
+              <div style={{ ...getSectionStyle('clinical'), maxWidth: '100%', overflowWrap: 'break-word', wordBreak: 'break-word', whiteSpace: 'pre-wrap' }}>
                 {(patient.chiefComplaint || allSymptoms.length > 0) && (
                   <div style={{ marginBottom: 3 }}>
                     <span style={getLabelStyle()}>Chief Complaint:</span> {
