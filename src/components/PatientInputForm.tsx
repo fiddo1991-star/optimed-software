@@ -203,13 +203,13 @@ export default function PatientInputForm({ onSubmit, initialData }: Props) {
   return (
     <div className="flex flex-col md:flex-row gap-6 items-start max-w-6xl mx-auto">
       {/* Sidebar Navigation */}
-      <div className="w-full md:w-[15%] shrink-0 sticky top-[3.7rem] md:top-8 md:h-[calc(100vh-4rem)] flex flex-col justify-start md:justify-center z-30 -mx-4 px-4 md:mx-0 md:px-0 mb-4 md:mb-0">
-        <div className="bg-white/90 backdrop-blur-md md:bg-white rounded-xl md:rounded-2xl border border-gray-200 p-1.5 md:p-2 shadow-lg md:shadow-sm flex flex-row md:flex-col overflow-x-auto md:overflow-visible gap-1 no-scrollbar whitespace-nowrap">
+      <div className="w-full md:w-[22%] shrink-0 sticky top-[3.7rem] md:top-8 md:h-[calc(100vh-4rem)] flex flex-col justify-start md:justify-center z-30 -mx-4 px-4 md:mx-0 md:px-0 mb-4 md:mb-0">
+        <div className="bg-white/90 backdrop-blur-md md:bg-white rounded-xl md:rounded-2xl border border-gray-200 p-1.5 md:p-2 shadow-lg md:shadow-sm flex flex-row md:flex-col overflow-x-auto md:overflow-visible gap-1 no-scrollbar">
           {sections.map(s => (
             <button key={s.id} onClick={() => scrollToSection(s.id)}
               className={`flex-1 md:w-full flex items-center justify-center md:justify-start gap-2 md:gap-3 px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl text-[11px] md:text-sm font-bold transition-all ${activeTab === s.id ? 'bg-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100'}`}>
               <span className="text-base md:text-lg">{s.icon}</span>
-              <span className="hidden sm:inline md:inline">{s.label}</span>
+              <span className="hidden sm:inline md:inline md:whitespace-normal leading-tight text-left">{s.label}</span>
             </button>
           ))}
         </div>
