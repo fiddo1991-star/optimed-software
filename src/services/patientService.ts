@@ -51,11 +51,22 @@ function mapToDB(record: SavedPatientRecord) {
 }
 
 // ─── Get all patient records ──────────────────────────────────────────────────
-export async function getPatients(clinicId?: string): Promise<SavedPatientRecord[]> {
+export async function getPatients(clinicId?: string, doctorId?: string, isTestUser: boolean = false): Promise<SavedPatientRecord[]> {
   let query = supabase.from(TABLE_NAME).select('*').order('updated_at', { ascending: false });
   
   if (clinicId) {
     query = query.eq('clinic_id', clinicId);
+  }
+
+  if (isTestUser) {
+    // Test users see their own records PLUS all dummy records for demo purposes
+    query = query.or(`doctor_id.eq.${doctorId},is_dummy.eq.true`);
+  } else {
+    // Normal users ONLY see their own records and NO dummy records
+    if (doctorId) {
+      query = query.eq('doctor_id', doctorId);
+    }
+    query = query.eq('is_dummy', false);
   }
 
   const { data, error } = await query;
@@ -71,10 +82,12 @@ export async function getPatients(clinicId?: string): Promise<SavedPatientRecord
 // ─── Real-time listener ──────────────────────────────────────────────────────
 export function subscribeToPatients(
   clinicId: string,
-  onChange: (records: SavedPatientRecord[]) => void
+  onResult: (records: SavedPatientRecord[]) => void,
+  doctorId?: string,
+  isTestUser: boolean = false
 ): () => void {
   // Initial load
-  getPatients(clinicId).then(onChange);
+  getPatients(clinicId, doctorId, isTestUser).then(onResult);
 
   // Subscribe to changes
   const channel = supabase
@@ -88,7 +101,7 @@ export function subscribeToPatients(
         filter: `clinic_id=eq.${clinicId}`
       },
       () => {
-        getPatients(clinicId).then(onChange);
+        getPatients(clinicId, doctorId, isTestUser).then(onResult);
       }
     )
     .subscribe();

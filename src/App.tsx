@@ -144,19 +144,23 @@ function App() {
   // ── Subscribe to patient records (local) ───────────────────
   useEffect(() => {
     if (needsSetup === true || !currentClinicId || currentClinicId === 'default') return;
-    const unsub = subscribeToPatients(currentClinicId, async (records) => {
-      setSavedRecords(records);
-      
-      // Inject dummy Pakistani patients if list is empty
-      if (records.length === 0) {
-        const dummyRecords = generateDummyPatients([clinicInfo.activeDoctorId || TEST_DOCTORS[0].id], currentClinicId);
+    const unsub = subscribeToPatients(
+      currentClinicId, 
+      async (records) => {
+        setSavedRecords(records);
         
-        // Save them to Supabase to persist them permanently
-        for (const dr of dummyRecords) {
-          await savePatient(currentClinicId, dr);
+        // Inject dummy Pakistani patients ONLY for test users if list is empty
+        if (records.length === 0 && (activeProfile?.isTestUser || (activeProfile as any)?.is_test_user)) {
+          const dummyRecords = generateDummyPatients([clinicInfo.activeDoctorId || TEST_DOCTORS[0].id], currentClinicId);
+          
+          for (const dr of dummyRecords) {
+            await savePatient(currentClinicId, dr);
+          }
         }
-      }
-    });
+      },
+      activeProfile?.id,
+      !!(activeProfile?.isTestUser || (activeProfile as any)?.is_test_user)
+    );
     return unsub; 
   }, [needsSetup, clinicInfo.activeDoctorId, currentClinicId]);
 

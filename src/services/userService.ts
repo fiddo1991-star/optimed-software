@@ -20,6 +20,10 @@ export async function getUserProfile(uid: string): Promise<User | null> {
     return null;
   }
 
+  if (data) {
+    (data as any).isTestUser = (data.is_test_user === true);
+    (data as any).clinicId = data.clinicid;
+  }
   return data as User | null;
 }
 
@@ -34,7 +38,11 @@ export async function getProfilesByClinic(clinicId: string): Promise<User[]> {
     return [];
   }
 
-  return (data || []) as User[];
+  return (data || []).map(row => ({
+    ...row,
+    isTestUser: row.is_test_user === true,
+    clinicId: row.clinicid
+  })) as User[];
 }
 
 
@@ -102,7 +110,7 @@ export async function getClinicUsers(clinicId: string): Promise<StoredUser[]> {
 }
 
 export async function createClinicUser(emailOrUser: string, password: string, profile: Omit<User, 'id' | 'createdAt'>): Promise<void> {
-  const email = emailOrUser.includes('@') ? emailOrUser : `${emailOrUser}@optimed-local.com`;
+  const email = emailOrUser.includes('@') ? emailOrUser : `${emailOrUser}@optimed.clinic`;
   
   // Create auth user
   const { data, error: authError } = await supabase.auth.signUp({ 
@@ -136,6 +144,10 @@ export async function getUserByPin(
     return null;
   }
 
+  if (data) {
+    (data as any).isTestUser = (data.is_test_user === true);
+    (data as any).clinicId = data.clinicid;
+  }
   return data as User | null;
 }
 
