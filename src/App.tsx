@@ -94,7 +94,7 @@ function App() {
   const [isRecordSaving, setIsRecordSaving] = useState(false);
   const [recordSavedSuccessfully, setRecordSavedSuccessfully] = useState(false);
 
-  const { user, sessionUser, clinic, loading, activeProfile, switchProfile, logout } = useAuth();
+  const { user, sessionUser, clinic, loading, activeProfile, switchProfile, logout, error: authError } = useAuth();
 
   const currentClinicId = clinic?.id || 'default';
   const currentUser = { 
@@ -166,9 +166,7 @@ function App() {
     // Only save automatically if we are 100% initialized AND NOT in a setup state
     if (needsSetup !== false || !currentClinicId || currentClinicId === 'default') return;
     
-    // Check if what we're about to save is actually worth saving (not just initial defaults)
-    if (clinicInfo.clinicName === 'Test Clinic' && clinicInfo.doctors.length === 1 && !clinicInfo.logoDataUrl) return;
-
+    // Save clinic info to database whenever it changes
     saveClinicInfo(currentClinicId, clinicInfo).catch(console.error);
   }, [clinicInfo, needsSetup, currentClinicId]);
 
@@ -390,6 +388,24 @@ function App() {
     );
   }
 
+
+  // Handle critical loading/error states
+  if (authError) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-red-50 p-6 text-center">
+        <div className="max-w-md bg-white p-8 rounded-2xl shadow-xl border-t-4 border-red-500">
+          <h1 className="text-xl font-bold text-red-700 mb-2">Clinical Data Sync Error</h1>
+          <p className="text-gray-600 mb-6">{authError}</p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="w-full py-3 bg-red-600 text-white rounded-xl font-bold hover:bg-red-700 transition-colors"
+          >
+            Retry Connection
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (needsSetup === null || loading) return null;
 

@@ -98,10 +98,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
         const clinicData = await getClinic(profile.clinicId);
         
+        if (!clinicData) {
+          console.error('Clinic data not found for profile:', profile.clinicId);
+          setState(prev => ({ ...prev, loading: false, sessionUser: sUser, user: profile, error: 'Clinic information missing' }));
+          if (profile) setActiveProfile(profile);
+          return;
+        }
+
         // Map DB record to Clinic type
         const clinic: Clinic = {
           id: clinicData.id,
-          clinicName: clinicData.clinic_info?.clinicName || clinicData.clinicName,
+          clinicName: clinicData.clinic_info?.clinicName || clinicData.clinicName || 'Unnamed Clinic',
           ownerName: clinicData.ownerName || '',
           phone: clinicData.clinic_info?.phone || clinicData.phone || '',
           email: clinicData.clinic_info?.email || clinicData.email || '',
@@ -112,9 +119,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const profiles = await getProfilesByClinic(profile.clinicId);
         setProfiles(profiles);
 
-        // If only one profile exists, or searching for a specific flow, we could auto-select
-        // But for now, we leave it to PIN overlay
-        
         setState({
           isAuthenticated: true,
           user: profile,
@@ -124,16 +128,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           error: null,
         });
         
-        // Auto-select the profile to bypass the PIN login screen
         if (profile) setActiveProfile(profile);
 
       } else {
         setState(prev => ({ ...prev, loading: false, sessionUser: sUser }));
       }
-
     } catch (err) {
-      console.error('Error fetching user data:', err);
-      setState(prev => ({ ...prev, loading: false, error: 'Failed to load user profile' }));
+      console.error('Error in fetchUserData:', err);
+      setState(prev => ({ ...prev, loading: false, error: 'Failed to synchronize with clinical database' }));
     }
   };
 
