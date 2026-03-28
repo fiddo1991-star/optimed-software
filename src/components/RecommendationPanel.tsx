@@ -36,8 +36,60 @@ interface Props {
   onNext: () => void;
 }
 
-
 let cachedIcdApiBaseUrl: string | null = null;
+
+const DEFAULT_SPECIAL_INSTRUCTIONS = [
+  'ایک صبح ناشتے سے آدھا گھنٹہ پہلے',
+  'ایک صبح، دوپہر اور رات کھانے سے آدھا گھنٹہ پہلے',
+  'ایک صبح اور رات کھانے سے آدھا گھنٹہ پہلے',
+  'دو چمچ صبح، دوپہر اور رات',
+  'ایک صبح کھانے کے بعد',
+  'ایک دوپہر کھانے کے بعد',
+  'ایک رات کھانے کے بعد',
+  'ایک صبح اور رات کھانے کے بعد',
+  'ایک صبح، دوپہر اور رات کھانے کے بعد',
+  'آدھی گولی رات سوتے وقت',
+  'آدھی گولی صبح اور آدھی گولی رات کھانے کے بعد',
+  'ایک ساشے رات کو پانی میں حل کر کے لیں',
+  'ایک ساشے صبح نہار منہ پانی میں حل کر کے لیں',
+  'دو سے تین چمچ رات کھانے کے بعد',
+  'ایک ٹیکا ہر 15 دن کے بعد پی لیں',
+  'ایک ٹیکا ہر ہفتے (مخصوص دن) پی لیں',
+  '------- یونٹ صبح -------- یونٹ رات کھانے سے آدھا گھنٹہ پہلے',
+  '------- یونٹ صبح -------- یونٹ دوپہر -------- یونٹ رات کھانے سے پہلے',
+  'ایک گولی روزانہ رات سونے سے پہلے',
+  'ایک گولی ضرورت پڑنے پر (درد یا تکلیف کی صورت میں)'
+];
+
+const DEFAULT_FOLLOWUPS = ['5 Days', '1 Week', '2 Weeks', '3 Weeks', '1 Month'];
+
+const DEFAULT_PRESCRIPTION_TEMPLATES: PrescriptionTemplate[] = [
+  {
+    id: 'viral-flu', name: 'Viral Flu Protocol',
+    prescriptions: [
+      { medicineName: 'Paracetamol', dosage: '500mg', morning: '1', noon: '1', evening: '1', night: '0', duration: '3 days', instructions: 'After meals' },
+      { medicineName: 'Cetirizine', dosage: '10mg', morning: '0', noon: '0', evening: '0', night: '1', duration: '5 days', instructions: 'At bedtime' }
+    ]
+  },
+  {
+    id: 'gastritis', name: 'Gastritis / Reflux',
+    prescriptions: [
+      { medicineName: 'Omeprazole', dosage: '20mg', morning: '1', noon: '0', evening: '0', night: '0', duration: '14 days', instructions: '30 mins before breakfast' },
+      { medicineName: 'Domperidone', dosage: '10mg', morning: '1', noon: '0', evening: '1', night: '0', duration: '5 days', instructions: '15 mins before meals' }
+    ]
+  }
+];
+
+const DEFAULT_INSTRUCTION_TEMPLATES: InstructionTemplate[] = [
+  { id: 'gen-1', name: '1۔سینے میں جلن اور وزن زیادہ ہونے کی صورت میں احتیاط', text: 'بستر کے سرہانے والی سائیڈ 6 انچ اونچی رکھیں۔ رات کا کھانا سونے سے 3 گھنٹے پہلے کھائیں۔ کھانا کھانے کے فوراً بعد لیٹنے سے اجتناب کریں۔ سگریٹ نوشی سے مکمل پرہیز کریں۔ وزن مناسب رکھیں۔ تنگ کپڑے نہ پہنیں۔ کچا پیاز، کچا ادرک، تلی ہوئی چیزیں، تیز مرچ مصالحے اور چکنائی سے پرہیز کریں۔ کافی اور کولڈ ڈرنک سے پرہیز کریں۔ چینی، شکر اور چاول سے مکمل پرہیز کریں۔ چھوٹا بڑا گوشت، پھلیاں، دالیں، مٹر، گوبھی اور ٹماٹر سے پرہیز کریں۔ مرغی، مچھلی، آلو، اروی، کدو، ٹنڈے، پالک اور توری کا استعمال کریں۔ صبح و شام کم از کم دو میل پیدل چلیں۔ دوپہر اور رات کے کھانے سے ایک گھنٹہ پہلے مکھن نکلی ہوئی لسی کا ایک گلاس استعمال کریں اس کے بعد ایک چھوٹی چپاتی کے ساتھ کھانا کھائیں۔ چکنائی والے بسکٹ، مٹھائی، چاکلیٹ، حلوہ جات سے پرہیز کریں۔ پھلوں میں سیب، امرود اور کیلے کا استعمال کریں جبکہ مالٹا، لیموں، گریپ فروٹ سے پرہیز کریں۔ باقاعدگی سے نماز ادا کریں۔' },
+  { id: 'gen-2', name: '2۔جگر کے سکڑنے (CLD) کی صورت میں احتیاط', text: 'نمک سے مکمل پرہیز کریں۔ اس کے متبادل Rite Salt یا Low Salt کا استعمال کریں۔ دن میں تین سے زیادہ گلاس پانی کسی بھی شکل میں استعمال نہ کریں۔ دن میں 2 انڈوں کی سفیدی، 2 بوٹی گوشت، 2 پیالے دہی اور 2 چمچ آئل ضرور استعمال کریں بوتلیں، ڈبے والے جوس، بیکری کا سامان اور سوڈے والی اشیاء استعمال نہ کریں۔ اپنی کنگھی، ٹوتھ برش اور نیل کٹر علیحدہ رکھیں۔ اکٹھے کھانے پینے سے بچوں کو چومنے سے ایک ہی گھر میں رہنے سے ایک ہی بستر پر لیٹنے سے بیماری نہیں پھیلتی۔ درد کیلئے Panadol کے علاوہ کوئی دوا استعمال نہ کریں۔ اینٹی بائیوٹک ادویات میں Clarithromycin, Tetracycline, Erythromycin, Augmentin وغیرہ استعمال نہ کریں۔ شوگر کی صورت میں چینی، شکر، شہد اور چاول مکمل طور پر بند کر دیں اور قبض نہ ہونے دیں۔ باقاعدگی سے نماز ادا کریں۔' },
+  { id: 'gen-3', name: '3۔ ہائی بلڈ پریشر اور دل کے مریضوں کیلئے مفید ہدایات', text: 'اپنا بلڈ پریشر باقاعدگی سے چیک کروائیں۔ نمک کا استعمال کم کریں۔ چکنائی سے بنی ہوئی چیزیں مثلاً پکوڑے، سموسے، تلے ہوئے آلو، تلا ہوا گوشت، کریم مکھن سے پرہیز کریں۔ سبزیوں اور پھلوں کا استعمال زیادہ کریں۔ فائبر سے بھرپور اشیاء استعمال کریں۔ مچھلی کا استعمال کریں۔ مشروبات اور ہائی کیلوریز فوڈز جیسے سافٹ ڈرنک وغیرہ کے استعمال سے پرہیز کریں۔ کم چکنائی کے بغیر ڈیری کی اشیاء کا انتخاب کریں۔ وزن مناسب رکھیں۔ باقاعدگی سے ورزش یا سیر کریں۔ ذہنی دباؤ، فکر یا پریشانی سے بچنے کی کوشش کریں۔ سگریٹ نوشی سے پرہیز کریں۔ باقاعدگی سے نماز ادا کریں۔' },
+  { id: 'gen-4', name: '4۔کولیسٹرول اور ٹرائگلیسرائیڈز کم کرنے کے لیے ہدایات', text: 'مناسب خوراک، سبزیوں کا زیادہ استعمال اور باقاعدہ ورزش یا سیر کو اپنا معمول بنائیں۔غذا جس سے پرہیز ضروری ہے:چھوٹا اور بڑا گوشت، خاص کر اعضاء کا گوشت (گردے، کپورے، جگر، مغز وغیرہ) استعمال نہ کریں۔ مکھن، دیسی و بناسپتی گھی، بالائی اور پروسیسڈ میٹ (جیسے ساسیج، نگٹس یا کباب) سے مکمل پرہیز کریں۔ ان سے بنی اشیاء جیسے کیک اور پیسٹری بھی نقصان دہ ہیں۔ خشک میوہ جات میں کشمش اور اخروٹ کے علاوہ دیگر سے پرہیز کریں۔غذا جو کھانی چاہیے :سبزیاں، پھل، گندم، چاول، مکئی اور جو وغیرہ استعمال کریں۔ انڈے کی زردی کو مکمل بند کرنے کے بجائے اسے ہفتے میں 3 بار تک محدود رکھیں، جبکہ انڈے کی سفیدی روزانہ لی جا سکتی ہے۔ کھانا پکانے کے لیے گھی کے بجائے زیتون Pomace olive oil یا سورج مکھی کا تیل یا کینولا آئل (Canola Oil) (کم مقدار میں) استعمال کریں۔' },
+  { id: 'gen-5', name: '5۔کمر درد کے مریضوں کے لیے مفید ہدایات', text: 'زیادہ وزن اٹھانے سے پرہیز کریں۔ جھک کر کام کرنے سے گریز کریں اور کام کرتے وقت کمر سیدھی رکھیں۔ زیادہ دیر تک ایک ہی حالت میں بیٹھنے یا کھڑے رہنے سے پرہیز کریں۔ سخت اور سیدھے بستر پر سوئیں اور بہت نرم گدے کے استعمال سے گریز کریں۔ کرسی پر بیٹھتے وقت کمر سیدھی رکھیں اور مناسب سہارا استعمال کریں۔ زمین سے کوئی چیز اٹھاتے وقت کمر کو سیدھا رکھ کر گھٹنوں کو موڑ کر اٹھائیں۔ اگر وزن زیادہ ہو تو وزن کم کرنے کی کوشش کریں۔ روزانہ ہلکی ورزش یا چہل قدمی کریں۔' },
+  { id: 'gen-6', name: '6۔ذیابیطس (شوگر) کے مریضوں کیلئے غذائی ہدایات', text: 'دن میں تین بڑے کھانوں کے بجائے تھوڑا تھوڑا اور وقفے وقفے سے کھانا کھائیں۔ کھانے کے اوقات باقاعدہ رکھیں اور کھانا چھوڑنے سے پرہیز کریں۔ میٹھے اور چینی والی اشیاء مثلاً مٹھائیاں، کیک، بسکٹ، کولڈ ڈرنکس اور میٹھے مشروبات سے پرہیز کریں۔ چینی کے بجائے بغیر چینی کے چائے یا کافی استعمال کریں۔چاول، سفید آٹا اور زیادہ نشاستہ والی غذائیں استعمال نہ کریں۔ میدے کی بنی ہوئی اشیاء، بیکری آئٹمز اور فاسٹ فوڈ سے پرہیز کریں۔ گندم کی روٹی، دلیہ، دالیں اور سبزیاں زیادہ استعمال کریں۔پھل مناسب مقدار میں استعمال کریں لیکن بہت زیادہ میٹھے پھل جیسے آم، انگور ،کھجور،کیلااور چیکو کم مقدار میں کھائیں۔ سبزیاں زیادہ استعمال کریں خصوصاً ہری سبزیاں۔ گھی اور تیل کا استعمال کم کریں اور تلی ہوئی غذا سے پرہیز کریں۔ گوشت، مچھلی اور انڈے مناسب مقدار میں استعمال کریں۔ وزن مناسب رکھیں اور روزانہ کم از کم 30 منٹ چہل قدمی یا ہلکی ورزش کریں۔ خون میں شوگر کی سطح باقاعدگی سے چیک کروائیں اور ادویات یا انسولین ڈاکٹر کے مشورے کے مطابق استعمال کریں۔ اگر شوگر بہت زیادہ یا بہت کم ہو جائے تو فوراً ڈاکٹر سے رجوع کریں۔' },
+  { id: 'gen-7', name: '7۔وزن کم کرنے کا غذائی چارٹ', text: 'ناشتہ صبح 8 سے 9 بجے کے درمیان دو انڈوں کے آملیٹ (پیاز، ٹماٹر اور کم تیل کے ساتھ) اور بغیر چینی کی چائے یا گرین ٹی سے کرنا چاہیے، جس سے تقریباً 180 کیلوریز حاصل ہوتی ہیں۔ صبح 11 بجے کے قریب درمیانی وقت میں ایک پھل جیسے سیب، امرود یا ناشپاتی لینا مفید ہے، جبکہ دوپہر 2 بجے کے کھانے میں روٹی یا چاول کے بجائے 100 سے 120 گرام گرِلڈ چکن، مچھلی یا ایک پیالی چنے/لوبیا کے ساتھ تازہ سلاد کا استعمال کریں۔ شام 5 بجے کے ہلکے ناشتے میں ایک کپ  پھیکی چائے کے ساتھ ایک وییٹیبل بسکٹ یا 6 سے 8 بادام لیے جا سکتے ہیں۔ رات 8 بجے کے کھانے میں آدھی روٹی کو سبزی یا دال اور تازہ سلاد کے ساتھ کھانا چاہیے تاکہ دن بھر کی کل کیلوریز 750 سے 850 کے درمیان رہیں اور تقریباً 45 سے 50 گرام پروٹین حاصل ہو سکے۔' },
+  { id: 'gen-8', name: '8۔جنرل ہدایات :', text: 'ادویات کا استعمال ہمیشہ ڈاکٹر کی ہدایات کے مطابق مقررہ وقت پر کریں اور تمام ادویات پانی کے ساتھ لیں۔ اپنی مرضی سے دوا کی مقدار میں کمی بیشی نہ کریں اور نہ ہی ڈاکٹر کے مشورے کے بغیر کسی دوا کو بند کریں۔ اگر کوئی خوراک بھول جائے تو اسے پورا کرنے کے لیے دوہری مقدار لینے سے گریز کریں۔ علامات میں بہتری کے لیے کم از کم پندرہ دن انتظار کریں، تاہم کسی بھی مسئلے کی صورت میں فوری اپنے معالج سے رابطہ کریں۔ صحت مند زندگی کے لیے متوازن غذا کا استعمال کریں اور خود کو ذہنی فکر یا پریشانی سے دور رکھیں۔' }
+];
 
 export default function RecommendationPanel({ recommendations, setRecommendations, prescriptions, setPrescriptions, selectedLabs, setSelectedLabs, selectedImaging, setSelectedImaging, customLabs, setCustomLabs, customImaging, setCustomImaging, onNext }: Props) {
   const [activeSection, setActiveSection] = useState('diagnoses');
@@ -55,7 +107,6 @@ export default function RecommendationPanel({ recommendations, setRecommendation
 
   const [customMedicines, setCustomMedicines] = useState<string[]>([]);
   
-  // Real-time subscription for customMedicines
   useEffect(() => {
     if (!clinicId) return;
     return libraryService.subscribeToLibrary(clinicId, 'medicines', setCustomMedicines);
@@ -66,16 +117,9 @@ export default function RecommendationPanel({ recommendations, setRecommendation
     libraryService.saveLibraryItems(clinicId, 'medicines', newItems);
   };
 
-
   const [newFollowUp, setNewFollowUp] = useState('');
-
-// Legacy instruction states removed
-
-
-  // 1. Setup Ref for Date Picker
   const dateRef = useRef<HTMLInputElement>(null);
 
-  // 2. State Binding Logic for Date Picker
   const displayValue = useMemo(() => {
     const val = recommendations.followUpDate || '';
     if (/^\d{2}\/\d{2}\/\d{4}$/.test(val)) {
@@ -85,15 +129,13 @@ export default function RecommendationPanel({ recommendations, setRecommendation
     return '';
   }, [recommendations.followUpDate]);
 
-  // 3. onChange Logic for Date Picker
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const date = e.target.value; // yyyy-mm-dd
+    const date = e.target.value;
     if (!date) return;
     const [y, m, d] = date.split('-');
     setRecommendations({ ...recommendations, followUpDate: `${d}/${m}/${y}` });
   };
 
-  // Scroll spy logic
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -101,25 +143,21 @@ export default function RecommendationPanel({ recommendations, setRecommendation
           setActiveSection(entry.target.id);
         }
       });
-    }, { threshold: [0.2, 0.5, 0.8], rootMargin: '-10% 0px -40% 0px' });
+    }, { threshold: [0, 0.25, 0.5, 0.75, 1], rootMargin: '-10% 0px -70% 0px' });
 
-    const sections = ['diagnoses', 'prescriptions', 'labs'];
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
+    document.querySelectorAll('section[id]').forEach((section) => {
+      observer.observe(section);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const [followUpList, setFollowUpList] = useState<string[]>(['5 Days', '1 Week', '2 Weeks', '3 Weeks', '1 Month']);
+  const [followUpList, setFollowUpList] = useState<string[]>(DEFAULT_FOLLOWUPS);
 
   useEffect(() => {
     if (!clinicId) return;
     return libraryService.subscribeToLibrary(clinicId, 'followups', (items) => {
-      if (items && items.length > 0) {
-        setFollowUpList(items);
-      }
+      setFollowUpList(items?.length > 0 ? items : DEFAULT_FOLLOWUPS);
     });
   }, [clinicId]);
 
@@ -128,34 +166,12 @@ export default function RecommendationPanel({ recommendations, setRecommendation
     libraryService.saveLibraryItems(clinicId, 'followups', newItems);
   };
 
-  const [specialInstructions, setSpecialInstructions] = useState<string[]>([]);
+  const [specialInstructions, setSpecialInstructions] = useState<string[]>(DEFAULT_SPECIAL_INSTRUCTIONS);
 
   useEffect(() => {
     if (!clinicId) return;
-    const defaults = [
-      'ایک صبح ناشتے سے آدھا گھنٹہ پہلے',
-      'ایک صبح، دوپہر اور رات کھانے سے آدھا گھنٹہ پہلے',
-      'ایک صبح اور رات کھانے سے آدھا گھنٹہ پہلے',
-      'دو چمچ صبح، دوپہر اور رات',
-      'ایک صبح کھانے کے بعد',
-      'ایک دوپہر کھانے کے بعد',
-      'ایک رات کھانے کے بعد',
-      'ایک صبح اور رات کھانے کے بعد',
-      'ایک صبح، دوپہر اور رات کھانے کے بعد',
-      'آدھی گولی رات سوتے وقت',
-      'آدھی گولی صبح اور آدھی گولی رات کھانے کے بعد',
-      'ایک ساشے رات کو پانی میں حل کر کے لیں',
-      'ایک ساشے صبح نہار منہ پانی میں حل کر کے لیں',
-      'دو سے تین چمچ رات کھانے کے بعد',
-      'ایک ٹیکا ہر 15 دن کے بعد پی لیں',
-      'ایک ٹیکا ہر ہفتے (مخصوص دن) پی لیں',
-      '------- یونٹ صبح -------- یونٹ رات کھانے سے آدھا گھنٹہ پہلے',
-      '------- یونٹ صبح -------- یونٹ دوپہر -------- یونٹ رات کھانے سے پہلے',
-      'ایک گولی روزانہ رات سونے سے پہلے',
-      'ایک گولی ضرورت پڑنے پر (درد یا تکلیف کی صورت میں)'
-    ];
     return libraryService.subscribeToLibrary(clinicId, 'instructions', (items) => {
-        setSpecialInstructions(items?.length > 0 ? items : defaults);
+        setSpecialInstructions(items?.length > 0 ? items : DEFAULT_SPECIAL_INSTRUCTIONS);
     });
   }, [clinicId]);
 
@@ -170,28 +186,12 @@ export default function RecommendationPanel({ recommendations, setRecommendation
   const [showGenInstDropdown, setShowGenInstDropdown] = useState(false);
   const [showMedTemplateDropdown, setShowMedTemplateDropdown] = useState(false);
   const [templateName, setTemplateName] = useState('');
-  const [templates, setTemplates] = useState<PrescriptionTemplate[]>([]);
+  const [templates, setTemplates] = useState<PrescriptionTemplate[]>(DEFAULT_PRESCRIPTION_TEMPLATES);
 
   useEffect(() => {
      if (!clinicId) return;
-     const defaults = [
-      {
-        id: 'viral-flu', name: 'Viral Flu Protocol',
-        prescriptions: [
-          { medicineName: 'Paracetamol', dosage: '500mg', morning: '1', noon: '1', evening: '1', night: '0', duration: '3 days', instructions: 'After meals' },
-          { medicineName: 'Cetirizine', dosage: '10mg', morning: '0', noon: '0', evening: '0', night: '1', duration: '5 days', instructions: 'At bedtime' }
-        ]
-      },
-      {
-        id: 'gastritis', name: 'Gastritis / Reflux',
-        prescriptions: [
-          { medicineName: 'Omeprazole', dosage: '20mg', morning: '1', noon: '0', evening: '0', night: '0', duration: '14 days', instructions: '30 mins before breakfast' },
-          { medicineName: 'Domperidone', dosage: '10mg', morning: '1', noon: '0', evening: '1', night: '0', duration: '5 days', instructions: '15 mins before meals' }
-        ]
-      }
-    ];
     return libraryService.subscribeToLibrary(clinicId, 'prescriptionTemplates', (items) => {
-        setTemplates(items?.length > 0 ? items : defaults);
+        setTemplates(items?.length > 0 ? items : DEFAULT_PRESCRIPTION_TEMPLATES);
     });
   }, [clinicId]);
 
@@ -200,23 +200,12 @@ export default function RecommendationPanel({ recommendations, setRecommendation
     libraryService.saveLibraryItems(clinicId, 'prescriptionTemplates', newItems);
   };
 
-  const defaultInstructionTemplates: InstructionTemplate[] = [
-    { id: 'gen-1', name: '1۔سینے میں جلن اور وزن زیادہ ہونے کی صورت میں احتیاط', text: 'بستر کے سرہانے والی سائیڈ 6 انچ اونچی رکھیں۔ رات کا کھانا سونے سے 3 گھنٹے پہلے کھائیں۔ کھانا کھانے کے فوراً بعد لیٹنے سے اجتناب کریں۔ سگریٹ نوشی سے مکمل پرہیز کریں۔ وزن مناسب رکھیں۔ تنگ کپڑے نہ پہنیں۔ کچا پیاز، کچا ادرک، تلی ہوئی چیزیں، تیز مرچ مصالحے اور چکنائی سے پرہیز کریں۔ کافی اور کولڈ ڈرنک سے پرہیز کریں۔ چینی، شکر اور چاول سے مکمل پرہیز کریں۔ چھوٹا بڑا گوشت، پھلیاں، دالیں، مٹر، گوبھی اور ٹماٹر سے پرہیز کریں۔ مرغی، مچھلی، آلو، اروی، کدو، ٹنڈے، پالک اور توری کا استعمال کریں۔ صبح و شام کم از کم دو میل پیدل چلیں۔ دوپہر اور رات کے کھانے سے ایک گھنٹہ پہلے مکھن نکلی ہوئی لسی کا ایک گلاس استعمال کریں اس کے بعد ایک چھوٹی چپاتی کے ساتھ کھانا کھائیں۔ چکنائی والے بسکٹ، مٹھائی، چاکلیٹ، حلوہ جات سے پرہیز کریں۔ پھلوں میں سیب، امرود اور کیلے کا استعمال کریں جبکہ مالٹا، لیموں، گریپ فروٹ سے پرہیز کریں۔ باقاعدگی سے نماز ادا کریں۔' },
-    { id: 'gen-2', name: '2۔جگر کے سکڑنے (CLD) کی صورت میں احتیاط', text: 'نمک سے مکمل پرہیز کریں۔ اس کے متبادل Rite Salt یا Low Salt کا استعمال کریں۔ دن میں تین سے زیادہ گلاس پانی کسی بھی شکل میں استعمال نہ کریں۔ دن میں 2 انڈوں کی سفیدی، 2 بوٹی گوشت، 2 پیالے دہی اور 2 چمچ آئل ضرور استعمال کریں بوتلیں، ڈبے والے جوس، بیکری کا سامان اور سوڈے والی اشیاء استعمال نہ کریں۔ اپنی کنگھی، ٹوتھ برش اور نیل کٹر علیحدہ رکھیں۔ اکٹھے کھانے پینے سے بچوں کو چومنے سے ایک ہی گھر میں رہنے سے ایک ہی بستر پر لیٹنے سے بیماری نہیں پھیلتی۔ درد کیلئے Panadol کے علاوہ کوئی دوا استعمال نہ کریں۔ اینٹی بائیوٹک ادویات میں Clarithromycin, Tetracycline, Erythromycin, Augmentin وغیرہ استعمال نہ کریں۔ شوگر کی صورت میں چینی، شکر، شہد اور چاول مکمل طور پر بند کر دیں اور قبض نہ ہونے دیں۔ باقاعدگی سے نماز ادا کریں۔' },
-    { id: 'gen-3', name: '3۔ ہائی بلڈ پریشر اور دل کے مریضوں کیلئے مفید ہدایات', text: 'اپنا بلڈ پریشر باقاعدگی سے چیک کروائیں۔ نمک کا استعمال کم کریں۔ چکنائی سے بنی ہوئی چیزیں مثلاً پکوڑے، سموسے، تلے ہوئے آلو، تلا ہوا گوشت، کریم مکھن سے پرہیز کریں۔ سبزیوں اور پھلوں کا استعمال زیادہ کریں۔ فائبر سے بھرپور اشیاء استعمال کریں۔ مچھلی کا استعمال کریں۔ مشروبات اور ہائی کیلوریز فوڈز جیسے سافٹ ڈرنک وغیرہ کے استعمال سے پرہیز کریں۔ کم چکنائی کے بغیر ڈیری کی اشیاء کا انتخاب کریں۔ وزن مناسب رکھیں۔ باقاعدگی سے ورزش یا سیر کریں۔ ذہنی دباؤ، فکر یا پریشانی سے بچنے کی کوشش کریں۔ سگریٹ نوشی سے پرہیز کریں۔ باقاعدگی سے نماز ادا کریں۔' },
-    { id: 'gen-4', name: '4۔کولیسٹرول اور ٹرائگلیسرائیڈز کم کرنے کے لیے ہدایات', text: 'مناسب خوراک، سبزیوں کا زیادہ استعمال اور باقاعدہ ورزش یا سیر کو اپنا معمول بنائیں۔غذا جس سے پرہیز ضروری ہے:چھوٹا اور بڑا گوشت، خاص کر اعضاء کا گوشت (گردے، کپورے، جگر، مغز وغیرہ) استعمال نہ کریں۔ مکھن، دیسی و بناسپتی گھی، بالائی اور پروسیسڈ میٹ (جیسے ساسیج، نگٹس یا کباب) سے مکمل پرہیز کریں۔ ان سے بنی اشیاء جیسے کیک اور پیسٹری بھی نقصان دہ ہیں۔ خشک میوہ جات میں کشمش اور اخروٹ کے علاوہ دیگر سے پرہیز کریں۔غذا جو کھانی چاہیے :سبزیاں، پھل، گندم، چاول، مکئی اور جو وغیرہ استعمال کریں۔ انڈے کی زردی کو مکمل بند کرنے کے بجائے اسے ہفتے میں 3 بار تک محدود رکھیں، جبکہ انڈے کی سفیدی روزانہ لی جا سکتی ہے۔ کھانا پکانے کے لیے گھی کے بجائے زیتون Pomace olive oil یا سورج مکھی کا تیل یا کینولا آئل (Canola Oil) (کم مقدار میں) استعمال کریں۔' },
-    { id: 'gen-5', name: '5۔کمر درد کے مریضوں کے لیے مفید ہدایات', text: 'زیادہ وزن اٹھانے سے پرہیز کریں۔ جھک کر کام کرنے سے گریز کریں اور کام کرتے وقت کمر سیدھی رکھیں۔ زیادہ دیر تک ایک ہی حالت میں بیٹھنے یا کھڑے رہنے سے پرہیز کریں۔ سخت اور سیدھے بستر پر سوئیں اور بہت نرم گدے کے استعمال سے گریز کریں۔ کرسی پر بیٹھتے وقت کمر سیدھی رکھیں اور مناسب سہارا استعمال کریں۔ زمین سے کوئی چیز اٹھاتے وقت کمر کو سیدھا رکھ کر گھٹنوں کو موڑ کر اٹھائیں۔ اگر وزن زیادہ ہو تو وزن کم کرنے کی کوشش کریں۔ روزانہ ہلکی ورزش یا چہل قدمی کریں۔' },
-    { id: 'gen-6', name: '6۔ذیابیطس (شوگر) کے مریضوں کیلئے غذائی ہدایات', text: 'دن میں تین بڑے کھانوں کے بجائے تھوڑا تھوڑا اور وقفے وقفے سے کھانا کھائیں۔ کھانے کے اوقات باقاعدہ رکھیں اور کھانا چھوڑنے سے پرہیز کریں۔ میٹھے اور چینی والی اشیاء مثلاً مٹھائیاں، کیک، بسکٹ، کولڈ ڈرنکس اور میٹھے مشروبات سے پرہیز کریں۔ چینی کے بجائے بغیر چینی کے چائے یا کافی استعمال کریں۔چاول، سفید آٹا اور زیادہ نشاستہ والی غذائیں استعمال نہ کریں۔ میدے کی بنی ہوئی اشیاء، بیکری آئٹمز اور فاسٹ فوڈ سے پرہیز کریں۔ گندم کی روٹی، دلیہ، دالیں اور سبزیاں زیادہ استعمال کریں۔پھل مناسب مقدار میں استعمال کریں لیکن بہت زیادہ میٹھے پھل جیسے آم، انگور ،کھجور،کیلااور چیکو کم مقدار میں کھائیں۔ سبزیاں زیادہ استعمال کریں خصوصاً ہری سبزیاں۔ گھی اور تیل کا استعمال کم کریں اور تلی ہوئی غذا سے پرہیز کریں۔ گوشت، مچھلی اور انڈے مناسب مقدار میں استعمال کریں۔ وزن مناسب رکھیں اور روزانہ کم از کم 30 منٹ چہل قدمی یا ہلکی ورزش کریں۔ خون میں شوگر کی سطح باقاعدگی سے چیک کروائیں اور ادویات یا انسولین ڈاکٹر کے مشورے کے مطابق استعمال کریں۔ اگر شوگر بہت زیادہ یا بہت کم ہو جائے تو فوراً ڈاکٹر سے رجوع کریں۔' },
-    { id: 'gen-7', name: '7۔وزن کم کرنے کا غذائی چارٹ', text: 'ناشتہ صبح 8 سے 9 بجے کے درمیان دو انڈوں کے آملیٹ (پیاز، ٹماٹر اور کم تیل کے ساتھ) اور بغیر چینی کی چائے یا گرین ٹی سے کرنا چاہیے، جس سے تقریباً 180 کیلوریز حاصل ہوتی ہیں۔ صبح 11 بجے کے قریب درمیانی وقت میں ایک پھل جیسے سیب، امرود یا ناشپاتی لینا مفید ہے، جبکہ دوپہر 2 بجے کے کھانے میں روٹی یا چاول کے بجائے 100 سے 120 گرام گرِلڈ چکن، مچھلی یا ایک پیالی چنے/لوبیا کے ساتھ تازہ سلاد کا استعمال کریں۔ شام 5 بجے کے ہلکے ناشتے میں ایک کپ  پھیکی چائے کے ساتھ ایک وییٹیبل بسکٹ یا 6 سے 8 بادام لیے جا سکتے ہیں۔ رات 8 بجے کے کھانے میں آدھی روٹی کو سبزی یا دال اور تازہ سلاد کے ساتھ کھانا چاہیے تاکہ دن بھر کی کل کیلوریز 750 سے 850 کے درمیان رہیں اور تقریباً 45 سے 50 گرام پروٹین حاصل ہو سکے۔' },
-    { id: 'gen-8', name: '8۔جنرل ہدایات :', text: 'ادویات کا استعمال ہمیشہ ڈاکٹر کی ہدایات کے مطابق مقررہ وقت پر کریں اور تمام ادویات پانی کے ساتھ لیں۔ اپنی مرضی سے دوا کی مقدار میں کمی بیشی نہ کریں اور نہ ہی ڈاکٹر کے مشورے کے بغیر کسی دوا کو بند کریں۔ اگر کوئی خوراک بھول جائے تو اسے پورا کرنے کے لیے دوہری مقدار لینے سے گریز کریں۔ علامات میں بہتری کے لیے کم از کم پندرہ دن انتظار کریں، تاہم کسی بھی مسئلے کی صورت میں فوری اپنے معالج سے رابطہ کریں۔ صحت مند زندگی کے لیے متوازن غذا کا استعمال کریں اور خود کو ذہنی فکر یا پریشانی سے دور رکھیں۔' }
-  ];
-
-  const [instructionTemplates, setInstructionTemplates] = useState<InstructionTemplate[]>([]);
+  const [instructionTemplates, setInstructionTemplates] = useState<InstructionTemplate[]>(DEFAULT_INSTRUCTION_TEMPLATES);
 
   useEffect(() => {
     if (!clinicId) return;
     return libraryService.subscribeToLibrary(clinicId, 'instructionTemplates', (items) => {
-        setInstructionTemplates(items?.length > 0 ? items : defaultInstructionTemplates);
+        setInstructionTemplates(items?.length > 0 ? items : DEFAULT_INSTRUCTION_TEMPLATES);
     });
   }, [clinicId]);
 

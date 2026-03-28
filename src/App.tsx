@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { PatientData, Recommendations, PrescriptionItem, ClinicInfo, SavedPatientRecord, ReportLayoutConfig } from './types';
 import { generateRecommendations } from './data/medicalKnowledge';
+import { generateDummyPatients } from './data/dummyPatients';
 import PatientInputForm from './components/PatientInputForm';
 import RecommendationPanel from './components/RecommendationPanel';
 import PrintableReport from './components/PrintableReport';
@@ -90,8 +91,10 @@ function App() {
   const [showDoctorMenu, setShowDoctorMenu] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const [needsSetup, setNeedsSetup] = useState<boolean | null>(null);
+  const [isRecordSaving, setIsRecordSaving] = useState(false);
+  const [recordSavedSuccessfully, setRecordSavedSuccessfully] = useState(false);
 
-  const { user, sessionUser, clinic, loading, activeProfile, switchProfile } = useAuth();
+  const { user, sessionUser, clinic, loading, activeProfile, switchProfile, logout } = useAuth();
 
   const currentClinicId = clinic?.id || 'default';
   const currentUser = { 
@@ -135,71 +138,17 @@ function App() {
   // ── Subscribe to patient records (local) ───────────────────
   useEffect(() => {
     if (needsSetup === true || !currentClinicId || currentClinicId === 'default') return;
-    const unsub = subscribeToPatients(currentClinicId, (records) => {
-
+    const unsub = subscribeToPatients(currentClinicId, async (records) => {
       setSavedRecords(records);
       
-      // Inject dummy Pakistani patient if list is empty
+      // Inject dummy Pakistani patients if list is empty
       if (records.length === 0) {
-        const dummyPatient: SavedPatientRecord = {
-          id: 'rec-dummy-khi',
-          savedAt: new Date().toISOString(),
-          doctorId: clinicInfo.activeDoctorId || TEST_DOCTORS[0].id,
-          clinicId: 'local',
-          patientData: {
-            patientName: 'Muhammad Ahmed Khan',
-            patientId: 'PT-KHI-001',
-            phoneNumber: '+92 321 4567890',
-            age: '45',
-            gender: 'Male',
-            chiefComplaint: 'Persistent dry cough for 3 weeks and chest tightness.',
-            symptoms: ['Cough', 'Chest Pain', 'Shortness of Breath'],
-            customSymptoms: 'Pehl-e-Saa\'n phoolna, Dry Cough',
-            medicalHistory: ['Hypertension', 'Diabetes'],
-            customPMH: 'Buland Fishar-e-Khoon (10 years)',
-            currentMedications: 'Tab. Lowplat (Aspirin) 75mg OD, Tab. Getryl (Glimepiride) 2mg OD',
-            allergies: 'Penicillin (Skin Rash)',
-            vitalSigns: {
-              bloodPressure: '140/90',
-              heartRate: '88',
-              temperature: '98.6',
-              oxygenSaturation: '96',
-              respiratoryRate: '20',
-              weight: '85',
-              heightInches: '70',
-              printHeightInches: true
-            },
-            previousLabs: 'CXR (Normal), HbA1c: 7.2% (last month)',
-            diagnosticFindings: 'Bilateral basal crepitations noted. No cardiac murmurs. Patient complains of worsening cough at night.'
-          },
-          recommendations: {
-            diagnoses: [
-              { name: 'Atypical Pneumonia', icdCode: 'J12.9' },
-              { name: 'Uncontrolled Hypertension', icdCode: 'I10' }
-            ],
-            medications: [],
-            labTests: [
-              { name: 'Full Blood Count (FBC)', reason: 'Screen for infection', priority: 'High' },
-              { name: 'Sputum for C/S', reason: 'Identify pathogen', priority: 'Standard' }
-            ],
-            imagingStudies: [
-              { name: 'Chest X-Ray PA View', reason: 'Evaluate pulmonary consolidation', priority: 'Urgent' }
-            ],
-            clinicalNotes: ['Advised bed rest for 3 days.', 'Avoid cold drinks and excessive exertion.'],
-            instructions: 'ایک گولی صبح اور ایک رات کھانے کے بعد، پانی کے ساتھ۔',
-            warnings: ['Monitor for high-grade fever.', 'Follow up if breathing becomes difficult.'],
-            followUpDate: '1 Week'
-          },
-          prescriptions: [
-            { medicineName: 'Azithromycin 500mg', dosage: '500mg', morning: '1', noon: '0', evening: '0', night: '0', duration: '5 Days', instructions: 'ناشتے کے بعد' },
-            { medicineName: 'Panadol CF', dosage: '–', morning: '1', noon: '1', evening: '1', night: '1', duration: '3 Days', instructions: 'کھانے کے بعد' }
-          ],
-          selectedLabs: ['Full Blood Count (FBC)', 'Sputum for C/S'],
-          selectedImaging: ['Chest X-Ray PA View'],
-          customLabs: [],
-          customImaging: []
-        };
-        savePatient(currentClinicId, dummyPatient);
+        const dummyRecords = generateDummyPatients([clinicInfo.activeDoctorId || TEST_DOCTORS[0].id], currentClinicId);
+        
+        // Save them to Supabase to persist them permanently
+        for (const dr of dummyRecords) {
+          await savePatient(currentClinicId, dr);
+        }
       }
     });
     return unsub; 
@@ -243,15 +192,40 @@ function App() {
     const record: SavedPatientRecord = {
       id: recordId,
       savedAt: new Date().toISOString(),
-      doctorId: clinicInfo.activeDoctorId,
+      doctorId: clinicInfo.activeDoctorId || TEST_DOCTORS[0].id,
       patientData, recommendations, prescriptions,
       selectedLabs, selectedImaging, customLabs, customImaging,
       clinicId: currentClinicId,
     };
-    if (!editingRecordId) setEditingRecordId(recordId);
-    await savePatient(currentClinicId, record);
 
-  }, [patientData, recommendations, prescriptions, selectedLabs, selectedImaging, customLabs, customImaging, clinicInfo.activeDoctorId, editingRecordId]);
+    // Optimistically update the UI records list
+    setSavedRecords(prev => {
+      const idx = prev.findIndex(r => r.id === recordId);
+      if (idx >= 0) {
+        const updated = [...prev];
+        updated[idx] = record;
+        return updated;
+      }
+      return [record, ...prev];
+    });
+
+    if (!editingRecordId) setEditingRecordId(recordId);
+    
+    setIsRecordSaving(true);
+    setRecordSavedSuccessfully(false);
+    
+    try {
+      await savePatient(currentClinicId, record);
+      setRecordSavedSuccessfully(true);
+      setTimeout(() => setRecordSavedSuccessfully(false), 2000);
+    } catch (err) {
+      console.error('Save failed:', err);
+      // alert('Error saving to database. But record is saved in local history.');
+    } finally {
+      setIsRecordSaving(false);
+    }
+
+  }, [patientData, recommendations, prescriptions, selectedLabs, selectedImaging, customLabs, customImaging, clinicInfo.activeDoctorId, editingRecordId, currentClinicId]);
 
   const handleNewPatient = useCallback(() => {
     // Force reset all states to avoid jamming
@@ -307,8 +281,8 @@ function App() {
         oxygenSaturation: '',
         respiratoryRate: '',
         weight: '',
-        heightInches: pData.vitalSigns.heightInches,
-        printHeightInches: pData.vitalSigns.printHeightInches,
+        heightInches: pData.vitalSigns?.heightInches || '',
+        printHeightInches: pData.vitalSigns?.printHeightInches ?? true,
       },
       diagnosticFindings: '',
       // Note: allergies, currentMedications, medicalHistory, customPMH are kept.
@@ -502,13 +476,21 @@ function App() {
             </button>
 
             {activeProfile && (
-              <button 
-                onClick={() => switchProfile()} 
-                title="Switch User / Lock"
-                className="h-8 w-8 bg-amber-50 text-amber-600 border border-amber-200 rounded-lg text-xs font-bold hover:bg-amber-100 transition-all flex items-center justify-center"
-              >
-                🔐
-              </button>
+              <div className="flex items-center gap-1.5">
+                <button 
+                  onClick={() => switchProfile()} 
+                  title="Lock/Switch User"
+                  className="h-8 w-8 bg-amber-50 text-amber-600 border border-amber-200 rounded-lg text-xs font-bold hover:bg-amber-100 transition-all flex items-center justify-center"
+                >
+                  🔒
+                </button>
+                <button 
+                  onClick={() => logout()} 
+                  className="h-8 px-2.5 bg-red-50 text-red-600 border border-red-200 rounded-lg text-xs font-bold hover:bg-red-100 transition-all flex items-center gap-1.5"
+                >
+                  🚪 Logout
+                </button>
+              </div>
             )}
 
           </div>
@@ -541,9 +523,18 @@ function App() {
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${showCustomizer ? 'bg-purple-600 text-white' : 'bg-purple-100 text-purple-700 hover:bg-purple-200'}`}>
                   🎨 Customize Report
                 </button>
-                <button onClick={async () => { await saveCurrentRecord(); alert('Patient record successfully saved!'); }}
-                  className="px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium hover:bg-green-200 transition-all">
-                  💾 Save to Records
+                <button 
+                  onClick={async () => { await saveCurrentRecord(); }}
+                  disabled={isRecordSaving}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    recordSavedSuccessfully 
+                      ? 'bg-green-600 text-white shadow-lg shadow-green-600/20' 
+                      : isRecordSaving 
+                        ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
+                        : 'bg-green-100 text-green-700 hover:bg-green-200'
+                  }`}
+                >
+                  {recordSavedSuccessfully ? '✓ Saved' : isRecordSaving ? 'Saving...' : '💾 Save to Records'}
                 </button>
               </div>
             </div>

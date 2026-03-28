@@ -75,7 +75,7 @@ export function subscribeToLibrary(
       },
       (payload: any) => {
         if (payload.new && payload.new.category === category) {
-          onChange(payload.new.items || []);
+          onChange(payload.new.content || []);
         }
       }
     )

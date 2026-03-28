@@ -26,10 +26,12 @@ function mapFromDB(row: any): SavedPatientRecord {
 }
 
 function mapToDB(record: SavedPatientRecord) {
+  const isUUID = (str: string) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(str);
+
   return {
-    id: record.id,
-    clinic_id: record.clinicId,
-    doctor_id: record.doctorId,
+    id: isUUID(record.id) ? record.id : undefined,
+    clinic_id: isUUID(record.clinicId) ? record.clinicId : null,
+    doctor_id: isUUID(record.doctorId) ? record.doctorId : null,
     patient_id_label: record.patientData?.patientId || '',
     patient_name: record.patientData?.patientName || 'Unknown',
     phone_number: record.patientData?.phoneNumber || '',
