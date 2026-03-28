@@ -1,5 +1,8 @@
+import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import * as libraryService from '../services/libraryService';
+import type { PatientData } from '../types';
+import SpeechMicButton from './SpeechMicButton';
 
 const SYMPTOM_LIST = [
 

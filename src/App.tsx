@@ -107,18 +107,21 @@ function App() {
   // ── On mount: load clinic info + layout ──────────────────────
   useEffect(() => {
     (async () => {
+      // Don't try to load if we don't have a valid clinic ID yet
+      if (!currentClinicId || currentClinicId === 'default') return;
+
       const [info, layout] = await Promise.all([
         getClinicInfo(currentClinicId),
         getReportLayout(currentClinicId),
       ]);
 
-      
       if (info) {
         setClinicInfo(info);
         setNeedsSetup(false);
       } else {
-        setClinicInfo(TEST_CLINIC);
-        setNeedsSetup(true); // show first-time setup wizard
+        // If we have a clinic ID but no info, maybe it's still being created
+        // or we need to show the setup
+        setNeedsSetup(true);
       }
 
       if (layout) {
@@ -127,7 +130,7 @@ function App() {
         setLayoutConfig(DEFAULT_LAYOUT);
       }
     })();
-  }, []);
+  }, [currentClinicId]);
 
   // ── Subscribe to patient records (local) ───────────────────
   useEffect(() => {
@@ -221,7 +224,7 @@ function App() {
   }, [layoutConfig, needsSetup, currentClinicId]);
 
 
-  const activeDoctor = clinicInfo.doctors.find(d => d.id === clinicInfo.activeDoctorId) || clinicInfo.doctors[0];
+  const activeDoctor = (clinicInfo?.doctors || []).find(d => d.id === clinicInfo?.activeDoctorId) || clinicInfo?.doctors?.[0] || TEST_DOCTORS[0];
 
   const handlePatientSubmit = (data: PatientData) => {
     setPatientData(data);
