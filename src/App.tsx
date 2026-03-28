@@ -370,7 +370,8 @@ function App() {
                     full_name: (sessionUser.user_metadata?.full_name || info.doctors[0].doctorName),
                     role: 'admin',
                     email: sessionUser.email,
-                    status: 'active'
+                    status: 'active',
+                    pin_code: '1234'
                   } as any);
                 }
               } else {
