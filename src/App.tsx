@@ -50,7 +50,7 @@ const DEFAULT_LAYOUT: ReportLayoutConfig = {
   sections: [
     { id: 'header', label: 'Header', visible: true, locked: true },
     { id: 'patient', label: 'Patient Information', visible: true },
-    { id: 'clinical', label: 'Clinical Summary', visible: true },
+    { id: 'clinical', label: 'Symptoms & Complaints', visible: true },
     { id: 'vitals', label: 'Vital Signs', visible: true },
     { id: 'alerts', label: 'Clinical Alerts', visible: true },
     { id: 'diagnoses', label: 'Diagnoses', visible: true },
@@ -139,7 +139,7 @@ function App() {
         setLayoutConfig(DEFAULT_LAYOUT);
       }
     })();
-  }, [currentClinicId]);
+  }, [currentClinicId, loading, sessionUser]);
 
   // ── Subscribe to patient records (local) ───────────────────
   useEffect(() => {
