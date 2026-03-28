@@ -55,14 +55,14 @@ export default function LoginScreen() {
         <div className="bg-slate-800/50 backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-10 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 px-1">Clinic Email</label>
+              <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 px-1">Clinic Username or Email</label>
               <input
-                type="email"
+                type="text"
                 required
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-5 py-4 text-white focus:border-blue-500 outline-none transition-all placeholder:text-slate-600"
-                placeholder="doctor@clinic.com"
+                placeholder="e.g. cityclinic-admin"
               />
             </div>
             <div>

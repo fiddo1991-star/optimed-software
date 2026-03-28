@@ -37,10 +37,10 @@ export default function UserManagement({ onClose }: { onClose: () => void }) {
       if (editingUser.id) {
         // Update existing user
         const updates: Partial<StoredUser> = {
-          name: editingUser.name,
+          full_name: editingUser.full_name,
           role: editingUser.role as UserRole,
           status: editingUser.status as 'active' | 'inactive',
-          pin: editingUser.pin,
+          pin_code: editingUser.pin_code,
         };
         if (password) updates.password = password;
         await updateUserProfile(editingUser.id, updates);
@@ -53,12 +53,12 @@ export default function UserManagement({ onClose }: { onClose: () => void }) {
         }
         await createClinicUser(editingUser.email, password, {
           clinicId: currentUser.clinicId,
-          name: editingUser.name || editingUser.email,
+          full_name: editingUser.full_name || editingUser.email,
           username: editingUser.email.split('@')[0],
           email: editingUser.email,
           role: (editingUser.role as UserRole) || 'doctor',
           status: 'active',
-          pin: editingUser.pin,
+          pin_code: editingUser.pin_code,
         });
       }
       await fetchUsers();
@@ -131,10 +131,10 @@ export default function UserManagement({ onClose }: { onClose: () => void }) {
                   <div>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-lg">
-                        {(u.name || u.email || '?')[0].toUpperCase()}
+                        {(u.full_name || u.email || '?')[0].toUpperCase()}
                       </div>
                       <div>
-                        <div className="font-bold text-gray-800">{u.name}</div>
+                        <div className="font-bold text-gray-800">{u.full_name}</div>
                         <div className="text-xs text-gray-400">{u.email}</div>
                       </div>
                     </div>
@@ -147,7 +147,7 @@ export default function UserManagement({ onClose }: { onClose: () => void }) {
                         <span className="text-gray-400">Status</span>
                         <span className={`font-medium ${u.status === 'active' ? 'text-green-600' : 'text-red-500'} uppercase`}>{u.status}</span>
                       </div>
-                      {u.pin && (
+                      {u.pin_code && (
                         <div className="flex justify-between text-xs">
                           <span className="text-gray-400">PIN Login</span>
                           <span className="text-green-600 font-bold">✓ Enabled</span>
@@ -183,8 +183,8 @@ export default function UserManagement({ onClose }: { onClose: () => void }) {
               <div className="space-y-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Full Name</label>
-                  <input type="text" value={editingUser.name || ''}
-                    onChange={e => setEditingUser({ ...editingUser, name: e.target.value })}
+                  <input type="text" value={editingUser.full_name || ''}
+                    onChange={e => setEditingUser({ ...editingUser, full_name: e.target.value })}
                     className="w-full border-2 border-gray-100 rounded-xl px-4 py-2 focus:border-blue-500 outline-none" />
                 </div>
 
@@ -192,11 +192,11 @@ export default function UserManagement({ onClose }: { onClose: () => void }) {
                   <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">
                     Email {!editingUser.id && <span className="text-red-500">*</span>}
                   </label>
-                  <input type="email" value={editingUser.email || ''}
+                  <input type="text" value={editingUser.email || ''}
                     onChange={e => setEditingUser({ ...editingUser, email: e.target.value })}
                     disabled={!!editingUser.id}
                     className="w-full border-2 border-gray-100 rounded-xl px-4 py-2 focus:border-blue-500 outline-none disabled:bg-gray-50 disabled:text-gray-400" />
-                  {!editingUser.id && <p className="text-[10px] text-gray-400 mt-1">Used for login. e.g. doctor@yourclinic.com</p>}
+                  {!editingUser.id && <p className="text-[10px] text-gray-400 mt-1">Used for login. e.g. <span className="font-bold text-blue-600">dr_khan</span> or doctor@clinic.com</p>}
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -233,8 +233,8 @@ export default function UserManagement({ onClose }: { onClose: () => void }) {
                   <div>
                     <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">4-Digit PIN (Optional)</label>
                     <input type="password" maxLength={4}
-                      value={editingUser.pin || ''}
-                      onChange={e => setEditingUser({ ...editingUser, pin: e.target.value.replace(/\D/g, '') })}
+                      value={editingUser.pin_code || ''}
+                      onChange={e => setEditingUser({ ...editingUser, pin_code: e.target.value.replace(/\D/g, '') })}
                       className="w-full border-2 border-gray-100 rounded-xl px-4 py-2 focus:border-blue-500 outline-none"
                       placeholder="1234" />
                   </div>

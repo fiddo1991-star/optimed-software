@@ -92,6 +92,32 @@ export async function deleteClinicUser(uid: string): Promise<void> {
   }
 }
 
+export interface StoredUser extends User {
+  password?: string;
+}
+
+export async function getClinicUsers(clinicId: string): Promise<StoredUser[]> {
+  const profiles = await getProfilesByClinic(clinicId);
+  return profiles.map(p => ({ ...p, email: p.email || (p.username ? `${p.username}@clinic.local` : '') }));
+}
+
+export async function createClinicUser(emailOrUser: string, password: string, profile: Omit<User, 'id' | 'createdAt'>): Promise<void> {
+  const email = emailOrUser.includes('@') ? emailOrUser : `${emailOrUser}@optimed-local.com`;
+  
+  // Create auth user
+  const { data, error: authError } = await supabase.auth.signUp({ 
+    email, 
+    password,
+    options: { data: { full_name: profile.full_name, clinic_id: profile.clinicId } }
+  });
+
+  if (authError) throw authError;
+  if (!data.user) throw new Error('Failed to create auth user');
+
+  // Create profile
+  await createProfile({ ...profile, id: data.user.id });
+}
+
 export async function getUserByPin(
   clinicId: string,
   pin: string

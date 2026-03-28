@@ -142,8 +142,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const login = async (email: string, password: string) => {
+  const login = async (identifier: string, password: string) => {
     setState(prev => ({ ...prev, loading: true, error: null }));
+    const email = identifier.includes('@') ? identifier : `${identifier}@optimed-local.com`;
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     
     if (error) {
