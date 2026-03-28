@@ -269,11 +269,27 @@ function App() {
     
     const pData = record.patientData;
     const cleanVisitData: PatientData = {
-      ...pData,
-      // Visit-specific fields to clear:
+      // Demographics & Contacts (Keep)
+      patientName: pData.patientName || '',
+      patientId: pData.patientId || '',
+      phoneNumber: pData.phoneNumber || '',
+      age: pData.age || '',
+      gender: pData.gender || '',
+      
+      // Clinical Baseline (Keep)
+      allergies: pData.allergies || '',
+      currentMedications: pData.currentMedications || '',
+      medicalHistory: pData.medicalHistory || [],
+      customPMH: pData.customPMH || '',
+      previousLabs: pData.previousLabs || '',
+
+      // Current Visit Details (Clear)
       chiefComplaint: '',
       symptoms: [],
       customSymptoms: '',
+      diagnosticFindings: '',
+
+      // Vital Signs (Clear except static data like height)
       vitalSigns: {
         bloodPressure: '',
         heartRate: '',
@@ -284,8 +300,6 @@ function App() {
         heightInches: pData.vitalSigns?.heightInches || '',
         printHeightInches: pData.vitalSigns?.printHeightInches ?? true,
       },
-      diagnosticFindings: '',
-      // Note: allergies, currentMedications, medicalHistory, customPMH are kept.
     };
 
     setPatientData(cleanVisitData);
