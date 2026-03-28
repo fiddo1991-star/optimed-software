@@ -1,0 +1,107 @@
+src/components/ClinicSettingsModal.tsx(41,9): error TS6133: 'handleImportMedicines' is declared but its value is never read.
+src/components/PatientDashboard.tsx(251,113): error TS2339: Property 'confidence' does not exist on type '{ date: string; complaint: string; name: string; icdCode: string; }'.
+src/components/PatientDashboard.tsx(251,171): error TS2339: Property 'confidence' does not exist on type '{ date: string; complaint: string; name: string; icdCode: string; }'.
+src/components/PatientDashboard.tsx(251,265): error TS2339: Property 'confidence' does not exist on type '{ date: string; complaint: string; name: string; icdCode: string; }'.
+src/components/PatientHistoryPanel.tsx(5,22): error TS7016: Could not find a declaration file for module 'html2pdf.js'. 'D:/optimed-software/node_modules/html2pdf.js/dist/html2pdf.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/html2pdf.js` if it exists or add a new declaration (.d.ts) file containing `declare module 'html2pdf.js';`
+src/components/PatientInputForm.tsx(63,29): error TS2304: Cannot find name 'PatientData'.
+src/components/PatientInputForm.tsx(71,36): error TS2304: Cannot find name 'PatientData'.
+src/components/PatientInputForm.tsx(71,72): error TS2304: Cannot find name 'PatientData'.
+src/components/PatientInputForm.tsx(73,67): error TS6133: 'recentPatients' is declared but its value is never read.
+src/components/PatientInputForm.tsx(74,27): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(74,36): error TS2304: Cannot find name 'PatientData'.
+src/components/PatientInputForm.tsx(75,37): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(76,31): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(77,37): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(78,37): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(79,39): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(80,31): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(81,10): error TS6133: 'showPhoneSuggestions' is declared but its value is never read.
+src/components/PatientInputForm.tsx(81,32): error TS6133: 'setShowPhoneSuggestions' is declared but its value is never read.
+src/components/PatientInputForm.tsx(81,59): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(83,9): error TS6133: 'containerRef' is declared but its value is never read.
+src/components/PatientInputForm.tsx(83,24): error TS2304: Cannot find name 'useRef'.
+src/components/PatientInputForm.tsx(84,27): error TS2304: Cannot find name 'useRef'.
+src/components/PatientInputForm.tsx(85,23): error TS2304: Cannot find name 'useRef'.
+src/components/PatientInputForm.tsx(86,22): error TS2304: Cannot find name 'useRef'.
+src/components/PatientInputForm.tsx(87,21): error TS2304: Cannot find name 'useRef'.
+src/components/PatientInputForm.tsx(88,26): error TS2304: Cannot find name 'useRef'.
+src/components/PatientInputForm.tsx(93,41): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(94,33): error TS2304: Cannot find name 'useState'.
+src/components/PatientInputForm.tsx(96,3): error TS2304: Cannot find name 'useEffect'.
+src/components/PatientInputForm.tsx(126,3): error TS2304: Cannot find name 'useEffect'.
+src/components/PatientInputForm.tsx(150,3): error TS2304: Cannot find name 'useEffect'.
+src/components/PatientInputForm.tsx(165,60): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(166,37): error TS2304: Cannot find name 'PatientData'.
+src/components/PatientInputForm.tsx(166,90): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(167,48): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(167,115): error TS7006: Parameter 'x' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(168,44): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(168,129): error TS7006: Parameter 'x' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(170,9): error TS6133: 'validate' is declared but its value is never read.
+src/components/PatientInputForm.tsx(189,27): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(198,23): error TS7006: Parameter 'h' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(204,47): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(205,38): error TS7006: Parameter 'h' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(226,26): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(226,29): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(273,16): error TS2304: Cannot find name 'SpeechMicButton'.
+src/components/PatientInputForm.tsx(273,43): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(287,37): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(292,101): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(319,34): error TS7006: Parameter 'h' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(324,95): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(337,18): error TS2304: Cannot find name 'SpeechMicButton'.
+src/components/PatientInputForm.tsx(337,45): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(345,18): error TS2304: Cannot find name 'SpeechMicButton'.
+src/components/PatientInputForm.tsx(345,45): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(353,18): error TS2304: Cannot find name 'SpeechMicButton'.
+src/components/PatientInputForm.tsx(353,45): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(375,138): error TS2304: Cannot find name 'PatientData'.
+src/components/PatientInputForm.tsx(383,90): error TS7006: Parameter 'p' implicitly has an 'any' type.
+src/components/PatientInputForm.tsx(399,14): error TS2304: Cannot find name 'SpeechMicButton'.
+src/components/PatientInputForm.tsx(399,41): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/components/UserManagement.tsx(5,3): error TS2305: Module '"../services/userService"' has no exported member 'getClinicUsers'.
+src/components/UserManagement.tsx(6,3): error TS2724: '"../services/userService"' has no exported member named 'createClinicUser'. Did you mean 'deleteClinicUser'?
+src/components/UserManagement.tsx(9,8): error TS2305: Module '"../services/userService"' has no exported member 'StoredUser'.
+src/data/dummyPatients.ts(39,72): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/dummyPatients.ts(40,81): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/dummyPatients.ts(41,63): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/dummyPatients.ts(42,64): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/dummyPatients.ts(43,58): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(18,70): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(19,54): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(20,54): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(41,57): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(42,63): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(43,59): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(67,61): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(68,78): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(69,57): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(94,58): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(95,51): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(96,61): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(119,62): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(120,65): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(121,57): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(141,61): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(142,52): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(143,52): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(171,53): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(172,53): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(173,41): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(196,60): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(197,52): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(198,55): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(220,60): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(221,60): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(222,55): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(245,52): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(246,57): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(247,57): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(273,54): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(274,56): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(275,46): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(294,54): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(295,55): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.
+src/data/medicalKnowledge.ts(296,46): error TS2353: Object literal may only specify known properties, and 'confidence' does not exist in type 'Diagnosis'.

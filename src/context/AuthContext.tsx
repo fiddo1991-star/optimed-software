@@ -72,6 +72,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const profile = await getUserProfile(sUser.id);
 
       if (profile) {
+        // DB returns 'clinicid' (lowercase), normalize to 'clinicId' for the app
+        const profileClinicId = (profile as any).clinicid || profile.clinicId;
+        if (profileClinicId && !profile.clinicId) {
+          profile.clinicId = profileClinicId;
+        }
+
         const clinicData = await getClinic(profile.clinicId);
         
         // Map DB record to Clinic type

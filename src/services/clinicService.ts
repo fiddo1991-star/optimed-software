@@ -27,22 +27,23 @@ export async function getClinic(clinicId: string): Promise<any | null> {
 }
 
 export async function initializeClinic(info: ClinicInfo): Promise<string> {
-  const { data, error } = await supabase
+  const cid = crypto.randomUUID();
+
+  const { error } = await supabase
     .from(CLINIC_TABLE)
     .insert({ 
+      id: cid,
       clinic_name: info.clinicName,
       clinic_info: info,
       report_layout: {}
-    })
-    .select('id')
-    .single();
+    });
 
   if (error) {
     console.error('Error initializing clinic:', error);
     throw error;
   }
 
-  return data.id;
+  return cid;
 }
 
 

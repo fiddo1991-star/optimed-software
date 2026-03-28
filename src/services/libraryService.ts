@@ -22,8 +22,8 @@ export type LibraryCategory =
 export async function getLibraryItems<T>(clinicId: string, category: LibraryCategory): Promise<T[]> {
   const { data, error } = await supabase
     .from(TABLE_NAME)
-    .select('items')
-    .eq('clinicId', clinicId)
+    .select('content')
+    .eq('clinic_id', clinicId)
     .eq('category', category)
     .maybeSingle();
 
@@ -32,19 +32,19 @@ export async function getLibraryItems<T>(clinicId: string, category: LibraryCate
     return [];
   }
 
-  return (data?.items || []) as T[];
+  return (data?.content || []) as T[];
 }
 
 export async function saveLibraryItems<T>(clinicId: string, category: LibraryCategory, items: T[]): Promise<void> {
   const { error } = await supabase
     .from(TABLE_NAME)
     .upsert({
-      clinicId,
+      clinic_id: clinicId,
       category,
-      items,
-      updated_at: new Date().toISOString()
+      content: items,
+      title: category
     }, {
-      onConflict: 'clinicId,category'
+      onConflict: 'clinic_id,category'
     });
 
   if (error) {
@@ -71,7 +71,7 @@ export function subscribeToLibrary(
         event: '*',
         schema: 'public',
         table: TABLE_NAME,
-        filter: `clinicId=eq.${clinicId}`
+        filter: `clinic_id=eq.${clinicId}`
       },
       (payload: any) => {
         if (payload.new && payload.new.category === category) {

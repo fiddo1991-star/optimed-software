@@ -27,7 +27,7 @@ export async function getProfilesByClinic(clinicId: string): Promise<User[]> {
   const { data, error } = await supabase
     .from(PROFILE_TABLE)
     .select('*')
-    .eq('clinicId', clinicId);
+    .eq('clinicid', clinicId);
 
   if (error) {
     console.error('Error fetching clinic users:', error);
@@ -47,7 +47,13 @@ export async function createProfile(
   const { error } = await supabase
     .from(PROFILE_TABLE)
     .upsert({
-      ...profile,
+      id: profile.id,
+      clinicid: profile.clinicId,
+      full_name: profile.full_name,
+      role: profile.role,
+      status: profile.status || 'active',
+      pin_code: profile.pin_code,
+      is_test_user: profile.isTestUser || false,
       created_at: new Date().toISOString()
     });
 
@@ -93,7 +99,7 @@ export async function getUserByPin(
   const { data, error } = await supabase
     .from(PROFILE_TABLE)
     .select('*')
-    .eq('clinicId', clinicId)
+    .eq('clinicid', clinicId)
     .eq('pin_code', pin)
     .eq('status', 'active')
     .maybeSingle();

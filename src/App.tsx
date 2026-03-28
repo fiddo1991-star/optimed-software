@@ -13,7 +13,7 @@ import FirstTimeSetup from './components/FirstTimeSetup';
 
 import { getClinicInfo, saveClinicInfo, getReportLayout, saveReportLayout, initializeClinic } from './services/clinicService';
 import { subscribeToPatients, savePatient, deletePatient, deleteAllPatients } from './services/patientService';
-import { updateUserProfile } from './services/userService';
+import { createProfile } from './services/userService';
 
 import PinLoginOverlay from './components/PinLoginOverlay';
 import { useAuth, AuthProvider } from './context/AuthContext';
@@ -361,7 +361,7 @@ function App() {
                 cid = await initializeClinic(info);
                 if (sessionUser?.id) {
                   // We also create the profile here for the first time
-                  await updateUserProfile(sessionUser.id, { 
+                  await createProfile({ 
                     id: sessionUser.id,
                     clinicId: cid,
                     full_name: (sessionUser.user_metadata?.full_name || info.doctors[0].doctorName),
