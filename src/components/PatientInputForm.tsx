@@ -71,9 +71,9 @@ const getEmptyPatient = (): PatientData => ({
   diagnosticFindings: ''
 });
 
-interface Props { onSubmit: (data: PatientData) => void; initialData?: PatientData | null; recentPatients?: any[]; }
+interface Props { onSubmit: (data: PatientData) => void; initialData?: PatientData | null; }
 
-export default function PatientInputForm({ onSubmit, initialData, recentPatients = [] }: Props) {
+export default function PatientInputForm({ onSubmit, initialData }: Props) {
   const [data, setData] = useState<PatientData>(initialData || getEmptyPatient());
   const [activeTab, setActiveTab] = useState('demographics');
   const [errors, setErrors] = useState<string[]>([]);
@@ -81,9 +81,6 @@ export default function PatientInputForm({ onSubmit, initialData, recentPatients
   const [pmhSearch, setPmhSearch] = useState('');
   const [newSymptom, setNewSymptom] = useState('');
   const [newPMH, setNewPMH] = useState('');
-  const [showPhoneSuggestions, setShowPhoneSuggestions] = useState(false);
-
-  const containerRef = useRef<HTMLDivElement>(null);
   const demographicsRef = useRef<HTMLElement>(null);
   const symptomsRef = useRef<HTMLElement>(null);
   const historyRef = useRef<HTMLElement>(null);
@@ -170,14 +167,6 @@ export default function PatientInputForm({ onSubmit, initialData, recentPatients
   const toggleSymptom = (s: string) => setData(p => ({ ...p, symptoms: p.symptoms.includes(s) ? p.symptoms.filter(x => x !== s) : [...p.symptoms, s] }));
   const togglePMH = (h: string) => setData(p => ({ ...p, medicalHistory: p.medicalHistory.includes(h) ? p.medicalHistory.filter(x => x !== h) : [...p.medicalHistory, h] }));
 
-  const validate = () => {
-    const e: string[] = [];
-    if (!data.patientName.trim()) e.push('Patient name is required');
-    if (!data.age.trim()) e.push('Age is required');
-    if (!data.gender) e.push('Gender is required');
-    setErrors(e);
-    return e.length === 0;
-  };
 
   const handleSubmit = () => {
     setErrors([]); // Clear any previous errors
@@ -214,18 +203,18 @@ export default function PatientInputForm({ onSubmit, initialData, recentPatients
   return (
     <div className="flex flex-col md:flex-row gap-6 items-start max-w-6xl mx-auto">
       {/* Sidebar Navigation */}
-      <div className="w-full md:w-[15%] shrink-0 sticky top-0 h-screen flex flex-col justify-center z-40">
-        <div className="bg-white rounded-2xl border border-gray-200 p-2 shadow-sm space-y-1">
+      <div className="w-full md:w-[15%] shrink-0 sticky top-[3.7rem] md:top-8 md:h-[calc(100vh-4rem)] flex flex-col justify-start md:justify-center z-30 -mx-4 px-4 md:mx-0 md:px-0 mb-4 md:mb-0">
+        <div className="bg-white/90 backdrop-blur-md md:bg-white rounded-xl md:rounded-2xl border border-gray-200 p-1.5 md:p-2 shadow-lg md:shadow-sm flex flex-row md:flex-col overflow-x-auto md:overflow-visible gap-1 no-scrollbar whitespace-nowrap">
           {sections.map(s => (
             <button key={s.id} onClick={() => scrollToSection(s.id)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${activeTab === s.id ? 'bg-blue-600 text-white shadow-lg' : 'text-gray-600 hover:bg-gray-100'}`}>
-              <span className="text-lg">{s.icon}</span>
-              <span>{s.label}</span>
+              className={`flex-1 md:w-full flex items-center justify-center md:justify-start gap-2 md:gap-3 px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl text-[11px] md:text-sm font-bold transition-all ${activeTab === s.id ? 'bg-blue-600 text-white shadow-md' : 'text-gray-500 hover:bg-gray-100'}`}>
+              <span className="text-base md:text-lg">{s.icon}</span>
+              <span className="hidden sm:inline md:inline">{s.label}</span>
             </button>
           ))}
         </div>
         {errors.length > 0 && (
-          <div className="mt-4 bg-red-50 border border-red-200 rounded-xl p-3">
+          <div className="hidden md:block mt-4 bg-red-50 border border-red-200 rounded-xl p-3">
             {errors.map((e, i) => <p key={i} className="text-red-700 text-[10px] font-bold">⚠ {e}</p>)}
           </div>
         )}

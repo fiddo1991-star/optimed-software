@@ -424,6 +424,13 @@ function App() {
             })}
           </div>
 
+          {/* Mobile Step indicator */}
+          <div className="flex md:hidden items-center gap-1 mx-auto bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+            <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest">Step</span>
+            <span className="text-xs font-black text-blue-700">{step + 1}</span>
+            <span className="text-[10px] font-bold text-blue-300">/ 3</span>
+          </div>
+
           {/* Action buttons */}
           <div className="flex items-center gap-1.5 shrink-0 flex-wrap justify-end">
             {/* Doctor switcher */}
@@ -501,7 +508,7 @@ function App() {
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-6">
         {step === 0 && (
-          <PatientInputForm onSubmit={handlePatientSubmit} initialData={patientData} recentPatients={savedRecords} />
+          <PatientInputForm onSubmit={handlePatientSubmit} initialData={patientData} />
         )}
         {step === 1 && recommendations && (
           <RecommendationPanel
