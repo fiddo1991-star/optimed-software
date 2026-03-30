@@ -34,6 +34,7 @@ interface Props {
   customImaging: string[];
   setCustomImaging: (i: string[]) => void;
   onNext: () => void;
+  patientData: any;
 }
 
 let cachedIcdApiBaseUrl: string | null = null;
@@ -91,7 +92,7 @@ const DEFAULT_INSTRUCTION_TEMPLATES: InstructionTemplate[] = [
   { id: 'gen-8', name: '8۔جنرل ہدایات :', text: 'ادویات کا استعمال ہمیشہ ڈاکٹر کی ہدایات کے مطابق مقررہ وقت پر کریں اور تمام ادویات پانی کے ساتھ لیں۔ اپنی مرضی سے دوا کی مقدار میں کمی بیشی نہ کریں اور نہ ہی ڈاکٹر کے مشورے کے بغیر کسی دوا کو بند کریں۔ اگر کوئی خوراک بھول جائے تو اسے پورا کرنے کے لیے دوہری مقدار لینے سے گریز کریں۔ علامات میں بہتری کے لیے کم از کم پندرہ دن انتظار کریں، تاہم کسی بھی مسئلے کی صورت میں فوری اپنے معالج سے رابطہ کریں۔ صحت مند زندگی کے لیے متوازن غذا کا استعمال کریں اور خود کو ذہنی فکر یا پریشانی سے دور رکھیں۔' }
 ];
 
-export default function RecommendationPanel({ recommendations, setRecommendations, prescriptions, setPrescriptions, selectedLabs, setSelectedLabs, selectedImaging, setSelectedImaging, customLabs, setCustomLabs, customImaging, setCustomImaging, onNext }: Props) {
+export default function RecommendationPanel({ recommendations, setRecommendations, prescriptions, setPrescriptions, selectedLabs, setSelectedLabs, selectedImaging, setSelectedImaging, customLabs, setCustomLabs, customImaging, setCustomImaging, onNext, patientData }: Props) {
   const [activeSection, setActiveSection] = useState('diagnoses');
   const [labSearch, setLabSearch] = useState('');
   const [icdSearch, setIcdSearch] = useState('');
@@ -487,10 +488,27 @@ export default function RecommendationPanel({ recommendations, setRecommendation
               <span>Medicines</span>
               <span>{prescriptions.length}</span>
             </div>
-            <div className="flex justify-between text-xs font-bold text-blue-900">
-              <span>Labs & Imaging</span>
-              <span>{selectedLabs.length + customLabs.length + selectedImaging.length + customImaging.length}</span>
-            </div>
+          </div>
+        </div>
+
+        {/* Patient Vitals Card */}
+        <div className="mt-4 bg-emerald-50 rounded-2xl p-4 border border-emerald-100">
+          <h5 className="text-[10px] font-black text-emerald-800 uppercase tracking-widest mb-3">Patient Vitals</h5>
+          <div className="space-y-2.5">
+            {[
+              { label: 'BP', val: patientData.vitalSigns.bloodPressure, icon: '🌡️' },
+              { label: 'HR', val: patientData.vitalSigns.heartRate, icon: '🫀' },
+              { label: 'Temp', val: patientData.vitalSigns.temperature, icon: '🧪' },
+              { label: 'Weight', val: patientData.vitalSigns.weight, icon: '⚖️' }
+            ].filter(v => v.val).map((v, idx) => (
+              <div key={idx} className="flex items-center justify-between">
+                <span className="text-[10px] font-bold text-emerald-800">{v.label}</span>
+                <span className="text-[11px] font-black text-emerald-900">{v.val}</span>
+              </div>
+            ))}
+            {Object.values(patientData.vitalSigns).every(v => !v) && (
+              <p className="text-[10px] font-bold text-emerald-600/60 italic">No vitals recorded</p>
+            )}
           </div>
         </div>
 
@@ -694,164 +712,162 @@ export default function RecommendationPanel({ recommendations, setRecommendation
             ) : (
               <>
                 {prescriptions.map((p, i) => (
-                  <div key={i} className="group bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-blue-300 transition-all relative">
-                    <button onClick={() => removePrescription(i)} className="absolute top-4 right-4 text-gray-300 hover:text-red-500 text-2xl font-black transition-all">×</button>
+                  <div key={i} className="group bg-white border border-gray-200 rounded-2xl p-4 shadow-sm hover:border-blue-300 transition-all relative">
+                    <button onClick={() => removePrescription(i)} className="absolute top-3 right-3 text-gray-300 hover:text-red-500 text-xl font-black transition-all">×</button>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-                      <div className="md:col-span-2 relative">
-                        <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2 block">Medicine Name</label>
-                        <input value={activeMedRow === i ? medSearch : p.medicineName}
-                          onChange={e => {
-                            setMedSearch(e.target.value);
-                            setActiveMedRow(i);
-                            setActiveMedSuggestionIndex(-1);
-                            updatePrescription(i, 'medicineName', e.target.value);
-                          }}
-                          onKeyDown={e => {
-                            if (activeMedRow !== i || !medSearch.trim() || filteredMedicines.length === 0) return;
-                            if (e.key === 'ArrowDown') {
-                              e.preventDefault();
-                              setActiveMedSuggestionIndex(prev => {
-                                const next = prev < filteredMedicines.length - 1 ? prev + 1 : prev;
-                                document.getElementById('med-option-' + next)?.scrollIntoView({ block: 'nearest' });
-                                return next;
-                              });
-                            } else if (e.key === 'ArrowUp') {
-                              e.preventDefault();
-                              setActiveMedSuggestionIndex(prev => {
-                                const next = prev > 0 ? prev - 1 : 0;
-                                document.getElementById('med-option-' + next)?.scrollIntoView({ block: 'nearest' });
-                                return next;
-                              });
-                            } else if (e.key === 'Enter' && activeMedSuggestionIndex >= 0) {
-                              e.preventDefault();
-                              updatePrescription(i, 'medicineName', filteredMedicines[activeMedSuggestionIndex]);
-                              setActiveMedRow(null);
-                              setMedSearch('');
+                    <div className="flex flex-col lg:flex-row gap-4">
+                      {/* Sr # & Name */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-[10px] font-black">#{i + 1}</span>
+                          <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest block">Medicine Name</label>
+                        </div>
+                        <div className="relative">
+                          <input value={activeMedRow === i ? medSearch : p.medicineName}
+                            onChange={e => {
+                              setMedSearch(e.target.value);
+                              setActiveMedRow(i);
                               setActiveMedSuggestionIndex(-1);
-                            }
-                          }}
-                          onFocus={() => { setActiveMedRow(i); setMedSearch(p.medicineName); setActiveMedSuggestionIndex(-1); }}
-                          className="w-full bg-gray-50 border-2 border-gray-100 rounded-xl px-4 py-3 text-base font-bold outline-none focus:bg-white focus:border-blue-600 transition-all" />
-                        
-                        {(activeMedRow === i && medSearch.trim() && !allMedicines.some(m => m.toLowerCase() === medSearch.toLowerCase())) && (
-                          <button 
-                            onMouseDown={(e) => {
-                              e.preventDefault();
-                              const val = medSearch.trim();
-                              saveCustomMedicines([...customMedicines, val]);
-                              updatePrescription(i, 'medicineName', val);
-                              setActiveMedRow(null);
-                              setMedSearch('');
+                              updatePrescription(i, 'medicineName', e.target.value);
                             }}
-                            className="absolute z-[60] top-[105%] left-0 right-0 p-4 bg-emerald-50 border-2 border-emerald-200 rounded-2xl flex items-center justify-between hover:bg-emerald-100 transition-all shadow-xl group"
-                          >
-                            <div className="flex flex-col items-start">
-                              <span className="text-[10px] font-black text-emerald-800 uppercase tracking-widest">New Medicine</span>
-                              <span className="text-sm font-bold text-gray-800">{medSearch}</span>
-                            </div>
-                            <span className="bg-emerald-600 text-white text-[10px] font-black px-3 py-1 rounded-lg group-hover:scale-110 transition-transform">SAVE & ADD</span>
-                          </button>
-                        )}
-
-                        
-                        {activeMedRow === i && medSearch.trim() && filteredMedicines.length > 0 && (
-                          <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-2xl shadow-2xl max-h-60 overflow-y-auto overflow-x-hidden">
-                            {filteredMedicines.map((med, idx) => (
-                              <button key={idx} id={`med-option-` + idx} onMouseDown={(e) => {
+                            onKeyDown={e => {
+                              if (activeMedRow !== i || !medSearch.trim() || filteredMedicines.length === 0) return;
+                              if (e.key === 'ArrowDown') {
                                 e.preventDefault();
-                                updatePrescription(i, 'medicineName', med);
+                                setActiveMedSuggestionIndex(prev => {
+                                  const next = prev < filteredMedicines.length - 1 ? prev + 1 : prev;
+                                  document.getElementById('med-option-' + next)?.scrollIntoView({ block: 'nearest' });
+                                  return next;
+                                });
+                              } else if (e.key === 'ArrowUp') {
+                                e.preventDefault();
+                                setActiveMedSuggestionIndex(prev => {
+                                  const next = prev > 0 ? prev - 1 : 0;
+                                  document.getElementById('med-option-' + next)?.scrollIntoView({ block: 'nearest' });
+                                  return next;
+                                });
+                              } else if (e.key === 'Enter' && activeMedSuggestionIndex >= 0) {
+                                e.preventDefault();
+                                updatePrescription(i, 'medicineName', filteredMedicines[activeMedSuggestionIndex]);
                                 setActiveMedRow(null);
                                 setMedSearch('');
                                 setActiveMedSuggestionIndex(-1);
+                              }
+                            }}
+                            onFocus={() => { setActiveMedRow(i); setMedSearch(p.medicineName); setActiveMedSuggestionIndex(-1); }}
+                            className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-base font-bold outline-none focus:bg-white focus:border-blue-600 transition-all" />
+                          
+                          {(activeMedRow === i && medSearch.trim() && !allMedicines.some(m => m.toLowerCase() === medSearch.toLowerCase())) && (
+                            <button 
+                              onMouseDown={(e) => {
+                                e.preventDefault();
+                                const val = medSearch.trim();
+                                saveCustomMedicines([...customMedicines, val]);
+                                updatePrescription(i, 'medicineName', val);
+                                setActiveMedRow(null);
+                                setMedSearch('');
                               }}
-                                className={`w-full text-left px-5 py-3 text-sm font-bold transition-all border-b border-gray-50 last:border-0 ${idx === activeMedSuggestionIndex ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-blue-50'}`}>
-                                {med}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-
-                      <div>
-                        <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2 block">Dosage</label>
-                        <input value={p.dosage} onChange={e => updatePrescription(i, 'dosage', e.target.value)}
-                          className="w-full bg-gray-50 border-2 border-gray-100 rounded-xl px-4 py-3 text-base font-bold outline-none focus:bg-white focus:border-blue-600 transition-all" />
-                      </div>
-
-                      <div className="md:col-span-2">
-                        <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1 block text-center">Timing</label>
-                        <div className="grid grid-cols-4 gap-2">
-                          {[
-                            { id: 'morning', icon: '🌅', urdu: 'صبح' },
-                            { id: 'noon', icon: '☀️', urdu: 'دوپہر' },
-                            { id: 'evening', icon: '🌇', urdu: 'شام' },
-                            { id: 'night', icon: '🌙', urdu: 'رات' }
-                          ].map(time => (
-                            <div key={time.id} className="flex flex-col items-center">
-                              <span className="text-sm mb-1" title={time.id}>{time.icon}</span>
-                              <input list="dose-options" value={(p as any)[time.id]} 
-                                onChange={e => updatePrescription(i, time.id, e.target.value)}
-                                className="w-full bg-gray-50 border-2 border-gray-100 rounded-xl py-2 px-1 text-center text-sm font-black outline-none focus:bg-white focus:border-blue-600 transition-all" />
-                              <span className="text-[11px] font-urdu text-gray-500 mt-1">{time.urdu}</span>
+                              className="absolute z-[60] top-[105%] left-0 right-0 p-3 bg-emerald-50 border-2 border-emerald-200 rounded-xl flex items-center justify-between hover:bg-emerald-100 transition-all shadow-xl group"
+                            >
+                              <div className="flex flex-col items-start leading-tight">
+                                <span className="text-[9px] font-black text-emerald-800 uppercase tracking-widest">New Medicine</span>
+                                <span className="text-xs font-bold text-gray-800 truncate max-w-[150px]">{medSearch}</span>
+                              </div>
+                              <span className="bg-emerald-600 text-white text-[9px] font-black px-2 py-1 rounded-lg group-hover:scale-105 transition-transform">SAVE & ADD</span>
+                            </button>
+                          )}
+  
+                          {activeMedRow === i && medSearch.trim() && filteredMedicines.length > 0 && (
+                            <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-xl shadow-2xl max-h-60 overflow-y-auto overflow-x-hidden">
+                              {filteredMedicines.map((med, idx) => (
+                                <button key={idx} id={`med-option-` + idx} onMouseDown={(e) => {
+                                  e.preventDefault();
+                                  updatePrescription(i, 'medicineName', med);
+                                  setActiveMedRow(null);
+                                  setMedSearch('');
+                                  setActiveMedSuggestionIndex(-1);
+                                }}
+                                  className={`w-full text-left px-4 py-2.5 text-sm font-bold transition-all border-b border-gray-50 last:border-0 ${idx === activeMedSuggestionIndex ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-blue-50'}`}>
+                                  {med}
+                                </button>
+                              ))}
                             </div>
-                          ))}
+                          )}
                         </div>
                       </div>
-
-                      <div>
-                        <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2 block">Duration</label>
-                        <input value={p.duration} onChange={e => updatePrescription(i, 'duration', e.target.value)}
-                          className="w-full bg-gray-50 border-2 border-gray-100 rounded-xl px-4 py-3 text-base font-bold outline-none focus:bg-white focus:border-blue-600 transition-all" />
+  
+                      {/* Stats Grid */}
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 shrink-0">
+                        <div className="w-24">
+                          <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2 block">Dosage</label>
+                          <input value={p.dosage} onChange={e => updatePrescription(i, 'dosage', e.target.value)}
+                            className="w-full bg-gray-50 border border-gray-100 rounded-xl px-3 py-2 text-sm font-bold outline-none focus:bg-white focus:border-blue-600 transition-all" />
+                        </div>
+  
+                        {/* Timing Block */}
+                        <div className="sm:col-span-2">
+                          <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1.5 block text-center">Timing</label>
+                          <div className="grid grid-cols-2 gap-x-2 gap-y-1.5">
+                            {[
+                              { id: 'morning', icon: '☀️', name: 'صبح' },
+                              { id: 'noon', icon: '🏙️', name: 'دوپہر' },
+                              { id: 'evening', icon: '🌇', name: 'شام' },
+                              { id: 'night', icon: '🌙', name: 'رات' }
+                            ].map(time => (
+                              <div key={time.id} className="flex items-center gap-1 bg-gray-50 border border-gray-100 rounded-lg p-1">
+                                <span className="text-[10px] font-urdu text-gray-800 leading-none w-[28px] text-right">{time.name}</span>
+                                <span className="text-xs leading-none">{time.icon}</span>
+                                <input list="dose-options" value={(p as any)[time.id]} 
+                                  onChange={e => updatePrescription(i, time.id, e.target.value)}
+                                  className="w-8 bg-white border border-gray-200 rounded text-center text-[10px] font-black py-0.5" />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+  
+                        <div className="w-24">
+                          <label className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2 block">Duration</label>
+                          <input value={p.duration} onChange={e => updatePrescription(i, 'duration', e.target.value)}
+                            className="w-full bg-gray-50 border border-gray-100 rounded-xl px-3 py-2 text-sm font-bold outline-none focus:bg-white focus:border-blue-600 transition-all" />
+                        </div>
                       </div>
                     </div>
-
-                    <div className="mt-6 flex flex-col md:flex-row gap-4 items-center border-t border-gray-50 pt-4">
+  
+                    {/* Instructions footer row */}
+                    <div className="mt-4 flex flex-col md:flex-row gap-3 items-center border-t border-gray-50 pt-3">
                       <div className="flex-1 w-full flex items-center gap-2">
                          <input value={p.instructions} onChange={e => updatePrescription(i, 'instructions', e.target.value)}
-                          className="flex-1 bg-blue-50 border-2 border-blue-100 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:bg-white focus:border-blue-600 transition-all" 
-                          placeholder="Special instructions (e.g., Take with milk)" />
+                          className="flex-1 bg-blue-50/50 border border-blue-100/50 rounded-lg px-3 py-2 text-xs font-medium outline-none focus:bg-white focus:border-blue-600 transition-all" 
+                          placeholder="Special instructions..." />
                          <SpeechMicButton compact onResult={(text) => updatePrescription(i, 'instructions', (p.instructions ? p.instructions + ' ' : '') + text)} />
                       </div>
-                      <div className="flex gap-2 shrink-0 w-full md:w-auto">
+                      <div className="flex gap-2 shrink-0">
                         <button onClick={() => {
                           const val = p.instructions.trim();
                           if (val && !specialInstructions.includes(val)) {
                             saveSpecialInstructions([...specialInstructions, val]);
                           }
-                        }} className="px-3 py-2 bg-emerald-50 text-emerald-700 text-[11px] font-black uppercase tracking-wider rounded-lg hover:bg-emerald-100 transition-all">
-
-
+                        }} className="px-3 py-2 text-emerald-600 border border-emerald-100 rounded-lg text-[10px] font-black uppercase hover:bg-emerald-50 transition-all">
                           💾 Save
                         </button>
-                        <div className="relative flex-1 md:w-48">
+                        <div className="relative">
                           <button onClick={() => setActiveInstDropdown(activeInstDropdown === i ? null : i)}
-                            className="w-full bg-white border-2 border-gray-100 rounded-lg px-3 py-2 text-xs font-bold text-gray-500 hover:text-blue-600 transition-all flex items-center justify-between shadow-sm">
-                            <span className="truncate">Load Saved...</span>
-                            <span className="text-[10px]">▼</span>
+                            className="bg-white border border-gray-100 rounded-lg px-3 py-2 text-[10px] font-bold text-gray-500 hover:text-blue-600 transition-all flex items-center gap-2 shadow-sm">
+                            Load
+                            <span className="text-[8px]">▼</span>
                           </button>
                           {activeInstDropdown === i && (
                             <>
                               <div className="fixed inset-0 z-40" onClick={() => setActiveInstDropdown(null)} />
-                              <div className="absolute right-0 top-full mt-1 bg-white border border-gray-200 rounded-xl shadow-2xl z-50 w-64 max-h-60 overflow-y-auto overflow-x-hidden">
-                                <div className="p-2 border-b bg-gray-50 text-[10px] font-black uppercase text-gray-400 sticky top-0 z-10">Saved Presets</div>
+                              <div className="absolute right-0 top-full mt-1 bg-white border border-gray-200 rounded-xl shadow-2xl z-50 w-60 max-h-48 overflow-y-auto">
                                 {specialInstructions.map((inst, idx) => (
-                                  <div key={'inst'+idx} className="flex items-stretch border-b border-gray-50 last:border-0 group">
+                                  <div key={'inst'+idx} className="flex items-stretch border-b border-gray-50 text-[10px] font-bold">
                                     <button onClick={() => { updatePrescription(i, 'instructions', inst); setActiveInstDropdown(null); }}
-                                      className="flex-1 text-left px-4 py-2 text-xs font-bold text-gray-700 group-hover:bg-blue-50 transition-all truncate pr-2">
+                                      className="flex-1 text-left px-3 py-2 text-gray-700 hover:bg-blue-50 truncate">
                                       {inst}
-                                    </button>
-                                    <button onClick={(e) => { e.stopPropagation(); saveSpecialInstructions(specialInstructions.filter(item => item !== inst)); }}
-                                      title="Delete Preset"
-
-                                      className="px-3 text-red-300 hover:bg-red-50 hover:text-red-500 font-bold transition-all text-sm rounded-r-lg">
-                                      ×
                                     </button>
                                   </div>
                                 ))}
-                                {specialInstructions.length === 0 && (
-                                  <div className="p-4 text-center text-xs font-medium text-gray-400">No saved presets</div>
-                                )}
                               </div>
                             </>
                           )}
@@ -860,8 +876,7 @@ export default function RecommendationPanel({ recommendations, setRecommendation
                     </div>
                   </div>
                 ))}
-
-                <button onClick={addPrescription} className="w-full py-6 border-2 border-dashed border-blue-200 text-blue-500 rounded-2xl font-black hover:bg-blue-50 hover:border-blue-400 transition-all flex items-center justify-center gap-3">
+                <button onClick={addPrescription} className="w-full py-6 mt-4 border-2 border-dashed border-blue-200 text-blue-500 rounded-2xl font-black hover:bg-blue-50 hover:border-blue-400 transition-all flex items-center justify-center gap-3">
                   <span className="text-3xl">+</span> PRESCRIBE ANOTHER MEDICINE
                 </button>
               </>

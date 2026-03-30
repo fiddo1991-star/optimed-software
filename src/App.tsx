@@ -564,6 +564,7 @@ function App() {
             customLabs={customLabs} setCustomLabs={setCustomLabs}
             customImaging={customImaging} setCustomImaging={setCustomImaging}
             onNext={() => setStep(2)}
+            patientData={patientData}
           />
         )}
         {step === 2 && patientData && recommendations && (
