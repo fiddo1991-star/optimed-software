@@ -445,26 +445,64 @@ export default function PrintableReport({ patient, recommendations, prescription
               {sectionTitle('prescriptions', 'Prescription')}
 
               {layoutConfig.prescriptionStyle === 'list' ? (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: sp.cell * 4 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: sp.cell }}>
                   {prescriptions.map((p, i) => (
-                    <div key={i} style={{ paddingBottom: sp.cell * 2, borderBottom: i === prescriptions.length - 1 ? 'none' : '1px solid #f3f4f6' }}>
-                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                        <div style={{ fontWeight: 700, minWidth: '1.5rem', color: theme.primary }}>{i + 1}.</div>
-                        <div style={{ flex: 1 }}>
-                          <div style={{ fontWeight: 700, fontSize: fs + 1, marginBottom: 2 }}>
-                            {p.medicineName} <span style={{ fontWeight: 400, color: '#6b7280', fontSize: fs }}>({p.dosage})</span>
+                    <div key={i} style={{ 
+                      paddingBottom: sp.cell, 
+                      paddingTop: sp.cell,
+                      borderBottom: '1px solid #f3f4f6',
+                      fontSize: fs
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                        {/* Column 1: Sr # & Name (35%) */}
+                        <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, width: '35%', flexShrink: 0, overflow: 'hidden' }}>
+                          <span style={{ fontWeight: 800, fontSize: fs - 2, color: theme.primary, minWidth: '1rem' }}>{i + 1}.</span>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: 3 }}>
+                             <span style={{ fontWeight: 700, fontSize: fs, color: '#111827' }}>{p.medicineName}</span>
+                             <span style={{ fontWeight: 400, color: '#6b7280', fontSize: fs - 2 }}>({p.dosage})</span>
                           </div>
+                        </div>
 
-                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, fontSize: fs, color: '#4b5563', marginBottom: 2 }}>
-                            <span style={{ fontWeight: 600 }}>Dose: <span style={{ color: theme.primary, letterSpacing: '2px' }}>{p.morning}-{p.noon}-{p.evening}-{p.night}</span></span>
-                            <span>·</span>
-                            <span>Duration: <span style={{ fontWeight: 600 }}>{p.duration}</span></span>
+                        {/* Column 2: Dosage / Timing (20%) */}
+                        <div style={{ width: '20%', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ color: '#e5e7eb' }}>|</span>
+                          <div style={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+                            <span style={{ fontWeight: 600, fontSize: fs - 2, color: '#9ca3af', textTransform: 'uppercase' }}>Dose:</span>
+                            <span style={{ 
+                              fontWeight: 800, 
+                              color: theme.primary, 
+                              letterSpacing: '1px',
+                              background: theme.light,
+                              padding: '1px 6px',
+                              borderRadius: '4px',
+                              fontSize: fs - 1
+                            }}>
+                              {p.morning}-{p.noon}-{p.evening}-{p.night}
+                            </span>
                           </div>
+                        </div>
 
+                        {/* Column 3: Duration (15%) */}
+                        <div style={{ width: '15%', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 4 }}>
+                          <span style={{ color: '#e5e7eb' }}>|</span>
+                          <span style={{ fontWeight: 700, fontSize: fs - 1, color: '#374151', whiteSpace: 'nowrap' }}>{p.duration}</span>
+                        </div>
+
+                        {/* Column 4: Instructions (Remaining) */}
+                        <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 4, overflow: 'hidden' }}>
+                          <span style={{ color: '#e5e7eb' }}>|</span>
                           {p.instructions && (
-                            <div style={{ fontSize: fs - 1, color: '#6b7280', display: 'flex', alignItems: 'center', gap: 4 }}>
-                              <span>ℹ️</span> <span>{p.instructions}</span>
-                            </div>
+                             <div style={{ 
+                               fontSize: fs - 2, 
+                               color: '#4b5563', 
+                               display: 'flex', 
+                               alignItems: 'center', 
+                               gap: 3,
+                               fontStyle: 'italic'
+                             }}>
+                               <span style={{ opacity: 0.5 }}>ℹ️</span>
+                               <span className="font-urdu truncate" style={{ lineHeight: 1.2 }}>{p.instructions}</span>
+                             </div>
                           )}
                         </div>
                       </div>
@@ -475,29 +513,41 @@ export default function PrintableReport({ patient, recommendations, prescription
                 <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed', fontSize: fs }}>
                   <thead>
                     <tr style={{ background: theme.light }}>
-                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>#</th>
-                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>Medicine</th>
-                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>Dosage</th>
-                      <th style={{ textAlign: 'center', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>🌅<br /><span className="font-urdu" style={{ fontSize: fs - 3, fontWeight: 'normal' }}>صبح</span></th>
-                      <th style={{ textAlign: 'center', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>☀️<br /><span className="font-urdu" style={{ fontSize: fs - 3, fontWeight: 'normal' }}>دوپہر</span></th>
-                      <th style={{ textAlign: 'center', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>🌆<br /><span className="font-urdu" style={{ fontSize: fs - 3, fontWeight: 'normal' }}>شام</span></th>
-                      <th style={{ textAlign: 'center', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>🌙<br /><span className="font-urdu" style={{ fontSize: fs - 3, fontWeight: 'normal' }}>رات</span></th>
-                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>Duration</th>
-                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb` }}>Instructions</th>
+                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb`, width: '4%' }}>#</th>
+                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb`, width: '35%' }}>Medicine</th>
+                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb`, width: '15%' }}>Dosage</th>
+                      <th style={{ textAlign: 'center', padding: `${sp.cell}px 2px`, borderBottom: `1px solid #e5e7eb`, width: '4%' }}>
+                        <div style={{ fontSize: fs - 1 }}>🌅</div>
+                        <div className="font-urdu" style={{ fontSize: fs - 4, fontWeight: 'normal', lineHeight: 1 }}>صبح</div>
+                      </th>
+                      <th style={{ textAlign: 'center', padding: `${sp.cell}px 2px`, borderBottom: `1px solid #e5e7eb`, width: '4%' }}>
+                        <div style={{ fontSize: fs - 1 }}>☀️</div>
+                        <div className="font-urdu" style={{ fontSize: fs - 4, fontWeight: 'normal', lineHeight: 1 }}>دوپہر</div>
+                      </th>
+                      <th style={{ textAlign: 'center', padding: `${sp.cell}px 2px`, borderBottom: `1px solid #e5e7eb`, width: '4%' }}>
+                        <div style={{ fontSize: fs - 1 }}>🌆</div>
+                        <div className="font-urdu" style={{ fontSize: fs - 4, fontWeight: 'normal', lineHeight: 1 }}>شام</div>
+                      </th>
+                      <th style={{ textAlign: 'center', padding: `${sp.cell}px 2px`, borderBottom: `1px solid #e5e7eb`, width: '4%' }}>
+                        <div style={{ fontSize: fs - 1 }}>🌙</div>
+                        <div className="font-urdu" style={{ fontSize: fs - 4, fontWeight: 'normal', lineHeight: 1 }}>رات</div>
+                      </th>
+                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb`, width: '10%' }}>Duration</th>
+                      <th style={{ textAlign: 'left', padding: `${sp.cell}px 4px`, borderBottom: `1px solid #e5e7eb`, width: '20%' }}>Instructions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {prescriptions.map((p, i) => (
                       <tr key={i}>
                         <td style={tdStyle}>{i + 1}</td>
-                        <td style={{ ...tdStyle, fontWeight: ts.sections?.prescriptions?.bold ? 'bold' : 500 }}>{p.medicineName}</td>
+                        <td style={{ ...tdStyle, fontWeight: ts.sections?.prescriptions?.bold ? 'bold' : 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{p.medicineName}</td>
                         <td style={{ ...tdStyle, color: '#6b7280' }}>{p.dosage}</td>
-                        <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: p.morning !== '0' ? theme.primary : '#d1d5db' }}>{p.morning !== '0' ? p.morning : '-'}</td>
-                        <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: p.noon !== '0' ? theme.primary : '#d1d5db' }}>{p.noon !== '0' ? p.noon : '-'}</td>
-                        <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: p.evening !== '0' ? theme.primary : '#d1d5db' }}>{p.evening !== '0' ? p.evening : '-'}</td>
-                        <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: p.night !== '0' ? theme.primary : '#d1d5db' }}>{p.night !== '0' ? p.night : '-'}</td>
+                        <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: p.morning !== '0' ? theme.primary : '#d1d5db', fontSize: fs - 1 }}>{p.morning !== '0' ? p.morning : '-'}</td>
+                        <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: p.noon !== '0' ? theme.primary : '#d1d5db', fontSize: fs - 1 }}>{p.noon !== '0' ? p.noon : '-'}</td>
+                        <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: p.evening !== '0' ? theme.primary : '#d1d5db', fontSize: fs - 1 }}>{p.evening !== '0' ? p.evening : '-'}</td>
+                        <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: p.night !== '0' ? theme.primary : '#d1d5db', fontSize: fs - 1 }}>{p.night !== '0' ? p.night : '-'}</td>
                         <td style={{ ...tdStyle, color: '#6b7280' }}>{p.duration}</td>
-                        <td className="font-urdu" style={{ ...tdStyle, color: '#6b7280', fontSize: globalFs - 1 }}>{p.instructions}</td>
+                        <td className="font-urdu" style={{ ...tdStyle, color: '#6b7280', fontSize: fs - 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{p.instructions}</td>
                       </tr>
                     ))}
                   </tbody>
